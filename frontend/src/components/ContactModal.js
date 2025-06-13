@@ -158,10 +158,10 @@ const ContactModal = () => {
             Email us your queries and we'll get back to you ASAP.
           </p>
           <a 
-            href="mailto:pushpak@migracle.com"
+            href="mailto:mudit@migracle.com"
             className="text-white font-medium hover:text-white/80 transition-colors inline-flex items-center gap-2"
           >
-            pushpak@migracle.com
+            mudit@migracle.com
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
