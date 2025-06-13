@@ -1,0 +1,16 @@
+{
+  "name": "migracle-local-dev",
+  "version": "1.0.0",
+  "description": "Simple local development server for Migracle Serverless",
+  "main": "simple-local-dev.js",
+  "scripts": {
+    "start": "node simple-local-dev.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "uuid": "^9.0.1",
+    "nedb": "^1.8.0"
+  }
+}
