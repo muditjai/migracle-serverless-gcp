@@ -1,73 +1,158 @@
-# Migracle Serverless
+# Migracle Serverless on GCP
 
-This project is a serverless version of the Migracle website, designed to run on AWS using serverless technologies.
+A serverless website for Migracle built on Google Cloud Platform using modern serverless technologies.
 
-## Architecture
+## 🏗️ Architecture
 
-The application uses the following AWS services:
+The application uses the following GCP services:
 
-- **S3**: For static website hosting
-- **CloudFront**: As a CDN for the static website
-- **API Gateway**: For handling API requests
-- **Lambda**: For serverless backend functions
-- **DynamoDB**: For data storage
+- **Cloud Storage**: Static website hosting with public access
+- **Cloud CDN**: Global content delivery network
+- **Cloud Functions**: Serverless backend functions (Node.js)
+- **Firestore**: NoSQL database for storing form data
+- **Cloud Load Balancer**: HTTPS termination and custom domain support
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 migracle-serverless/
-├── functions/                # Lambda functions
-│   ├── contact-handler/      # Contact form handler
-│   └── subscribe-handler/    # Subscription form handler
-├── frontend/                 # Frontend code
-│   ├── src/                  # React source code
-│   │   ├── components/       # React components
-│   │   └── index.js          # Main React entry point
-│   ├── index.html            # Main HTML file
-│   ├── styles.css            # CSS styles
-│   ├── package.json          # Frontend dependencies
-│   └── webpack.config.js     # Webpack configuration
-├── template.yaml             # AWS SAM template
-├── migrate-data.js           # Data migration script
-├── migration-package.json    # Migration script dependencies
-├── DEPLOYMENT_GUIDE.md       # Deployment instructions
-├── DATA_MIGRATION_GUIDE.md   # Data migration instructions
-└── COST_ESTIMATION.md        # Cost analysis
+├── gcp-functions/             # Cloud Functions
+│   ├── contact-handler/       # Contact form handler
+│   └── subscribe-handler/     # Email subscription handler
+├── frontend/                  # Frontend code
+│   ├── src/                   # React source code
+│   │   ├── components/        # React components
+│   │   └── index.js           # Main React entry point
+│   ├── assets/                # Images and static files
+│   ├── index.html             # Main HTML file
+│   ├── styles.css             # CSS styles
+│   ├── package.json           # Frontend dependencies
+│   └── webpack.config.js      # Webpack configuration
+├── deploy-gcp.sh              # Automated deployment script
+├── namecheap-dns-setup.md     # Domain setup instructions
+├── LOCAL_TESTING.md           # Local development guide
+└── COST_ESTIMATION.md         # GCP cost analysis
 ```
 
-## Features
+## ✨ Features
 
-- **Static Website**: React-based frontend with Tailwind CSS
-- **Serverless API**: API Gateway + Lambda functions
-- **Database**: DynamoDB for storing contact and subscription data
-- **Cost-Efficient**: Pay-per-use pricing model
-- **Scalable**: Automatic scaling with demand
-- **Low Maintenance**: No server management required
+- **React Frontend**: Modern component-based UI with Tailwind CSS
+- **Serverless API**: HTTP-triggered Cloud Functions
+- **NoSQL Database**: Firestore for contact forms and subscriptions
+- **Custom Domain**: SSL-enabled domain support with Load Balancer
+- **CDN**: Global content delivery for fast loading
+- **Cost-Efficient**: Pay-per-use serverless pricing
+- **Auto-Scaling**: Handles traffic spikes automatically
+- **Zero Maintenance**: No server management required
 
-## Local Testing
+## 🚀 Quick Deployment
 
-Before deploying to the cloud, you can test the application locally using one of two methods:
+### Prerequisites
+- GCP account with billing enabled
+- `gcloud` CLI installed and authenticated
+- Node.js and npm for local development
 
-1. **AWS SAM CLI Method**: Full emulation of AWS services (recommended for accuracy)
-2. **Simple Express Server Method**: Lightweight alternative without Docker/SAM CLI requirements
+### Deploy to GCP
+```bash
+# Make deployment script executable
+chmod +x deploy-gcp.sh
 
-See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for detailed instructions on testing locally.
+# Run automated deployment
+./deploy-gcp.sh
+```
 
-## Deployment
+The script will:
+1. Enable required GCP APIs
+2. Set up Firestore database
+3. Deploy Cloud Functions for contact/subscribe
+4. Create Cloud Storage bucket for static hosting
+5. Build and upload frontend
+6. Configure load balancer with SSL
 
-There are two options for deploying this application:
+## 🌐 Custom Domain Setup
 
-1. **AWS Management Console**: See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for UI-based deployment instructions.
-2. **AWS SAM CLI**: See [SAM_DEPLOYMENT_GUIDE.md](./SAM_DEPLOYMENT_GUIDE.md) for CLI-based deployment instructions (recommended).
+To use your own domain (e.g., `migracle.com`):
 
-## Data Migration
+1. The deployment script creates the infrastructure
+2. Update your DNS records as shown in `namecheap-dns-setup.md`
+3. SSL certificates are automatically provisioned
 
-See [DATA_MIGRATION_GUIDE.md](./DATA_MIGRATION_GUIDE.md) for instructions on migrating data from SQLite to DynamoDB.
+See [namecheap-dns-setup.md](./namecheap-dns-setup.md) for detailed DNS configuration.
 
-## Cost Estimation
+## 🔧 Local Development
 
-See [COST_ESTIMATION.md](./COST_ESTIMATION.md) for an analysis of the estimated costs of running this application on AWS.
+See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for instructions on:
+- Running the frontend locally
+- Testing Cloud Functions locally
+- Using the GCP emulator suite
 
-## Migration Summary
+## 💰 Cost Analysis
 
-See [MIGRATION_SUMMARY.md](./MIGRATION_SUMMARY.md) for an overview of the migration process and benefits.
+See [COST_ESTIMATION.md](./COST_ESTIMATION.md) for detailed cost breakdown. 
+
+**Estimated monthly cost for 1000 users**: ~$3-5/month
+
+## 🔗 Live URLs
+
+After deployment, your application will be available at:
+
+- **Cloud Storage**: `https://storage.googleapis.com/[PROJECT-ID]-website/index.html`
+- **Custom Domain**: `https://your-domain.com` (after DNS setup)
+- **Contact API**: `https://[REGION]-[PROJECT-ID].cloudfunctions.net/contactHandler`
+- **Subscribe API**: `https://[REGION]-[PROJECT-ID].cloudfunctions.net/subscribeHandler`
+
+## 📧 API Endpoints
+
+### Contact Form
+```bash
+POST https://us-central1-[PROJECT-ID].cloudfunctions.net/contactHandler
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "message": "Hello from Migracle!"
+}
+```
+
+### Email Subscription
+```bash
+POST https://us-central1-[PROJECT-ID].cloudfunctions.net/subscribeHandler
+Content-Type: application/json
+
+{
+  "email": "john@example.com"
+}
+```
+
+## 🛠️ Technology Stack
+
+- **Frontend**: React 19, Tailwind CSS, Webpack
+- **Backend**: Node.js Cloud Functions
+- **Database**: Google Firestore
+- **Hosting**: Cloud Storage + Cloud CDN
+- **Domain**: Cloud Load Balancer with SSL
+
+## 📝 Environment Variables
+
+The Cloud Functions automatically use:
+- `REGION`: Deployment region (default: us-central1)
+- `GOOGLE_CLOUD_PROJECT`: Your GCP project ID
+
+## 🔒 Security
+
+- CORS properly configured for frontend access
+- Input validation on all API endpoints
+- Firestore security rules prevent unauthorized access
+- SSL/HTTPS enforced on all endpoints
+
+## 📞 Support
+
+For issues with:
+- **GCP Services**: Check Cloud Console logs
+- **Domain Setup**: See DNS troubleshooting in setup guide
+- **Local Development**: Refer to LOCAL_TESTING.md
+
+---
+
+Built with ❤️ using Google Cloud Platform serverless technologies.

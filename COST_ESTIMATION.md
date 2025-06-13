@@ -1,121 +1,176 @@
-# AWS Serverless Cost Estimation
+# GCP Serverless Cost Estimation
 
-This document provides an estimated cost breakdown for running the Migracle serverless application on AWS. These estimates are based on typical usage patterns and AWS pricing as of April 2025.
+This document provides an estimated cost breakdown for running the Migracle serverless application on Google Cloud Platform. These estimates are based on typical usage patterns and GCP pricing as of 2025.
 
 ## Assumptions
 
 - **Website Traffic**: 1,000 unique visitors per month
 - **Form Submissions**: 50 contact form submissions per month
 - **Subscriptions**: 30 new subscriptions per month
-- **Region**: us-west-2 (Oregon)
-- **Data Transfer**: 2GB per month
+- **Region**: us-central1 (Iowa)
+- **Data Transfer**: 2GB per month outbound
 
 ## Cost Breakdown
 
-### S3 (Simple Storage Service)
-
+### Cloud Storage
 - **Storage**: ~10MB for website files
-  - First 50TB: $0.023 per GB
+  - Standard Storage: $0.020 per GB per month
   - Estimated cost: < $0.01 per month
 
-- **Requests**:
-  - PUT/COPY/POST/LIST: 100 requests per month (for updates) at $0.005 per 1,000 requests
-  - GET: 5,000 requests per month at $0.0004 per 1,000 requests
-  - Estimated cost: < $0.01 per month
+- **Operations**: 
+  - Class A operations (uploads): ~10 per month = $0.005
+  - Class B operations (downloads): ~2,000 per month = $0.004
+  - Total operations: ~$0.01 per month
 
-### CloudFront
+### Cloud Functions
 
-- **Data Transfer Out**: 2GB per month
-  - First 10TB: $0.085 per GB
-  - Estimated cost: $0.17 per month
+#### Contact Handler Function
+- **Invocations**: 50 per month
+- **Memory**: 256MB allocated
+- **Runtime**: ~200ms average per request
+- **Compute time**: 50 × 0.2 seconds = 10 seconds
+- **Cost**: 
+  - First 2 million invocations free
+  - Compute time: 10 seconds × $0.0000025 = < $0.01
+  - **Monthly cost**: < $0.01
 
-- **HTTP/HTTPS Requests**: 5,000 requests per month
-  - $0.0075 per 10,000 HTTPS requests
-  - Estimated cost: < $0.01 per month
+#### Subscribe Handler Function  
+- **Invocations**: 30 per month
+- **Memory**: 256MB allocated
+- **Runtime**: ~100ms average per request
+- **Compute time**: 30 × 0.1 seconds = 3 seconds
+- **Cost**:
+  - First 2 million invocations free
+  - Compute time: 3 seconds × $0.0000025 = < $0.01
+  - **Monthly cost**: < $0.01
 
-### API Gateway
+### Firestore Database
+- **Document reads**: ~100 per month (form submissions + lookups)
+  - First 50,000 reads per day are free
+  - **Cost**: $0.00
 
-- **API Calls**: 80 calls per month (50 contact + 30 subscription)
-  - $3.50 per million API calls
-  - Estimated cost: < $0.01 per month
+- **Document writes**: ~80 per month (contact forms + subscriptions)
+  - First 20,000 writes per day are free
+  - **Cost**: $0.00
 
-### Lambda
+- **Storage**: ~1MB for form data
+  - First 1GB free
+  - **Cost**: $0.00
 
-- **Invocations**: 80 invocations per month
-  - Free tier: First 1 million requests per month are free
-  - Estimated cost: $0.00 per month
+### Cloud Load Balancer (for custom domain)
+- **Forwarding rules**: 1 global rule
+  - Cost: $18.00 per month for the first 5 rules
+  - **Monthly cost**: $18.00
 
-- **Compute Time**:
-  - Assuming 500ms average execution time with 128MB memory
-  - Free tier: 400,000 GB-seconds per month
-  - Estimated cost: $0.00 per month (within free tier)
+- **Data processing**: 2GB outbound per month
+  - First 1GB per month free
+  - Additional 1GB: $0.008 per GB
+  - **Monthly cost**: $0.008
 
-### DynamoDB
+### Cloud CDN (optional, included with Load Balancer)
+- **Cache egress**: 2GB per month
+  - First 10GB per month free
+  - **Monthly cost**: $0.00
 
-- **Storage**: < 1GB
-  - $0.25 per GB
-  - Estimated cost: < $0.25 per month
+### SSL Certificate
+- **Google-managed SSL**: Free
+- **Monthly cost**: $0.00
 
-- **Read/Write Capacity**:
-  - On-demand pricing
-  - Estimated 80 write request units per month
-  - Estimated 20 read request units per month
-  - $1.25 per million write request units
-  - $0.25 per million read request units
-  - Estimated cost: < $0.01 per month (within free tier)
+## Total Monthly Cost Estimate
 
-### CloudWatch (Logs and Monitoring)
+| Service | Monthly Cost |
+|---------|-------------|
+| Cloud Storage | $0.02 |
+| Cloud Functions | $0.02 |
+| Firestore | $0.00 |
+| Load Balancer | $18.01 |
+| CDN | $0.00 |
+| SSL Certificate | $0.00 |
+| **TOTAL** | **~$18.05** |
 
-- **Log Storage**: ~10MB per month
-  - $0.50 per GB ingested
-  - $0.03 per GB archived
-  - Estimated cost: < $0.01 per month
+## Cost Optimization Options
 
-- **Alarms**: None configured by default
-  - Estimated cost: $0.00 per month
+### Option 1: Without Custom Domain
+If you don't need a custom domain and can use the direct Cloud Storage URL:
 
-## Total Estimated Monthly Cost
+| Service | Monthly Cost |
+|---------|-------------|
+| Cloud Storage | $0.02 |
+| Cloud Functions | $0.02 |
+| Firestore | $0.00 |
+| **TOTAL** | **~$0.04** |
 
-| Service     | Estimated Cost |
-|-------------|----------------|
-| S3          | < $0.01        |
-| CloudFront  | $0.17          |
-| API Gateway | < $0.01        |
-| Lambda      | $0.00          |
-| DynamoDB    | < $0.25        |
-| CloudWatch  | < $0.01        |
-| **Total**   | **< $0.45**    |
+### Option 2: Using Cloud Run instead of Load Balancer
+For lower traffic, you could serve the frontend from Cloud Run:
 
-## Free Tier Considerations
+| Service | Monthly Cost |
+|---------|-------------|
+| Cloud Run (frontend) | $0.00* |
+| Cloud Functions | $0.02 |
+| Firestore | $0.00 |
+| **TOTAL** | **~$0.02** |
 
-If you're within the AWS Free Tier period (12 months from account creation), many of these services would be free or have significantly reduced costs:
-
-- **S3**: 5GB of storage, 20,000 GET requests, 2,000 PUT requests
-- **CloudFront**: 50GB data transfer out and 2,000,000 HTTP/HTTPS requests
-- **API Gateway**: 1 million API calls
-- **Lambda**: 1 million free requests per month and 400,000 GB-seconds of compute time
-- **DynamoDB**: 25GB of storage, 25 write capacity units, 25 read capacity units
-
-With the Free Tier, the total monthly cost would likely be **$0.00** for the first 12 months.
-
-## Cost Optimization Tips
-
-1. **Use CloudFront caching effectively** to reduce origin requests to S3
-2. **Implement proper TTLs** for CloudFront cache to reduce the number of API calls
-3. **Optimize Lambda functions** to reduce execution time and memory usage
-4. **Monitor usage patterns** and adjust resources accordingly
-5. **Set up AWS Budgets** to get alerts if costs exceed expected thresholds
+*Cloud Run has a generous free tier
 
 ## Scaling Considerations
 
-As your application grows, costs will scale primarily with:
+### At 10,000 visitors/month:
+- Cloud Storage: ~$0.20
+- Cloud Functions: ~$0.10  
+- Firestore: ~$0.00 (still within free tier)
+- Load Balancer: $18.08
+- **Total**: ~$18.38
 
-1. **Traffic volume**: Affecting CloudFront and S3 costs
-2. **Form submissions**: Affecting API Gateway, Lambda, and DynamoDB costs
-3. **Data storage**: Affecting DynamoDB and S3 costs
+### At 100,000 visitors/month:
+- Cloud Storage: ~$2.00
+- Cloud Functions: ~$1.00
+- Firestore: ~$0.50
+- Load Balancer: $18.80
+- **Total**: ~$22.30
 
-At significantly higher volumes (e.g., 100,000+ monthly visitors), you may want to revisit this cost estimation.
+## Cost Comparison with Other Platforms
+
+| Platform | Monthly Cost (1K visitors) |
+|----------|----------------------------|
+| **GCP (with domain)** | **$18.05** |
+| **GCP (no domain)** | **$0.04** |
+| AWS Serverless | ~$25.00 |
+| Vercel Pro | $20.00 |
+| Netlify Pro | $19.00 |
+| Traditional VPS | $20-50 |
+
+## Free Tier Benefits
+
+GCP provides generous free tiers that cover:
+- First 2M Cloud Function invocations per month
+- First 50K Firestore reads per day
+- First 20K Firestore writes per day  
+- First 1GB Cloud Storage
+- First 1GB CDN egress
+
+Most small to medium websites will operate entirely within the free tier limits.
+
+## Monitoring Costs
+
+To monitor your actual costs:
+
+1. **Cloud Console**: Visit Cloud Billing in GCP Console
+2. **Budgets**: Set up budget alerts
+3. **Cost breakdown**: View by service
+4. **Recommendations**: GCP provides cost optimization suggestions
+
+## Cost Control Strategies
+
+1. **Use Cloud Storage directly** instead of Load Balancer for simple sites
+2. **Monitor function execution time** - optimize for faster execution
+3. **Implement caching** to reduce function calls
+4. **Use CDN caching** to reduce origin requests
+5. **Set billing alerts** to avoid unexpected charges
+
+## Regional Pricing
+
+Costs may vary by region. `us-central1` typically offers the best pricing for most services. Consider latency vs. cost when choosing regions.
 
 ---
 
-**Note**: These estimates are approximations and actual costs may vary based on usage patterns, AWS pricing changes, and other factors. Always monitor your AWS billing dashboard for actual costs.
+**Note**: All prices are estimates based on current GCP pricing and may change. Actual costs may vary based on usage patterns, regional pricing differences, and promotional credits. Check the current GCP pricing calculator for the most up-to-date pricing.

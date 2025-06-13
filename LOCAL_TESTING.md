@@ -1,164 +1,260 @@
 # Local Testing Guide for Migracle Serverless
 
-This guide explains how to test your serverless application locally before deploying it to the cloud. We provide two methods for local testing:
+This guide explains how to test your serverless application locally before deploying it to GCP.
 
-1. **AWS SAM CLI Method** - Uses AWS SAM CLI to emulate AWS Lambda and API Gateway locally (recommended for the most accurate emulation)
-2. **Simple Express Server Method** - Uses a simple Express server to emulate the API (easier setup, no Docker required)
-
-## Method 1: Using AWS SAM CLI (Full Emulation)
+## Method 1: Using Google Cloud Functions Framework
 
 ### Prerequisites
 
-Before you begin, make sure you have the following installed:
+- Node.js 18 or later
+- npm or yarn package manager
+- Google Cloud CLI (gcloud) installed
 
-1. **AWS SAM CLI** - Used to emulate AWS Lambda and API Gateway locally
-   - [Installation Guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
-
-2. **Docker** - Required by SAM CLI to emulate AWS services
-   - [Installation Guide](https://docs.docker.com/get-docker/)
-
-3. **AWS CLI** - Used to interact with DynamoDB Local
-   - [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-
-4. **Node.js and npm** - Required to build the frontend
-   - [Installation Guide](https://nodejs.org/en/download/)
-
-### Running the Application Locally with SAM CLI
-
-We've created a script that sets up the entire local development environment for you. This script:
-
-1. Configures the frontend to use the local API endpoint
-2. Builds the frontend
-3. Starts DynamoDB Local
-4. Creates the required DynamoDB tables
-5. Starts the SAM Local API Gateway
-6. Serves the frontend using a simple HTTP server
-
-To run the application locally:
+### Install Functions Framework
 
 ```bash
-# Make sure Docker is running
-# Then run the local development script
-./local-dev.sh
+npm install -g @google-cloud/functions-framework
 ```
 
-This will start:
-- Frontend server at http://localhost:8080/index.local.html
-- API Gateway at http://localhost:3000
-- DynamoDB Local at http://localhost:8000
+### Testing Cloud Functions Locally
 
-## Method 2: Using Simple Express Server (Easier Setup)
+#### 1. Test Contact Handler
+
+```bash
+cd gcp-functions/contact-handler
+npm install
+
+# Start the function locally on port 8080
+npx @google-cloud/functions-framework --target=contactHandler --port=8080
+```
+
+The function will be available at `http://localhost:8080`
+
+Test with curl:
+```bash
+curl -X POST http://localhost:8080 \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test User","email":"test@example.com","message":"Hello World"}'
+```
+
+#### 2. Test Subscribe Handler
+
+In a new terminal:
+```bash
+cd gcp-functions/subscribe-handler
+npm install
+
+# Start the function locally on port 8081
+npx @google-cloud/functions-framework --target=subscribeHandler --port=8081
+```
+
+Test with curl:
+```bash
+curl -X POST http://localhost:8081 \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com"}'
+```
+
+### Testing with Local Firestore Emulator
+
+For complete local testing with database:
+
+#### 1. Install Firebase CLI
+```bash
+npm install -g firebase-tools
+```
+
+#### 2. Initialize Firestore Emulator
+```bash
+firebase init emulators
+# Select Firestore when prompted
+# Set port to 8088 for Firestore
+```
+
+#### 3. Start Firestore Emulator
+```bash
+firebase emulators:start --only firestore
+```
+
+#### 4. Update Cloud Functions for Local Testing
+Set environment variable to use local Firestore:
+```bash
+export FIRESTORE_EMULATOR_HOST=localhost:8088
+```
+
+Then start your functions as described above.
+
+## Method 2: Testing Frontend Locally
 
 ### Prerequisites
+- Node.js and npm
+- Webpack installed
 
-For this method, you only need:
-
-1. **Node.js and npm** - Required to run the local server
-   - [Installation Guide](https://nodejs.org/en/download/)
-
-### Running the Application Locally with Express
-
-We've created a simple Express server that emulates the API Gateway and Lambda functions:
-
-1. Install the required dependencies:
+### Start Frontend Development Server
 
 ```bash
-# Install dependencies for the local development server
-npm install --prefix . -f local-dev-package.json
+cd frontend
+npm install
+npm run dev  # Starts webpack in watch mode
 ```
 
-2. Run the local development server:
+### Serve Frontend Files
+For serving the frontend, you can use any static file server:
 
 ```bash
-# Start the local development server
-node simple-local-dev.js
+# Using Python (if installed)
+python3 -m http.server 8000
+
+# Using Node.js http-server (install first: npm install -g http-server)
+http-server . -p 8000
+
+# Using PHP (if installed)
+php -S localhost:8000
 ```
 
-This will:
-- Start a local server at http://localhost:3000
-- Create a modified index.html with the local API endpoint
-- Open your browser automatically to http://localhost:3000/index.local.html
+Visit `http://localhost:8000` to view the frontend.
 
-## Testing the Application
+## Method 3: Full Local Development Setup
 
-Regardless of which method you use:
+### 1. Create Local Development Script
 
-1. Open the frontend in your browser (the URL will be shown in the terminal)
-2. Test the subscription form in the hero section
-3. Test the contact form by clicking the "Contact Us" button
+Create `local-dev.js`:
 
-All form submissions will be stored in the local database.
+```javascript
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
 
-## Viewing Data
+const app = express();
+const PORT = 3000;
 
-### For SAM CLI Method
+// Enable CORS and JSON parsing
+app.use(cors());
+app.use(express.json());
 
-You can view the data stored in your local DynamoDB tables using the AWS CLI:
+// Serve static files from frontend
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+// Mock contact endpoint
+app.post('/api/contact', (req, res) => {
+  console.log('Contact form submission:', req.body);
+  const { name, email, message } = req.body;
+  
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Name, email, and message are required' });
+  }
+  
+  res.json({ 
+    message: 'Contact form submitted successfully (local)',
+    id: 'local-' + Date.now()
+  });
+});
+
+// Mock subscribe endpoint
+app.post('/api/subscribe', (req, res) => {
+  console.log('Subscription:', req.body);
+  const { email } = req.body;
+  
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+  
+  res.json({ 
+    message: 'Subscription successful (local)',
+    email 
+  });
+});
+
+// Serve frontend for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Local server running at http://localhost:${PORT}`);
+  console.log(`📝 Contact API: http://localhost:${PORT}/api/contact`);
+  console.log(`📧 Subscribe API: http://localhost:${PORT}/api/subscribe`);
+});
+```
+
+### 2. Install Dependencies
+```bash
+npm init -y
+npm install express cors
+```
+
+### 3. Update Frontend for Local Development
+
+Temporarily update `frontend/index.html` to use local endpoints:
+
+```html
+<script>
+  // Use local development endpoints
+  window.API_ENDPOINT = 'http://localhost:3000';
+</script>
+```
+
+### 4. Run Local Development Server
+```bash
+node local-dev.js
+```
+
+Visit `http://localhost:3000` to test the complete application locally.
+
+## Environment Variables
+
+### Local Environment Variables
+Create a `.env` file for local development:
 
 ```bash
-# List all contacts
-aws dynamodb scan --table-name migracle-contacts --endpoint-url http://localhost:8000 --region us-west-2
-
-# List all subscribers
-aws dynamodb scan --table-name migracle-subscribers --endpoint-url http://localhost:8000 --region us-west-2
+# .env (for local development only)
+GOOGLE_CLOUD_PROJECT=your-project-id
+FIRESTORE_EMULATOR_HOST=localhost:8088
+GCLOUD_PROJECT=your-project-id
 ```
 
-### For Express Server Method
+Load with:
+```bash
+source .env
+# or use dotenv package
+```
 
-The data is stored in memory and can be viewed in the server logs. Each form submission will be logged to the console.
+## Testing Checklist
 
-## Stopping the Local Environment
-
-### For SAM CLI Method
-
-To stop all the local servers, press Enter in the terminal where you ran the `local-dev.sh` script. The script will clean up all resources.
-
-### For Express Server Method
-
-Press Ctrl+C in the terminal where you ran the `simple-local-dev.js` script. The script will clean up resources automatically.
+- [ ] Contact form submission works
+- [ ] Email subscription works  
+- [ ] Frontend loads without errors
+- [ ] API endpoints respond correctly
+- [ ] CORS headers are properly set
+- [ ] Data validation works on both frontend and backend
+- [ ] Error handling works properly
 
 ## Troubleshooting
 
-### Common Issues for SAM CLI Method
+### Common Issues
 
-1. **Docker not running**
-   - Make sure Docker is running before starting the local development script
+1. **Port conflicts**: Use different ports if 8080/8081 are in use
+2. **CORS errors**: Ensure CORS is enabled in your local functions
+3. **Module not found**: Run `npm install` in function directories
+4. **Firestore connection**: Check emulator is running and environment variables are set
 
-2. **Port conflicts**
-   - If you see errors about ports being in use, make sure nothing else is running on ports 3000, 8000, and 8080
+### Debug Commands
 
-3. **AWS SAM CLI errors**
-   - Make sure you have the latest version of AWS SAM CLI installed
+```bash
+# Check if functions framework is installed
+npm list -g @google-cloud/functions-framework
 
-4. **DynamoDB Local connection issues**
-   - If the Lambda functions can't connect to DynamoDB Local, check that the endpoint URL is correct in the local-env.json file
+# Check if Firebase CLI is installed
+firebase --version
 
-### Common Issues for Express Server Method
+# Check running processes on ports
+lsof -i :8080
+lsof -i :8081
+```
 
-1. **Port conflicts**
-   - If you see errors about port 3000 being in use, make sure nothing else is running on that port
+## Next Steps
 
-2. **Module not found errors**
-   - Make sure you've installed the dependencies using the command provided
-
-### Logs
-
-- For both methods, server logs will be displayed in the terminal
-- These logs can be helpful for debugging issues
-
-## Differences from Cloud Deployment
-
-When testing locally, there are a few differences from the cloud deployment:
-
-1. Authentication and authorization are not enforced locally
-2. Some AWS services might not be fully emulated
-3. Performance characteristics will differ from the cloud environment
-4. The Express server method uses in-memory storage instead of DynamoDB
-
-These differences are generally acceptable for functional testing before deployment.
-
-## Which Method Should I Use?
-
-- **Use the SAM CLI method** if you want the most accurate emulation of the AWS environment and need to test specific AWS service integrations.
-
-- **Use the Express server method** if you want a quick and simple way to test the frontend functionality without installing Docker and AWS SAM CLI.
+Once local testing is complete:
+1. Build frontend for production: `npm run build`
+2. Deploy to GCP using: `./deploy-gcp.sh`
+3. Test deployed functions with real URLs
