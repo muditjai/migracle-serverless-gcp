@@ -7,20 +7,20 @@ const UseCases = () => {
   const useCases = [
     {
       icon: <Activity className="w-6 h-6 text-white" />,
-      title: "Observability Platform Modernization",
-      description: "Automated migration of logs, metrics, traces, queries, dashboards, and alerts from one observability platform to another",
+      title: "Datadog to Grafana Migration",
+      description: "Complete migration from Datadog to Grafana Cloud or self-hosted. Convert dashboards, panels, alerts, and queries while preserving visualizations, thresholds, and metric mappings with 100% fidelity.",
       image: "./assets/images/observability.jpeg"
     },
     {
       icon: <BarChart3 className="w-6 h-6 text-white" />,
-      title: "Analytics Platform Migrations",
-      description: "Automated migration of data models, reports, dashboards, custom queries and scheduled jobs, preserving business context and logic",
+      title: "Datadog to Coralogix",
+      description: "Migrate from Datadog to Coralogix with automated APM traces, logs, and infrastructure metrics conversion. Maintain service maps, dependencies, and performance baselines throughout the migration.",
       image: "./assets/images/data-transfer.jpeg"
     },
     {
       icon: <Sparkles className="w-6 h-6 text-white" />,
-      title: "More coming soon",
-      description: "Our platform is continuously evolving to support more migration and modernization workloads - stay tuned!",
+      title: "Datadog to Chronosphere/Dynatrace",
+      description: "Enterprise-grade migrations from Datadog to Chronosphere or Dynatrace. Handle complex metric cardinality, custom tags, and advanced analytics while optimizing for cost and performance in your new platform.",
       image: "./assets/images/coming-soon.jpeg"
     }
   ];

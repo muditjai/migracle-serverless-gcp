@@ -37,8 +37,8 @@ const Hero = () => {
   return (
     <section className="hero font-['Inter']" aria-label="Introduction">
       <div className="container">
-        <h1>Transform complex migrations into automated one-click workflows</h1>
-        <p>Migracle's AI agents handle the heavy lifting - from data to dashboards, from APIs to alerts - reducing migration timelines by 80% while maintaining perfect fidelity.</p>
+        <h1>Migrate from Datadog to any observability platform with AI precision</h1>
+        <p>Migracle's AI copilot automates your migration from Datadog to Grafana, New Relic, Coralogix, Chronosphere, and more. Convert dashboards, alerts, and metrics perfectly - reducing migration time by 80% while preserving every visualization and query.</p>
 
         <div className="input-form-container">
           <form id="subscriptionForm" className="input-form" onSubmit={handleSubscribe}>

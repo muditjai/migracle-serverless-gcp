@@ -7,20 +7,20 @@ const CustomerPersonas = () => {
   const personas = [
     {
       id: 1,
-      title: 'Software Platform Vendors',
-      subtitle: 'Accelerate Revenue Realization',
-      description: 'Transform your customer onboarding from a bottleneck into a revenue accelerator. Focus on product adoption and faster account expansion.',
+      title: 'Observability Platform Vendors',
+      subtitle: 'Accelerate Customer Migration',
+      description: 'Help customers migrate from Datadog to your platform faster. Reduce onboarding friction and accelerate time-to-value with automated dashboard and alert conversion.',
       image: './assets/images/case1.jpeg',
       icon: <Cloud className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Long migration cycles slowing down sales',
-        'Complex customer data transitions',
-        'Resource-intensive onboarding process'
+        'Manual dashboard recreation blocking deals',
+        'Complex Datadog query translation',
+        'Alert migration causing customer churn'
       ], 
       benefits: [
-        'Reduce in migration-related churn',
-        'Minimize migration-related support tickets',
-        'Focus on strategic account expansion initiatives'
+        'Convert Datadog dashboards automatically',
+        'Preserve all metrics, queries, and alerts',
+        'Win competitive deals against Datadog'
       ],
       metrics: [
         {
@@ -37,20 +37,20 @@ const CustomerPersonas = () => {
     },
     {
       id: 2,
-      title: 'Global System Integrators (GSIs)',
-      subtitle: 'Optimize migration services',
-      description: 'Expand your services while improving project margins. Transform migration services from labor-based to technology-enabled delivery.',
+      title: 'Managed Service Providers',
+      subtitle: 'Scale Observability Migrations',
+      description: 'Deliver Datadog to Grafana/Coralogix migrations at scale. Automate dashboard conversion and metric mapping to improve margins and reduce project timelines.',
       image: './assets/images/case2.jpeg',
       icon: <Users className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Manual migration processes',
-        'High resource requirements',
-        'Complex project timelines'
+        'Manual dashboard recreation taking weeks',
+        'Datadog metric namespace complexity',
+        'Alert threshold translation errors'
       ],
       benefits: [
-        'Achive higher project margins through automation',
-        'Improve utilization of existing technical teams',
-        '3-4X concurrent migrations without adding headcount'
+        'Automate Datadog dashboard conversion',
+        'Handle 10x more migration projects',
+        'Reduce observability migration time by 80%'
       ],
       metrics: [
         {
@@ -68,19 +68,19 @@ const CustomerPersonas = () => {
     {
       id: 3,
       title: 'Platform Engineering Teams',
-      subtitle: 'Modernize with Confidence',
-      description: 'Accelerate infrastructure modernization initiatives and transform platform migrations from high-risk projects into routine operations. ',
+      subtitle: 'Escape Vendor Lock-in',
+      description: 'Migrate from Datadog to cost-effective alternatives like Grafana or Chronosphere. Preserve all dashboards, alerts, and runbooks while optimizing costs.',
       image: './assets/images/case3.jpeg',
       icon: <Code className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Legacy system dependencies',
-        'Complex internal integrations',
-        'Resource constraints'
+        'Hundreds of Datadog dashboards to migrate',
+        'Complex alert rules and SLOs',
+        'Team resistance to platform change'
       ],
       benefits: [
-        'Transform migrations from projects to products',
-        'Mitigate post-migration bugs and issues',
-        'Minimize dependency on tribal knowledge'
+        'Perfect dashboard fidelity post-migration',
+        'Zero alert coverage gaps',
+        'Reduce Datadog costs by 60-80%'
       ],
       metrics: [
         {

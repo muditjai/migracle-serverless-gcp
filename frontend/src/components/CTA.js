@@ -16,10 +16,10 @@ const CTA = () => {
 
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
-           Ready to Accelerate Your Migrations?
+           Ready to Migrate from Datadog?
           </h2>
           <p className="text-xl text-white/70 mb-8">
-          Join industry leaders who have transformed their migration experience.
+          Join teams who've successfully migrated to Grafana, Coralogix, and Chronosphere with zero downtime.
           </p>
 
           <button

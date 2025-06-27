@@ -1,0 +1,1 @@
+This is a website for company called Migracle AI. It does observability product migrations using AI copilot eg datadog to grafana migrations. It converts each dashboard while assisting the human and gives a report at the end of successful and failed migrated dashboards and widgets.

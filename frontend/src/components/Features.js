@@ -93,42 +93,42 @@ const Features = () => {
 
   const features = [
     {
-      icon: <CircuitBoard className="w-6 h-6 text-white" />,
-      title: "Intelligent Data & API Migration",
-      description: "Migracle handles all technical complexities - from data mapping to API configurations - while you focus on driving business value. No more manual migrations, no more disruptions.",
+      icon: <LayoutDashboard className="w-6 h-6 text-white" />,
+      title: "Dashboard Conversion & Widget Mapping",
+      description: "Automatically convert Datadog dashboards to Grafana, New Relic, or Coralogix. Every widget, query, and visualization is perfectly recreated with intelligent metric mapping and query translation.",
       metric1: {
-        value: "99.9%",
-        label: "Data Accuracy"
+        value: "100%",
+        label: "Widget Fidelity"
       },
       metric2: {
-        value: "90%",
-        label: "Less Manual Work"
+        value: "500+",
+        label: "Dashboards/Day"
       }
     },
     {
-      icon: <LayoutDashboard className="w-6 h-6 text-white" />,
-      title: "Automated Dashboard & Query Migration",
-      description: "Migracle automatically recreates your dashboards, reports, and analytics queries while maintaining their business context and logic. Your teams keep their insights, just on a better platform.",
+      icon: <CircuitBoard className="w-6 h-6 text-white" />,
+      title: "Alert Rules & Monitor Migration",
+      description: "Seamlessly migrate alert conditions, thresholds, and notification channels from Datadog to your target platform. Preserve complex alert logic while adapting to new metric namespaces.",
       metric1: {
-        value: "100%",
-        label: "Logic Preserved"
+        value: "99.9%",
+        label: "Alert Accuracy"
       },
       metric2: {
-        value: "5x",
-        label: "Faster Deployment"
+        value: "Zero",
+        label: "Missed Alerts"
       }
     },
     {
       icon: <Zap className="w-6 h-6 text-white" />,
-      title: "Migrate in Days, not Months",
-      description: "Get complete visibility into progress, automatic quality checks, and instant rollback capabilities. Your teams stay in control while our AI handles the complexity, ensuring zero business disruption.",
+      title: "AI-Assisted Migration Copilot",
+      description: "Our AI copilot guides you through each migration step, handling metric translation, query optimization, and validation. Get detailed reports on successful and failed migrations with actionable fixes.",
       metric1: {
-        value: "85%",
-        label: "Time Saved"
+        value: "80%",
+        label: "Time Reduction"
       },
       metric2: {
-        value: "0%",
-        label: "Downtime"
+        value: "24/7",
+        label: "AI Support"
       }
     }
   ];

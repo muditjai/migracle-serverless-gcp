@@ -6,8 +6,8 @@ const Mission = () => {
     <section className="mission font-['Inter']" aria-label="Our Mission">
       <div className="container">
         <div className="mission-label">Our mission</div>
-        <h2 className="text-2xl text-white mb-12">Accelerate Innovation Through Seamless Migrations</h2>
-        <p>We're on a mission to eliminate the technical debt of platform migrations. By automating migrations using AI, we free organizations to make platform decisions based on business value rather than migration constraints.</p>  
+        <h2 className="text-2xl text-white mb-12">Simplify Observability Platform Transitions</h2>
+        <p>We're on a mission to eliminate the complexity of observability migrations. By automating dashboard conversion and metric translation from Datadog to modern platforms like Grafana, Coralogix, and Chronosphere, we empower teams to choose the best observability tools without migration barriers.</p>  
       </div>
     </section>
   );
