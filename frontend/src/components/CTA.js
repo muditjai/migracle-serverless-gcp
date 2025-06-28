@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const CTA = () => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <section className="mission relative overflow-hidden">

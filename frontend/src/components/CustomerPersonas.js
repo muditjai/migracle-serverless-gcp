@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cloud, Users, Code, Clock, Target, ArrowUp, Zap, CheckCircle, BarChart, Award } from 'lucide-react';
+import { Server, Users, Code, Target, TrendingUp, Zap, CheckCircle, LineChart, ShieldCheck } from 'lucide-react';
 
 const CustomerPersonas = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -11,7 +11,7 @@ const CustomerPersonas = () => {
       subtitle: 'Accelerate Customer Migration',
       description: 'Help customers migrate from Datadog to your platform faster. Reduce onboarding friction and accelerate time-to-value with automated dashboard and alert conversion.',
       image: './assets/images/case1.jpeg',
-      icon: <Cloud className="w-5 h-5 text-white/70" />,
+      icon: <Server className="w-5 h-5 text-white/70" />,
       challenges: [
         'Manual dashboard recreation blocking deals',
         'Complex Datadog query translation',
@@ -29,7 +29,7 @@ const CustomerPersonas = () => {
           label: 'Faster Time to Revenue'
         },
         {
-          icon: <ArrowUp className="w-5 h-5 text-white/70 mb-2" />,
+          icon: <TrendingUp className="w-5 h-5 text-white/70 mb-2" />,
           value: '4X',
           label: 'Account Penetration'
         }
@@ -84,12 +84,12 @@ const CustomerPersonas = () => {
       ],
       metrics: [
         {
-          icon: <BarChart className="w-5 h-5 text-white/70 mb-2" />,
+          icon: <LineChart className="w-5 h-5 text-white/70 mb-2" />,
           value: '85%',
           label: 'Decrease in Downtime'
         },
         {
-          icon: <Award className="w-5 h-5 text-white/70 mb-2" />,
+          icon: <ShieldCheck className="w-5 h-5 text-white/70 mb-2" />,
           value: '95%',
           label: 'Fewer Rollbacks'
         }
