@@ -9,7 +9,7 @@ const CustomerPersonas = () => {
       id: 1,
       title: 'Observability Platform Vendors',
       subtitle: 'Accelerate Customer Migration',
-      description: 'Help customers migrate from Datadog to your platform faster. Reduce onboarding friction and accelerate time-to-value with automated dashboard and alert conversion.',
+      description: 'Using AI to help customers migrate from Datadog faster with automated conversion.',
       image: './assets/images/case1.jpeg',
       icon: <Server className="w-5 h-5 text-white/70" />,
       challenges: [
@@ -39,7 +39,7 @@ const CustomerPersonas = () => {
       id: 2,
       title: 'Managed Service Providers',
       subtitle: 'Scale Observability Migrations',
-      description: 'Deliver Datadog to Grafana/Coralogix migrations at scale. Automate dashboard conversion and metric mapping to improve margins and reduce project timelines.',
+      description: 'AI-powered Datadog to New Relic migrations at scale. Automate conversions to improve margins.',
       image: './assets/images/case2.jpeg',
       icon: <Users className="w-5 h-5 text-white/70" />,
       challenges: [
@@ -69,7 +69,7 @@ const CustomerPersonas = () => {
       id: 3,
       title: 'Platform Engineering Teams',
       subtitle: 'Escape Vendor Lock-in',
-      description: 'Migrate from Datadog to cost-effective alternatives like Grafana or Chronosphere. Preserve all dashboards, alerts, and runbooks while optimizing costs.',
+      description: 'LLM-assisted migration to cost-effective alternatives. Preserve dashboards and alerts.',
       image: './assets/images/case3.jpeg',
       icon: <Code className="w-5 h-5 text-white/70" />,
       challenges: [

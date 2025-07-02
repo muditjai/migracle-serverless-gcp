@@ -95,7 +95,7 @@ const Features = () => {
     {
       icon: <LayoutDashboard className="w-6 h-6 text-white" />,
       title: "Dashboard Conversion & Widget Mapping",
-      description: "Automatically convert Datadog dashboards to Grafana, New Relic, or Coralogix. Every widget, query, and visualization is perfectly recreated with intelligent metric mapping and query translation.",
+      description: "AI converts Datadog dashboards with intelligent metric mapping and query translation.",
       metric1: {
         value: "100%",
         label: "Widget Fidelity"
@@ -108,7 +108,7 @@ const Features = () => {
     {
       icon: <AlertCircle className="w-6 h-6 text-white" />,
       title: "Alert Rules & Monitor Migration",
-      description: "Seamlessly migrate alert conditions, thresholds, and notification channels from Datadog to your target platform. Preserve complex alert logic while adapting to new metric namespaces.",
+      description: "LLM migrates alert conditions and thresholds while preserving complex logic.",
       metric1: {
         value: "99.9%",
         label: "Alert Accuracy"
@@ -121,7 +121,7 @@ const Features = () => {
     {
       icon: <Bot className="w-6 h-6 text-white" />,
       title: "AI-Assisted Migration Copilot",
-      description: "Our AI copilot guides you through each migration step, handling metric translation, query optimization, and validation. Get detailed reports on successful and failed migrations with actionable fixes.",
+      description: "AI guides migration steps with detailed reports and actionable fixes.",
       metric1: {
         value: "80%",
         label: "Time Reduction"

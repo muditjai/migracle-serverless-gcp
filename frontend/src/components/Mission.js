@@ -7,7 +7,7 @@ const Mission = () => {
       <div className="container">
         <div className="mission-label">Our mission</div>
         <h2 className="text-2xl text-white mb-12">Simplify Observability Platform Transitions</h2>
-        <p>We're on a mission to eliminate the complexity of observability migrations. By automating dashboard conversion and metric translation from Datadog to modern platforms like Grafana, Coralogix, and Chronosphere, we empower teams to choose the best observability tools without migration barriers.</p>  
+        <p>Using AI to speed up migration timelines and reduce observability costs. Automate Datadog conversions to Grafana, New Relic, Chronosphere and others without barriers.</p>  
       </div>
     </section>
   );

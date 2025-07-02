@@ -8,19 +8,19 @@ const UseCases = () => {
     {
       icon: <GitBranch className="w-6 h-6 text-white" />,
       title: "Datadog to Grafana Migration",
-      description: "Complete migration from Datadog to Grafana Cloud or self-hosted. Convert dashboards, panels, alerts, and queries while preserving visualizations, thresholds, and metric mappings with 100% fidelity.",
+      description: "AI copilot for Datadog to Grafana migration. Convert dashboards, panels, and alerts automatically.",
       image: "./assets/images/observability.jpeg"
     },
     {
       icon: <Database className="w-6 h-6 text-white" />,
-      title: "Datadog to Coralogix",
-      description: "Migrate from Datadog to Coralogix with automated APM traces, logs, and infrastructure metrics conversion. Maintain service maps, dependencies, and performance baselines throughout the migration.",
+      title: "Datadog to New Relic",
+      description: "AI-powered Datadog to New Relic migration. Automated APM, logs, and metrics conversion.",
       image: "./assets/images/data-transfer.jpeg"
     },
     {
       icon: <Network className="w-6 h-6 text-white" />,
-      title: "Datadog to Chronosphere/Dynatrace",
-      description: "Enterprise-grade migrations from Datadog to Chronosphere or Dynatrace. Handle complex metric cardinality, custom tags, and advanced analytics while optimizing for cost and performance in your new platform.",
+      title: "Datadog to Chronosphere",
+      description: "LLM agent for Datadog to Chronosphere migrations. Handle complex metrics and analytics.",
       image: "./assets/images/coming-soon.jpeg"
     }
   ];
