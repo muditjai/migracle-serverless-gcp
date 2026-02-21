@@ -108,7 +108,7 @@ const Features = () => {
     {
       icon: <ShieldCheck className="w-6 h-6 text-white" />,
       title: "Comprehensive Testing Suite",
-      description: "Automated functionality, performance, and security testing to verify full parity between source and target environments.",
+      description: "We run functionality, performance, and security testing to verify full parity between source and target environments.",
       metric1: {
         value: "99.9%",
         label: "Parity Verified"
@@ -121,7 +121,7 @@ const Features = () => {
     {
       icon: <GitMerge className="w-6 h-6 text-white" />,
       title: "CI/CD & Monitoring Setup",
-      description: "Automated pipeline configuration and observability setup for every new environment, production-ready from day one.",
+      description: "We configure your CI/CD pipelines and set up observability for every new environment, production-ready from day one.",
       metric1: {
         value: "80%",
         label: "Time Reduction"

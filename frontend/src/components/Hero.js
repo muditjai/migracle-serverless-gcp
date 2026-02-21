@@ -38,7 +38,7 @@ const Hero = () => {
     <section className="hero font-['Inter']" aria-label="Introduction">
       <div className="container">
         <h1>Expand to New Cloud Regions and Providers in Weeks, Not Quarters</h1>
-        <p>Professional services for cloud infrastructure expansion. Replicate your infra across regions and providers - cutting expansion timelines from 2-3 quarters to 1-2 months.</p>
+        <p>We provide professional services for cloud infrastructure expansion. We replicate your infra across regions and providers - cutting expansion timelines from 2-3 quarters to 1-2 months.</p>
 
         <div className="input-form-container">
           <form id="subscriptionForm" className="input-form" onSubmit={handleSubscribe}>

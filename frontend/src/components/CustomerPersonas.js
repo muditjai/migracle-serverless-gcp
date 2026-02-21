@@ -10,7 +10,7 @@ const CustomerPersonas = () => {
       title: 'Enterprise SaaS Vendors',
       subtitle: 'Global Expansion & Data Sovereignty',
       description: 'Expand globally while meeting data residency requirements. Automated Terraform modules for compliance-ready deployments.',
-      image: './assets/images/case1.jpeg',
+      image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
       challenges: [
         'Manual infrastructure recreation for each region',
@@ -40,7 +40,7 @@ const CustomerPersonas = () => {
       title: 'Growth-Stage ISVs',
       subtitle: 'Scale Without Growing the Team',
       description: 'Meet enterprise customer requirements for specific regions and clouds without hiring more infrastructure engineers.',
-      image: './assets/images/case2.jpeg',
+      image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       challenges: [
         'Small infrastructure team stretched thin',
@@ -70,7 +70,7 @@ const CustomerPersonas = () => {
       title: 'Startups with Cloud Credits',
       subtitle: 'Maximize Your $250-350K Credits',
       description: 'Replicate your existing infrastructure to a new cloud provider fast. Go production-ready and maximize credit utilization.',
-      image: './assets/images/case3.jpeg',
+      image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
         'Credits expiring unused on new platform',

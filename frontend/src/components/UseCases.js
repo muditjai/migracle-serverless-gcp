@@ -9,19 +9,19 @@ const UseCases = () => {
       icon: <Globe className="w-6 h-6 text-white" />,
       title: "AWS Region Expansion",
       description: "Expand from us-east-1 to EU, APAC, or any region. Automated resource mapping, Terraform modularization, and compliance-ready deployments.",
-      image: "./assets/images/observability.jpeg"
+      image: "./assets/images/region-expansion.jpg"
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
       title: "AWS to GCP Migration",
       description: "Replicate your AWS infrastructure on GCP. Map services to their GCP equivalents, modularize Terraform, and deploy with full testing.",
-      image: "./assets/images/data-transfer.jpeg"
+      image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
       title: "Multi-Cloud Deployment",
       description: "Run simultaneously across AWS, GCP, and Azure. Unified Terraform modules, cross-cloud CI/CD, and centralized monitoring.",
-      image: "./assets/images/coming-soon.jpeg"
+      image: "./assets/images/multi-cloud.jpg"
     }
   ];
 
