@@ -58,7 +58,7 @@ Instead of the www A record above, you can use:
 
 ### SSL Certificate Status:
 ```bash
-gcloud compute ssl-certificates describe migracle-ssl-cert --global
+gcloud compute ssl-certificates describe migracle-ssl-cert-v2 --global
 ```
 
 ## 🔧 Troubleshooting
