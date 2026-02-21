@@ -68,8 +68,8 @@ const CustomerPersonas = () => {
     {
       id: 3,
       title: 'Startups with Cloud Credits',
-      subtitle: 'Maximize Your $250-350K Credits',
-      description: 'Replicate your existing infrastructure to a new cloud provider fast. Go production-ready and maximize credit utilization.',
+      subtitle: 'Use Your Startup Credits',
+      description: 'Replicate your existing infrastructure to a new cloud provider fast. Go production-ready and use your cloud credits effectively.',
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
@@ -79,14 +79,14 @@ const CustomerPersonas = () => {
       ],
       benefits: [
         'Replicate existing infra to new provider',
-        'Maximize credit utilization before expiry',
+        'Use credits before expiry',
         'Production-ready on day one'
       ],
       metrics: [
         {
           icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
-          value: '90%',
-          label: 'Credit Utilization'
+          value: 'Extend',
+          label: 'Your Runway'
         },
         {
           icon: <Clock className="w-5 h-5 text-white/70 mb-2" />,

@@ -13,14 +13,14 @@ const UseCases = () => {
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
-      title: "AWS to GCP Migration",
-      description: "Replicate your AWS infrastructure on GCP. Map services to their GCP equivalents, modularize Terraform, and deploy with full testing.",
+      title: "GCP or Azure Migration",
+      description: "Replicate your infrastructure on GCP or Azure. Map services to their equivalents, modularize Terraform, and deploy with full testing.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
       title: "Multi-Cloud Deployment",
-      description: "Run simultaneously across AWS, GCP, and Azure. Unified Terraform modules, cross-cloud CI/CD, and centralized monitoring.",
+      description: "Run simultaneously across AWS, GCP, and Azure. Unified Terraform modules, cross-cloud CI/CD, and managed monitoring.",
       image: "./assets/images/multi-cloud.jpg"
     }
   ];

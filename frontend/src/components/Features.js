@@ -101,8 +101,8 @@ const Features = () => {
         label: "Portable Code"
       },
       metric2: {
-        value: "1-2",
-        label: "Months to Deploy"
+        value: "4-6",
+        label: "Weeks to Deploy"
       }
     },
     {
@@ -110,12 +110,12 @@ const Features = () => {
       title: "Comprehensive Testing Suite",
       description: "We run functionality, performance, and security testing to verify full parity between source and target environments.",
       metric1: {
-        value: "99.9%",
+        value: "Full",
         label: "Parity Verified"
       },
       metric2: {
-        value: "100%",
-        label: "Test Coverage"
+        value: "Live",
+        label: "Traffic Testing"
       }
     },
     {
