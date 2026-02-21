@@ -6,8 +6,8 @@ const Mission = () => {
     <section className="mission font-['Inter']" aria-label="Our Mission">
       <div className="container">
         <div className="mission-label">Our mission</div>
-        <h2 className="text-2xl text-white mb-12">Simplify Observability Platform Transitions</h2>
-        <p>Using AI to speed up migration timelines and reduce observability costs. Automate Datadog conversions to Grafana, New Relic, Chronosphere and others without barriers.</p>  
+        <h2 className="text-2xl text-white mb-12">Accelerate Cloud Expansion for Software Vendors</h2>
+        <p>Professional services to help ISVs expand into new cloud regions and providers. Terraform modularization, abstracting region-specific hardcodings, and deployment with comprehensive testing and CI/CD - all in weeks.</p>
       </div>
     </section>
   );

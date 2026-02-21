@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { AlertCircle, LayoutDashboard, ArrowUpRight, Bot } from 'lucide-react';
+import { Map, ShieldCheck, ArrowUpRight, GitMerge } from 'lucide-react';
 
 const useIntersectionObserver = (options = {}) => {
   const ref = useRef(null);
@@ -93,42 +93,42 @@ const Features = () => {
 
   const features = [
     {
-      icon: <LayoutDashboard className="w-6 h-6 text-white" />,
-      title: "Dashboard Conversion & Widget Mapping",
-      description: "AI converts Datadog dashboards with intelligent metric mapping and query translation.",
+      icon: <Map className="w-6 h-6 text-white" />,
+      title: "Infrastructure Mapping & Terraform Modularization",
+      description: "We map your resources across regions and clouds, abstract hardcodings, and modularize your Terraform for portable deployments.",
       metric1: {
-        value: "100%",
-        label: "Widget Fidelity"
-      },
-      metric2: {
-        value: "500+",
-        label: "Dashboards/Day"
-      }
-    },
-    {
-      icon: <AlertCircle className="w-6 h-6 text-white" />,
-      title: "Alert Rules & Monitor Migration",
-      description: "LLM migrates alert conditions and thresholds while preserving complex logic.",
-      metric1: {
-        value: "99.9%",
-        label: "Alert Accuracy"
+        value: "100+",
+        label: "Resources Mapped"
       },
       metric2: {
         value: "Zero",
-        label: "Missed Alerts"
+        label: "Hardcodings Left"
       }
     },
     {
-      icon: <Bot className="w-6 h-6 text-white" />,
-      title: "AI-Assisted Migration Copilot",
-      description: "AI guides migration steps with detailed reports and actionable fixes.",
+      icon: <ShieldCheck className="w-6 h-6 text-white" />,
+      title: "Comprehensive Testing Suite",
+      description: "Automated functionality, performance, and security testing to verify full parity between source and target environments.",
+      metric1: {
+        value: "99.9%",
+        label: "Parity Verified"
+      },
+      metric2: {
+        value: "3-Layer",
+        label: "Func / Perf / Sec"
+      }
+    },
+    {
+      icon: <GitMerge className="w-6 h-6 text-white" />,
+      title: "CI/CD & Monitoring Setup",
+      description: "Automated pipeline configuration and observability setup for every new environment, production-ready from day one.",
       metric1: {
         value: "80%",
         label: "Time Reduction"
       },
       metric2: {
         value: "24/7",
-        label: "AI Support"
+        label: "Monitoring"
       }
     }
   ];

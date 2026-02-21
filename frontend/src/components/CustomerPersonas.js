@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Server, Users, Code, Target, TrendingUp, Zap, CheckCircle, LineChart, ShieldCheck } from 'lucide-react';
+import { Building2, Rocket, Sparkles, Globe, TrendingUp, Zap, CheckCircle, Clock, DollarSign } from 'lucide-react';
 
 const CustomerPersonas = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -7,91 +7,91 @@ const CustomerPersonas = () => {
   const personas = [
     {
       id: 1,
-      title: 'Observability Platform Vendors',
-      subtitle: 'Accelerate Customer Migration',
-      description: 'Using AI to help customers migrate from Datadog faster with automated conversion.',
+      title: 'Enterprise SaaS Vendors',
+      subtitle: 'Global Expansion & Data Sovereignty',
+      description: 'Expand globally while meeting data residency requirements. Automated Terraform modules for compliance-ready deployments.',
       image: './assets/images/case1.jpeg',
-      icon: <Server className="w-5 h-5 text-white/70" />,
+      icon: <Building2 className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Manual dashboard recreation blocking deals',
-        'Complex Datadog query translation',
-        'Alert migration causing customer churn'
-      ], 
+        'Manual infrastructure recreation for each region',
+        'Region-specific hardcodings in Terraform',
+        'Compliance delays blocking market entry'
+      ],
       benefits: [
-        'Convert Datadog dashboards automatically',
-        'Preserve all metrics, queries, and alerts',
-        'Win competitive deals against Datadog'
+        'Automated Terraform modules for any region',
+        'Compliance-ready deployments out of the box',
+        'Faster go-to-market in new geographies'
       ],
       metrics: [
         {
-          icon: <Target className="w-5 h-5 text-white/70 mb-2" />,
-          value: '70%',
-          label: 'Faster Time to Revenue'
+          icon: <Globe className="w-5 h-5 text-white/70 mb-2" />,
+          value: '75%',
+          label: 'Faster Expansion'
         },
         {
           icon: <TrendingUp className="w-5 h-5 text-white/70 mb-2" />,
-          value: '4X',
-          label: 'Account Penetration'
+          value: '5X',
+          label: 'More Regions/Year'
         }
       ]
     },
     {
       id: 2,
-      title: 'Managed Service Providers',
-      subtitle: 'Scale Observability Migrations',
-      description: 'AI-powered Datadog to New Relic migrations at scale. Automate conversions to improve margins.',
+      title: 'Growth-Stage ISVs',
+      subtitle: 'Scale Without Growing the Team',
+      description: 'Meet enterprise customer requirements for specific regions and clouds without hiring more infrastructure engineers.',
       image: './assets/images/case2.jpeg',
-      icon: <Users className="w-5 h-5 text-white/70" />,
+      icon: <Rocket className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Manual dashboard recreation taking weeks',
-        'Datadog metric namespace complexity',
-        'Alert threshold translation errors'
+        'Small infrastructure team stretched thin',
+        'Customer demands for specific regions/clouds',
+        'Manual process blocking sales deals'
       ],
       benefits: [
-        'Automate Datadog dashboard conversion',
-        'Handle 10x more migration projects',
-        'Reduce observability migration time by 80%'
+        'Expand to new regions without hiring',
+        'Meet customer requirements in weeks',
+        'Fully tested deployments every time'
       ],
       metrics: [
         {
-          icon: <Zap className="w-5 h-5 text-white/70 mb-2" />,
+          icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
           value: '60%',
-          label: 'Higher Margins'
+          label: 'Cost Savings'
         },
         {
-          icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
+          icon: <Zap className="w-5 h-5 text-white/70 mb-2" />,
           value: '90%',
-          label: 'Reduction in Escalations'
+          label: 'Less Manual Work'
         }
       ]
     },
     {
       id: 3,
-      title: 'Platform Engineering Teams',
-      subtitle: 'Escape Vendor Lock-in',
-      description: 'LLM-assisted migration to cost-effective alternatives. Preserve dashboards and alerts.',
+      title: 'Startups with Cloud Credits',
+      subtitle: 'Maximize Your $250-350K Credits',
+      description: 'Replicate your existing infrastructure to a new cloud provider fast. Go production-ready and maximize credit utilization.',
       image: './assets/images/case3.jpeg',
-      icon: <Code className="w-5 h-5 text-white/70" />,
+      icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Hundreds of Datadog dashboards to migrate',
-        'Complex alert rules and SLOs',
-        'Team resistance to platform change'
+        'Credits expiring unused on new platform',
+        'Unfamiliar cloud provider and services',
+        'Rebuilding infrastructure from scratch'
       ],
       benefits: [
-        'Perfect dashboard fidelity post-migration',
-        'Zero alert coverage gaps',
-        'Reduce Datadog costs by 60-80%'
+        'Replicate existing infra to new provider',
+        'Maximize credit utilization before expiry',
+        'Production-ready on day one'
       ],
       metrics: [
         {
-          icon: <LineChart className="w-5 h-5 text-white/70 mb-2" />,
-          value: '85%',
-          label: 'Decrease in Downtime'
+          icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
+          value: '90%',
+          label: 'Credit Utilization'
         },
         {
-          icon: <ShieldCheck className="w-5 h-5 text-white/70 mb-2" />,
-          value: '95%',
-          label: 'Fewer Rollbacks'
+          icon: <Clock className="w-5 h-5 text-white/70 mb-2" />,
+          value: '10X',
+          label: 'Faster Go-Live'
         }
       ]
     }
@@ -102,7 +102,7 @@ const CustomerPersonas = () => {
       <div className="container mx-auto px-4">
         <div className="mission-label mb-6">Who We Help</div>
         <h2 className="text-2xl text-white mb-12">
-          Built for Migration Leaders
+          Built for Software Vendors Ready to Expand
         </h2>
 
         {/* Personas Grid */}

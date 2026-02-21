@@ -37,8 +37,8 @@ const Hero = () => {
   return (
     <section className="hero font-['Inter']" aria-label="Introduction">
       <div className="container">
-        <h1>Migrate from Datadog to any observability platform with Migracle Copilot</h1>
-        <p>AI copilot for Datadog migrations. Convert dashboards, alerts, and metrics automatically - reducing migration time by 80%.</p>
+        <h1>Expand to New Cloud Regions and Providers in Weeks, Not Quarters</h1>
+        <p>Professional services for cloud infrastructure expansion. Replicate your infra across regions and providers - cutting expansion timelines from 2-3 quarters to 1-2 months.</p>
 
         <div className="input-form-container">
           <form id="subscriptionForm" className="input-form" onSubmit={handleSubscribe}>

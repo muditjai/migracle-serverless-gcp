@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import { GitBranch, Database, Network } from 'lucide-react';
+import { Globe, ArrowRightLeft, Layers } from 'lucide-react';
 
 const UseCases = () => {
   const [selectedCase, setSelectedCase] = useState(0); // Start with first use case selected
   
   const useCases = [
     {
-      icon: <GitBranch className="w-6 h-6 text-white" />,
-      title: "Datadog to Grafana Migration",
-      description: "AI copilot for Datadog to Grafana migration. Convert dashboards, panels, and alerts automatically.",
+      icon: <Globe className="w-6 h-6 text-white" />,
+      title: "AWS Region Expansion",
+      description: "Expand from us-east-1 to EU, APAC, or any region. Automated resource mapping, Terraform modularization, and compliance-ready deployments.",
       image: "./assets/images/observability.jpeg"
     },
     {
-      icon: <Database className="w-6 h-6 text-white" />,
-      title: "Datadog to New Relic",
-      description: "AI-powered Datadog to New Relic migration. Automated APM, logs, and metrics conversion.",
+      icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
+      title: "AWS to GCP Migration",
+      description: "Replicate your AWS infrastructure on GCP. Map services to their GCP equivalents, modularize Terraform, and deploy with full testing.",
       image: "./assets/images/data-transfer.jpeg"
     },
     {
-      icon: <Network className="w-6 h-6 text-white" />,
-      title: "Datadog to Chronosphere",
-      description: "LLM agent for Datadog to Chronosphere migrations. Handle complex metrics and analytics.",
+      icon: <Layers className="w-6 h-6 text-white" />,
+      title: "Multi-Cloud Deployment",
+      description: "Run simultaneously across AWS, GCP, and Azure. Unified Terraform modules, cross-cloud CI/CD, and centralized monitoring.",
       image: "./assets/images/coming-soon.jpeg"
     }
   ];
