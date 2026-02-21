@@ -97,12 +97,12 @@ const Features = () => {
       title: "Infrastructure Mapping & Terraform Modularization",
       description: "We map your resources across regions and clouds, abstract hardcodings, and modularize your Terraform for portable deployments.",
       metric1: {
-        value: "100+",
-        label: "Resources Mapped"
+        value: "100%",
+        label: "Portable Code"
       },
       metric2: {
-        value: "Zero",
-        label: "Hardcodings Left"
+        value: "1-2",
+        label: "Months to Deploy"
       }
     },
     {
@@ -114,8 +114,8 @@ const Features = () => {
         label: "Parity Verified"
       },
       metric2: {
-        value: "3-Layer",
-        label: "Func / Perf / Sec"
+        value: "100%",
+        label: "Test Coverage"
       }
     },
     {
@@ -123,12 +123,12 @@ const Features = () => {
       title: "CI/CD & Monitoring Setup",
       description: "We configure your CI/CD pipelines and set up observability for every new environment, production-ready from day one.",
       metric1: {
-        value: "80%",
-        label: "Time Reduction"
+        value: "Day 1",
+        label: "Production Ready"
       },
       metric2: {
-        value: "24/7",
-        label: "Monitoring"
+        value: "Full",
+        label: "Observability"
       }
     }
   ];

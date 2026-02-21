@@ -125,7 +125,7 @@ fi
 # Use Case 3: Multi-Cloud Deployment
 if should_generate "multi-cloud"; then
     generate_image \
-        "Three large prominent cloud platforms arranged in triangle, each cloud containing visible service icons for compute servers, storage disks, networking nodes, security shields, and IAM keys being synchronized. Minimal subtle connection lines between clouds, clouds are the focus. Dark black background, blue purple and cyan color scheme matching modern tech website, clean professional illustration, no text" \
+        "Three large cloud platforms in triangle formation, each cloud filled with many small white line icons for servers, databases, storage disks, networking switches, security shields, keys, containers all mixed together inside each cloud. Clouds have rich blue to purple to cyan gradient fill with glow effect. Thin subtle connection lines between clouds. Pure black background, professional tech illustration style, no text" \
         "multi-cloud.jpg" \
         "16:9"
 fi
@@ -145,7 +145,7 @@ fi
 # Persona 2: Growth-Stage ISVs
 if should_generate "growth-isv"; then
     generate_image \
-        "Photorealistic image of 2-3 people in a modern tech office looking at computer monitors displaying growth charts and upward trending graphs, revenue metrics going up, cool blue lighting, dark modern office environment, professional focused atmosphere, screens glowing with analytics dashboards, no warm tones, cinematic photography style" \
+        "Photorealistic wide shot of modern tech office with multiple large monitors in foreground showing growth charts and analytics dashboards with upward trending graphs and percentage metrics, 2-3 diverse tech professionals visible but smaller in frame working at desks in background, cool blue lighting, dark office environment, monitors are the main focus taking up most of frame, cinematic photography, no warm tones" \
         "growth-isv.jpg" \
         "4:3"
 fi
