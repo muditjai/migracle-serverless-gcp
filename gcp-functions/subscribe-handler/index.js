@@ -87,13 +87,15 @@ exports.subscribeHandler = async (req, res) => {
     // Save to Firestore leads collection
     await firestore.collection('leads').doc(id).set(leadData);
 
-    // Send email notification
-    await sendEmailNotification(leadData);
-
-    // Return success response
+    // Return success response immediately
     res.status(200).json({
       message: 'Subscription successful',
       email
+    });
+
+    // Send email notification asynchronously (don't await)
+    sendEmailNotification(leadData).catch(err => {
+      console.error('Error sending async email notification:', err);
     });
   } catch (error) {
     console.error('Error processing subscription:', error);
