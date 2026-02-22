@@ -1,123 +1,93 @@
-# Migracle Serverless on GCP
+# Migracle - Cloud Expansion Services for ISVs
 
-A serverless website for Migracle built on Google Cloud Platform using modern serverless technologies.
+Website for Migracle, a company that helps Enterprise Software Vendors (ISVs) expand to new cloud regions and providers in 4-6 weeks instead of 2-3 quarters.
 
-## 🏗️ Architecture
+**Live site**: https://migracle.com
 
-The application uses the following GCP services:
+## Architecture
 
-- **Cloud Storage**: Static website hosting with public access
-- **Cloud CDN**: Global content delivery network
-- **Cloud Functions**: Serverless backend functions (Node.js)
-- **Firestore**: NoSQL database for storing form data
-- **Cloud Load Balancer**: HTTPS termination and custom domain support
+Built on Google Cloud Platform using serverless technologies:
 
-## 📁 Project Structure
+- **Cloud Storage**: Static website hosting
+- **Cloud Functions**: Serverless backend (Node.js 22)
+- **Firestore**: NoSQL database for leads
+- **Cloud Load Balancer**: HTTPS and custom domain
+
+## Project Structure
 
 ```
 migracle-serverless/
-├── gcp-functions/             # Cloud Functions
-│   ├── contact-handler/       # Contact form handler
-│   └── subscribe-handler/     # Email subscription handler
-├── frontend/                  # Frontend code
-│   ├── src/                   # React source code
+├── frontend/
+│   ├── src/
 │   │   ├── components/        # React components
-│   │   └── index.js           # Main React entry point
-│   ├── assets/                # Images and static files
-│   ├── index.html             # Main HTML file
-│   ├── styles.css             # CSS styles
-│   ├── package.json           # Frontend dependencies
-│   └── webpack.config.js      # Webpack configuration
-├── deploy-gcp.sh              # Automated deployment script
-├── namecheap-dns-setup.md     # Domain setup instructions
-├── LOCAL_TESTING.md           # Local development guide
-└── COST_ESTIMATION.md         # GCP cost analysis
+│   │   ├── index.js           # React entry point
+│   │   └── tailwind.css       # Tailwind input
+│   ├── dist/                  # Built assets
+│   ├── assets/                # Images
+│   ├── index.html
+│   ├── styles.css
+│   ├── tailwind.config.js
+│   ├── webpack.config.js
+│   └── package.json
+├── gcp-functions/
+│   ├── contact-handler/       # Contact form API
+│   └── subscribe-handler/     # Subscription API
+├── deploy-gcp.sh              # Deployment script
+└── namecheap-dns-setup.md     # DNS setup guide
 ```
 
-## ✨ Features
+## Tech Stack
 
-- **React Frontend**: Modern component-based UI with Tailwind CSS
-- **Serverless API**: HTTP-triggered Cloud Functions
-- **NoSQL Database**: Firestore for contact forms and subscriptions
-- **Custom Domain**: SSL-enabled domain support with Load Balancer
-- **CDN**: Global content delivery for fast loading
-- **Cost-Efficient**: Pay-per-use serverless pricing
-- **Auto-Scaling**: Handles traffic spikes automatically
-- **Zero Maintenance**: No server management required
+- **Frontend**: React 19, Tailwind CSS 3, Webpack
+- **Backend**: Node.js 22 Cloud Functions
+- **Database**: Firestore (single `leads` collection)
+- **Email**: Zoho SMTP via Nodemailer
 
-## 🚀 Quick Deployment
+## Deployment
 
 ### Prerequisites
 - GCP account with billing enabled
 - `gcloud` CLI installed and authenticated
-- Node.js and npm for local development
 
-### Deploy to GCP
+### Quick Deploy
+
 ```bash
-# Make deployment script executable
-chmod +x deploy-gcp.sh
+# Frontend only
+./deploy-gcp.sh frontend
 
-# Run automated deployment
+# Full deployment (functions + frontend)
 ./deploy-gcp.sh
 ```
 
-The script will:
-1. Enable required GCP APIs
-2. Set up Firestore database
-3. Deploy Cloud Functions for contact/subscribe
-4. Create Cloud Storage bucket for static hosting
-5. Build and upload frontend
-6. Configure load balancer with SSL
+### Environment Variables
 
-## 🌐 Custom Domain Setup
+Cloud Functions require:
+- `EMAIL_USER`: Zoho email address
+- `EMAIL_PASS`: Zoho app password
 
-To use your own domain (e.g., `migracle.com`):
+Set via:
+```bash
+gcloud functions deploy contactHandler --region=us-central1 \
+  --update-env-vars EMAIL_USER=your-email,EMAIL_PASS=your-password
+```
 
-1. The deployment script creates the infrastructure
-2. Update your DNS records as shown in `namecheap-dns-setup.md`
-3. SSL certificates are automatically provisioned
-
-See [namecheap-dns-setup.md](./namecheap-dns-setup.md) for detailed DNS configuration.
-
-## 🔧 Local Development
-
-See [LOCAL_TESTING.md](./LOCAL_TESTING.md) for instructions on:
-- Running the frontend locally
-- Testing Cloud Functions locally
-- Using the GCP emulator suite
-
-## 💰 Cost Analysis
-
-See [COST_ESTIMATION.md](./COST_ESTIMATION.md) for detailed cost breakdown. 
-
-**Estimated monthly cost for 1000 users**: ~$3-5/month
-
-## 🔗 Live URLs
-
-After deployment, your application will be available at:
-
-- **Cloud Storage**: `https://storage.googleapis.com/[PROJECT-ID]-website/index.html`
-- **Custom Domain**: `https://your-domain.com` (after DNS setup)
-- **Contact API**: `https://[REGION]-[PROJECT-ID].cloudfunctions.net/contactHandler`
-- **Subscribe API**: `https://[REGION]-[PROJECT-ID].cloudfunctions.net/subscribeHandler`
-
-## 📧 API Endpoints
+## API Endpoints
 
 ### Contact Form
 ```bash
-POST https://us-central1-[PROJECT-ID].cloudfunctions.net/contactHandler
+POST https://us-central1-migracle-gcp-2.cloudfunctions.net/contactHandler
 Content-Type: application/json
 
 {
   "name": "John Doe",
   "email": "john@example.com",
-  "message": "Hello from Migracle!"
+  "message": "Optional message"  # message is optional
 }
 ```
 
 ### Email Subscription
 ```bash
-POST https://us-central1-[PROJECT-ID].cloudfunctions.net/subscribeHandler
+POST https://us-central1-migracle-gcp-2.cloudfunctions.net/subscribeHandler
 Content-Type: application/json
 
 {
@@ -125,34 +95,19 @@ Content-Type: application/json
 }
 ```
 
-## 🛠️ Technology Stack
+Both endpoints:
+- Store data in `leads` collection with `source` field (`contact_form` or `subscription_form`)
+- Send email notification to mudit@migracle.com
 
-- **Frontend**: React 19, Tailwind CSS, Webpack
-- **Backend**: Node.js Cloud Functions
-- **Database**: Google Firestore
-- **Hosting**: Cloud Storage + Cloud CDN
-- **Domain**: Cloud Load Balancer with SSL
+## Local Development
 
-## 📝 Environment Variables
+```bash
+cd frontend
+npm install
+npm run build      # Build CSS and JS
+python3 -m http.server 3000   # Serve locally
+```
 
-The Cloud Functions automatically use:
-- `REGION`: Deployment region (default: us-central1)
-- `GOOGLE_CLOUD_PROJECT`: Your GCP project ID
+## DNS Setup
 
-## 🔒 Security
-
-- CORS properly configured for frontend access
-- Input validation on all API endpoints
-- Firestore security rules prevent unauthorized access
-- SSL/HTTPS enforced on all endpoints
-
-## 📞 Support
-
-For issues with:
-- **GCP Services**: Check Cloud Console logs
-- **Domain Setup**: See DNS troubleshooting in setup guide
-- **Local Development**: Refer to LOCAL_TESTING.md
-
----
-
-Built with ❤️ using Google Cloud Platform serverless technologies.
+See [namecheap-dns-setup.md](./namecheap-dns-setup.md) for domain configuration.
