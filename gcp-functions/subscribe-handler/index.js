@@ -1,7 +1,44 @@
 const { Firestore } = require('@google-cloud/firestore');
+const { v4: uuidv4 } = require('uuid');
+const nodemailer = require('nodemailer');
 
 // Initialize Firestore
 const firestore = new Firestore();
+
+// Email configuration - Zoho SMTP
+const transporter = nodemailer.createTransport({
+  host: 'smtp.zoho.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+/**
+ * Send email notification for new lead
+ */
+async function sendEmailNotification(leadData) {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: 'mudit@migracle.com',
+    subject: `New Subscriber: ${leadData.email}`,
+    html: `
+      <h2>New Subscriber from Migracle Website</h2>
+      <p><strong>Source:</strong> ${leadData.source}</p>
+      <p><strong>Email:</strong> ${leadData.email}</p>
+      <p><strong>Timestamp:</strong> ${leadData.created_at}</p>
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log('Email notification sent successfully');
+  } catch (error) {
+    console.error('Error sending email notification:', error);
+  }
+}
 
 /**
  * HTTP Cloud Function to handle subscription form submissions
@@ -35,24 +72,23 @@ exports.subscribeHandler = async (req, res) => {
       return;
     }
 
-    // Check if email already exists
-    const existingDoc = await firestore.collection('subscribers').doc(email).get();
-    
-    if (existingDoc.exists) {
-      res.status(400).json({ error: 'Email already subscribed' });
-      return;
-    }
-
+    // Generate unique ID and timestamp
+    const id = uuidv4();
     const timestamp = new Date().toISOString();
 
     // Prepare document for Firestore
-    const subscriberData = {
+    const leadData = {
+      id,
       email,
+      source: 'subscription_form',
       created_at: timestamp
     };
 
-    // Save to Firestore
-    await firestore.collection('subscribers').doc(email).set(subscriberData);
+    // Save to Firestore leads collection
+    await firestore.collection('leads').doc(id).set(leadData);
+
+    // Send email notification
+    await sendEmailNotification(leadData);
 
     // Return success response
     res.status(200).json({

@@ -75,13 +75,14 @@ else
     echo "☁️ Deploying Contact Handler..."
     cd gcp-functions/contact-handler
     gcloud functions deploy contactHandler \
-      --runtime nodejs18 \
+      --runtime nodejs22 \
       --trigger-http \
       --allow-unauthenticated \
       --region=$REGION \
       --memory=256MB \
       --timeout=60s \
-      --entry-point=contactHandler
+      --entry-point=contactHandler \
+      --set-env-vars EMAIL_USER=$EMAIL_USER,EMAIL_PASS=$EMAIL_PASS
 
     # Get the contact function URL
     CONTACT_URL=$(gcloud functions describe contactHandler --region=$REGION --format="value(httpsTrigger.url)")
@@ -91,13 +92,14 @@ else
     echo "📧 Deploying Subscribe Handler..."
     cd ../subscribe-handler
     gcloud functions deploy subscribeHandler \
-      --runtime nodejs18 \
+      --runtime nodejs22 \
       --trigger-http \
       --allow-unauthenticated \
       --region=$REGION \
       --memory=256MB \
       --timeout=60s \
-      --entry-point=subscribeHandler
+      --entry-point=subscribeHandler \
+      --set-env-vars EMAIL_USER=$EMAIL_USER,EMAIL_PASS=$EMAIL_PASS
 
     # Get the subscribe function URL
     SUBSCRIBE_URL=$(gcloud functions describe subscribeHandler --region=$REGION --format="value(httpsTrigger.url)")
