@@ -14,10 +14,10 @@ const Header = () => {
         <a href="#" className="logo flex items-center gap-2">
             <img
                 src="./assets/logo.png"
-                alt="Migrale AI Logo"
+                alt="Migracle AI Logo"
                 className="w-12 h-12 object-contain"
             />
-            <span className="text-xl font-semibold">Migrale AI</span>
+            <span className="text-xl font-semibold">Migracle AI</span>
         </a>
           <button 
             onClick={handleContactClick}
