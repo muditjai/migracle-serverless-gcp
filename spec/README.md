@@ -58,10 +58,18 @@ We are an **outcome-based, AI-native service**:
 
 ```
 migracle-serverless/
-├── frontend/                  # React 19 + Tailwind static site (Webpack build)
-│   ├── src/components/        # React components (Hero, Header, Footer, etc.)
-│   ├── src/index.js           # React entry point
-│   └── src/tailwind.css       # Tailwind input
+├── frontend/
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   ├── index.js           # React entry point
+│   │   └── tailwind.css       # Tailwind input
+│   ├── dist/                  # Built assets
+│   ├── assets/                # Images
+│   ├── index.html
+│   ├── styles.css
+│   ├── tailwind.config.js
+│   ├── webpack.config.js
+│   └── package.json
 ├── gcp-functions/             # Node.js 22 Cloud Functions
 │   ├── contact-handler/       # POST /contactHandler
 │   └── subscribe-handler/     # POST /subscribeHandler
