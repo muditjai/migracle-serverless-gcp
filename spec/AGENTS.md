@@ -10,9 +10,22 @@ This file contains instructions for AI coding agents working on the Migracle pro
 
 Migracle is an **AI-native professional services** company that helps companies **extend their cloud runway** and **reduce their cloud bill**. Customers can pick whichever fits — or combine them:
 
-1. **Optimize the existing cloud stack and AI usage** end-to-end — containers, token spend, storage, data warehouses, application logic, and architecture. Unlike other FinOps and infra-optimization products, we optimize the entire stack end-to-end (not just a dashboard).
+1. **Optimize the existing cloud stack and AI usage** end-to-end — containers, token spend, storage, data warehouses, application logic, and architecture. We **implement the fixes**, not just point at the waste.
 2. **Migrate to another cloud** to use startup cloud credits (typical range **$100k–$350k**), or to take advantage of a better rate at another provider (e.g. AWS → GCP). Full end-to-end migration.
 3. **Both** — optimize first, then migrate, to compound the savings.
+
+### Where we fit vs the existing market
+
+**Optimization.** Today there are two distinct FinOps / infra-tool categories, and Migracle sits in the gap between them:
+
+- **Type 1 — FinOps / observability platforms** (org-wide cost observation, tagging, alerting, recommendations). Examples: Flexera, CloudZero, Vantage. They tell you *where* the waste is; your team still owns the fixes.
+- **Type 2 — Autonomous infra optimizers** (autonomous optimization of a specific infrastructure slice, most often Kubernetes). Examples: Cast.ai, ScaleOps, Zesty. They act on one slice of the stack and leave the rest of the bill untouched.
+
+Migracle does the work across the entire stack end-to-end and ships the changes — not a dashboard and not a single-infra slice.
+
+**Migration.** The typical options today are doing it in-house or hiring a cloud partner SI. Examples of those SIs: DoIT, Accenture, SADA, Kyndryl. They typically work on time-and-materials or multi-year retainer with heavy eng involvement on your side and payment regardless of outcome. Migracle is **outcome-based, AI-native**, milestone 1-time payment, and targets **4–5 meetings** with your team — not 2–3 quarters of staff augmentation.
+
+### Delivery model
 
 We deliver as an **outcome-based, AI-native service**:
 

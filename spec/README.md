@@ -9,13 +9,37 @@ Website for Migracle, an AI-native professional services company that helps comp
 Migracle helps you **reduce your cloud bill** by extending your cloud runway through one (or a combination) of three approaches:
 
 1. **Optimize your existing cloud stack and AI usage**
-   End-to-end optimization across containers, token spend, storage, data warehouses, and the rest of your bill. Unlike other FinOps and infra-optimization products that stop at the dashboard, we optimize the **entire stack end-to-end** — infrastructure, application logic, and architecture — to cut real cost.
+   End-to-end optimization across containers, token spend, storage, data warehouses, application logic, and architecture. We don't just point at waste — we **implement the fix** across the whole stack.
 
 2. **Migrate to another cloud to use startup credits (or get a better rate)**
    If you have access to startup cloud credits (typical range **$100k–$350k**), we migrate your stack to that provider so you can deploy against fresh credits. If startup credits aren't applicable but you've found a better rate at another cloud provider (e.g. AWS → GCP), we run the migration end-to-end anyway.
 
 3. **Both**
    Many customers combine 1 and 2 — optimize the current stack first, then move it to the cheaper provider — to compound the savings.
+
+## Where We Fit
+
+Migracle sits in two categories of cloud spend that already have plenty of vendors — and replaces what those vendors would have done together, but as one outcome-based engagement.
+
+### Optimization vs existing FinOps & infra tools
+
+The market for cloud cost tools today splits into two distinct types. **Migracle does the work** in a way that neither type can:
+
+| Existing category | What they do | Examples |
+|---|---|---|
+| **Type 1 — FinOps / observability platforms** (org-wide cost observation, tagging, alerting, recommendations) | Tell you where the waste is. Stop at the dashboard / recommendation. Your team still owns the fixes. | Flexera, CloudZero, Vantage |
+| **Type 2 — Autonomous infra optimizers** (autonomous optimization of a specific infrastructure slice) | Act on a single slice — most often Kubernetes — and leave the rest of the bill and stack untouched. | Cast.ai, ScaleOps, Zesty |
+
+**Migracle covers the gap between those two.** We don't stop at the dashboard and we don't stop at Kubernetes. We optimize across containers, token spend, storage, data warehouses, application logic, and architecture — the **entire stack, end-to-end** — and we ship the changes for you, not a list of action items.
+
+### Migration vs in-house and cloud SIs
+
+For migration, the typical options today are either doing it in-house or hiring a cloud partner SI:
+
+| Existing option | What they look like | Where Migracle differs |
+|---|---|---|
+| **In-house** (your own eng team plans and runs the migration) | 2–3 quarters of dedicated eng time; salary + opportunity cost; you manage the project. | We take it off your plate end-to-end. |
+| **Cloud partner SIs** (large consultancies that migrate you) | Time-and-materials or multi-year retainer. Heavy eng involvement on your side. You pay regardless of outcome. | Examples: DoIT, Accenture, SADA, Kyndryl. Migracle is **outcome-based, AI-native, milestone 1-time payment** — and we aim for **4–5 meetings** with your team, not 2–3 quarters of staff-augmentation. |
 
 ## How We Deliver
 
