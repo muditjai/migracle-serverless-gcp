@@ -1,1 +1,1 @@
-This is a website for company called Migracle. It provides professional services to help Enterprise Software Vendors (ISVs) expand to new cloud regions and cloud providers. Internally backed by AI agents, Migracle replicates infrastructure in 1-2 months instead of 2-3 quarters by mapping resources, modularizing Terraform, abstracting hardcodings, running comprehensive testing, and setting up CI/CD and monitoring.
+spec/AGENTS.md
