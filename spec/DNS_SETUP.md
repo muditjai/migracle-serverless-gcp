@@ -1,5 +1,7 @@
 # Namecheap DNS Setup for migracle.com
 
+> **Scope**: This file describes the DNS records for the **prod** production site (`migracle.com` / `www.migracle.com`). The **test** Cloud Run service is reached via its auto-assigned URL (`https://<service>-<hash>-uc.a.run.app`) and does **not** need a DNS record — see [`ARCHITECTURE.md`](./ARCHITECTURE.md) and [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow-mandatory) for the test → prod flow.
+
 ## 🎯 Quick Setup Guide
 
 Your GCP infrastructure is ready! Now you need to update DNS records in Namecheap to point your domain to GCP.
@@ -50,11 +52,19 @@ Instead of the www A record above, you can use:
    nslookup migracle.com
    nslookup www.migracle.com
    ```
-   
+
 2. **Test website access**:
    - http://migracle.com (should work immediately)
    - https://migracle.com (available after SSL provisioning)
    - https://www.migracle.com (available after SSL provisioning)
+
+### Test Environment Access:
+The test Cloud Run service does not use this domain. Get its URL from the deploy output, e.g.:
+```bash
+gcloud run services describe migracle-site-test \
+  --region us-central1 --format="value(status.url)"
+```
+Open the printed URL for owner review during pre-prod verification.
 
 ### SSL Certificate Status:
 ```bash
@@ -85,8 +95,10 @@ If you encounter issues:
 3. Contact Namecheap support for DNS-specific issues
 
 ## 🎉 Success!
-Once complete, your website will be available at:
+Once complete, your **prod** website will be available at:
 - **https://migracle.com** ✅
 - **https://www.migracle.com** ✅
 - **Fast global CDN delivery** ✅
 - **Automatic HTTPS/SSL** ✅
+
+Remember: changes always ship to the **test** Cloud Run service first (no DNS / no LB needed) and are manually promoted to prod by the owner. See [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow-mandatory).

@@ -38,6 +38,19 @@ Detailed system architecture for the Migracle serverless deployment on Google Cl
                                                         └───────────────────┘
 ```
 
+## Environments — Test vs Prod
+
+We ship every change through a **test → prod** flow on Cloud Run. Promotions are manually performed by the owner.
+
+| Environment | Purpose | How it's updated |
+|-------------|---------|------------------|
+| **test** (GCP Cloud Run) | Where every change is deployed first. Owner opens the test URL and eyeballs the result before approval. | `./deploy-gcp.sh test` (or the auto-deploy from `main` if configured) |
+| **prod** (GCP Cloud Run) | The live `migracle.com` site. Only updated after the owner has reviewed the test deployment. | Owner manually promotes the test image to the prod service |
+
+**Rule**: Agents deploy to **test** only. Promotion to prod is **manual** and is performed by the owner — never by an agent or CI.
+
+See [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow-mandatory) for the full step-by-step.
+
 ## Components
 
 ### 1. Cloud Storage (static frontend)
@@ -52,14 +65,16 @@ Detailed system architecture for the Migracle serverless deployment on Google Cl
 - CDN enabled; first 10GB egress per month is free
 - Static IP: `34.8.48.9`
 
-### 3. Cloud Functions (Node.js 22)
+### 3. Cloud Run / Cloud Functions (Node.js 22)
 - **Region**: `us-central1`
 - **Runtime**: `nodejs22`
 - **Memory**: 256MB per function
 - **Trigger**: HTTP (anonymous, public)
 - Functions:
-  - `contactHandler` – `POST /contactHandler`
-  - `subscribeHandler` – `POST /subscribeHandler`
+  - `contactHandler` – `POST /contactHandler` (prod) and `contactHandler-test` (test, or a Cloud Run revision tagged for test)
+  - `subscribeHandler` – `POST /subscribeHandler` (same test/prod pairing)
+
+The frontend can also be served from a **Cloud Run** container in addition to (or instead of) the Cloud Storage bucket. When a change is being validated, the **test** Cloud Run service is the canonical place to look.
 
 ### 4. Firestore
 - **Mode**: Native (not Datastore mode)
@@ -88,7 +103,9 @@ Detailed system architecture for the Migracle serverless deployment on Google Cl
 - **CSS**: Tailwind CSS 3 (PostCSS pipeline)
 - **Framework**: React 19 (no SSR; this is a static site)
 - **Entry**: `frontend/src/index.js` → renders `<App />` into `#root`
-- **Output**: `frontend/dist/` is uploaded to Cloud Storage by `deploy-gcp.sh`
+- **Output**: `frontend/dist/` is uploaded to Cloud Storage (or built into the Cloud Run test container) by `deploy-gcp.sh`
+
+The visual design is intentionally stable — color schemes, image styles, layouts, and component structure should be preserved when shipping copy/feature updates. Substantial design changes require explicit owner approval; see [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#design-preservation).
 
 ## API Contracts
 
@@ -131,6 +148,7 @@ Same response shape and status codes as contact handler. `email` is required.
 - **Rate limiting**: Currently handled by GCP's default per-function quotas. Consider Cloud Armor if abuse appears.
 - **Spam mitigation**: `honeypot` field is checked server-side; submissions with a non-empty honeypot are silently dropped (no DB write, no email).
 - **Secrets**: Only in function env vars. Never committed.
+- **Test vs prod isolation**: Test environment URLs are not the production domain; secrets (if any are test-only) must still never be committed.
 
 ## Observability
 
@@ -146,15 +164,21 @@ Same response shape and status codes as contact handler. `email` is required.
 
 The deploy script handles:
 1. Building the frontend (`npm run build`)
-2. Syncing `frontend/dist/` to the Cloud Storage bucket
+2. Shipping to the appropriate target (`test` or `prod`) — Cloud Storage / Cloud Run / Cloud Functions as configured
 3. Deploying each function in `gcp-functions/` with `--source` and `--runtime=nodejs22`
 
 Run:
 ```bash
-./deploy-gcp.sh             # frontend + functions
-./deploy-gcp.sh frontend    # frontend only
-./deploy-gcp.sh functions   # functions only
+./deploy-gcp.sh test            # Frontend + functions → test Cloud Run
+./deploy-gcp.sh prod            # Frontend + functions → prod Cloud Run  (owner only)
+./deploy-gcp.sh frontend-test   # Quick frontend update to test only
+./deploy-gcp.sh frontend-prod   # Quick frontend update to prod only   (owner only)
+./deploy-gcp.sh                 # Default — same as `./deploy-gcp.sh test`
 ```
+
+If the exact argument set differs, check the script's `Usage:` block at runtime — the canonical list lives there.
+
+**Default behavior is `test`.** Production-only flags exist for the owner; agents should not invoke them.
 
 ## Environment Variables
 
@@ -172,9 +196,19 @@ gcloud functions deploy contactHandler \
   --update-env-vars EMAIL_USER=<user>,EMAIL_PASS=<pass>
 ```
 
+## Cloud Run Service Names (convention)
+
+The exact names depend on what's provisioned in the `migracle-gcp-2` project, but the convention is:
+
+- **Test**: `migracle-site-test` (frontend container) and `<function>-test` for any backend
+- **Prod**: `migracle-site` (frontend container) and the unprefixed function name
+
+If you encounter a service whose name doesn't match this convention, check the GCP console or `gcloud run services list` before deploying to it.
+
 ## Future / Nice-to-have
 
 - Add a Cloud Armor policy for bot protection
 - Move lead capture to a queue + Worker function if volume grows
 - Add a `respondedAt` field on `leads` so the team can mark follow-ups
 - Multi-region failover for the load balancer
+- Auto-promote Cloud Run revision via a manual approval step in `gcloud` (still gated by owner)
