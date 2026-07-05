@@ -11,7 +11,7 @@ Website for Migracle, an AI-native professional services company that helps comp
 Migracle helps you **reduce your cloud bill** by extending your cloud runway through one (or a combination) of three approaches:
 
 1. **Optimize your existing cloud stack and AI usage**
-   End-to-end optimization across containers, token spend, storage, data warehouses, application logic, and architecture. We don't just point at waste — we **implement the fix** across the whole stack.
+   We implement optimization across the whole stack — covering application logic, architecture, data pipelines, AI usage, and infrastructure (containers, storage, data warehouses, token spend, and the rest of your bill). We validate every change to confirm complete functional and SLA parity versus your pre-change state, while ensuring the cost is lower.
 
 2. **Migrate to another cloud to use startup credits (or get a better rate)**
    If you have access to startup cloud credits (typical range **$100k–$350k**), we migrate your stack to that provider so you can deploy against fresh credits. If startup credits aren't applicable but you've found a better rate at another cloud provider (e.g. AWS → GCP), we run the migration end-to-end anyway.
@@ -32,7 +32,7 @@ The market for cloud cost tools today splits into two distinct types. **Migracle
 | **Type 1 — FinOps / observability platforms** (org-wide cost observation, tagging, alerting, recommendations) | Tell you where the waste is. Stop at the dashboard / recommendation. Your team still owns the fixes. | Flexera, CloudZero, Vantage |
 | **Type 2 — Autonomous infra optimizers** (autonomous optimization of a specific infrastructure slice) | Act on a single slice — most often Kubernetes — and leave the rest of the bill and stack untouched. | Cast.ai, ScaleOps, Zesty |
 
-**Migracle covers the gap between those two.** We don't stop at the dashboard and we don't stop at Kubernetes. We optimize across containers, token spend, storage, data warehouses, application logic, and architecture — the **entire stack, end-to-end** — and we ship the changes for you, not a list of action items.
+**Migracle covers the gap between those two.** We don't stop at the dashboard and we don't stop at Kubernetes. We implement optimization across application logic, architecture, data pipelines, AI usage, and infrastructure — the **entire stack, end-to-end** — validate functional and SLA parity before and after, and deliver a lower total cost. You don't get a list of action items; you get the changes shipped.
 
 ### Migration vs in-house and cloud SIs
 
@@ -50,7 +50,7 @@ We are an **outcome-based, AI-native service**:
 - **Milestone-based, one-time payment.** No long-term contract, no recurring retainer.
 - **Target ROI:** 5–10× in year 1.
 - **Minimal eng team involvement.** We aim for **4–5 meetings** with your team across the engagement; everything else is run by our agents.
-- **Parity guaranteed.** Final product functionality and SLAs are delivered at complete parity to your current state after optimization/migration. This is made possible by extensive testing and verification at each layer of the cloud stack.
+- **Parity guaranteed.** After every optimization or migration, the final product functionality and SLAs are verified at complete parity to your pre-change state. This is built into our delivery process via extensive testing at each layer of the cloud stack.
 
 ---
 
