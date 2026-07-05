@@ -1,8 +1,10 @@
 # Migracle — Cloud Cost Savings, Outcome-Based
 
-Website for Migracle, an AI-native professional services company that helps companies **extend their cloud runway**. We do this in three ways, and you can pick whichever fits — or combine them.
+Website for Migracle, an AI-native professional services company that helps companies **extend their cloud runway**. This document is the single source of truth for the project — it covers what Migracle does, how the site is built, and the rules every agent and contributor must follow.
 
 **Live site**: https://migracle.com
+
+---
 
 ## What Migracle Does
 
@@ -50,29 +52,24 @@ We are an **outcome-based, AI-native service**:
 - **Minimal eng team involvement.** We aim for **4–5 meetings** with your team across the engagement; everything else is run by our agents.
 - **Parity guaranteed.** Final product functionality and SLAs are delivered at complete parity to your current state after optimization/migration. This is made possible by extensive testing and verification at each layer of the cloud stack.
 
-## Project Structure
+---
+
+## Repo Layout
 
 ```
 migracle-serverless/
-├── frontend/
-│   ├── src/
-│   │   ├── components/        # React components
-│   │   ├── index.js           # React entry point
-│   │   └── tailwind.css       # Tailwind input
-│   ├── dist/                  # Built assets
-│   ├── assets/                # Images
-│   ├── index.html
-│   ├── styles.css
-│   ├── tailwind.config.js
-│   ├── webpack.config.js
-│   └── package.json
-├── gcp-functions/
-│   ├── contact-handler/       # Contact form API
-│   └── subscribe-handler/     # Subscription API
-├── deploy-gcp.sh              # Deployment script (test + prod targets)
-└── spec/                      # All project documentation (this folder)
+├── frontend/                  # React 19 + Tailwind static site (Webpack build)
+│   ├── src/components/        # React components (Hero, Header, Footer, etc.)
+│   ├── src/index.js           # React entry point
+│   └── src/tailwind.css       # Tailwind input
+├── gcp-functions/             # Node.js 22 Cloud Functions
+│   ├── contact-handler/       # POST /contactHandler
+│   └── subscribe-handler/     # POST /subscribeHandler
+├── deploy-gcp.sh              # Deploys to Cloud Run (test) and (prod)
+├── README.md                  # Symlink → spec/README.md (this file)
+├── AGENTS.md                  # Symlink → spec/README.md (this file)
+└── spec/                      # ALL project documentation lives here
     ├── README.md              #   ← You are here (GitHub renders this)
-    ├── AGENTS.md              # Agent-facing instructions
     ├── CODING_STANDARDS.md    # Style, conventions, and deployment workflow
     ├── ARCHITECTURE.md        # System architecture details
     ├── COST_ESTIMATION.md     # GCP cost breakdown
@@ -87,33 +84,118 @@ migracle-serverless/
 - **Email**: Zoho SMTP via Nodemailer
 - **Deployment**: GCP Cloud Run (test container first, manual promotion to prod)
 
-## Documentation
+## Where to Find Things
 
-All project documentation lives in the [`spec/`](./spec/) folder:
+Before making changes, read the relevant doc in this folder:
 
-- [`spec/README.md`](./spec/README.md) – This file (project overview)
-- [`spec/AGENTS.md`](./spec/AGENTS.md) – Instructions for AI coding agents
-- [`spec/CODING_STANDARDS.md`](./spec/CODING_STANDARDS.md) – Code style, conventions, and the Git/deploy workflow
-- [`spec/ARCHITECTURE.md`](./spec/ARCHITECTURE.md) – Detailed system architecture (including the test → prod Cloud Run topology)
-- [`spec/COST_ESTIMATION.md`](./spec/COST_ESTIMATION.md) – GCP cost breakdown for hosting this site
-- [`spec/DNS_SETUP.md`](./spec/DNS_SETUP.md) – Namecheap DNS configuration
+| Doc | When to read |
+|-----|--------------|
+| [`CODING_STANDARDS.md`](./CODING_STANDARDS.md) | Before writing or reviewing any code; includes Git + deployment workflow |
+| [`ARCHITECTURE.md`](./ARCHITECTURE.md) | When changing infrastructure, functions, Cloud Run services, or data models |
+| [`COST_ESTIMATION.md`](./COST_ESTIMATION.md) | When proposing changes that affect GCP spend |
+| [`DNS_SETUP.md`](./DNS_SETUP.md) | When modifying domain or load balancer config |
 
-## Deployment Workflow (read this before deploying)
+---
 
-We follow a strict **test → prod** workflow on GCP Cloud Run. Every change is shipped to a test container first, reviewed, and only then promoted to prod.
+## For Agents (and Contributors)
 
-1. **Commit + push to `main`** after each change.
-   - One logical change per commit.
-   - Reference the relevant doc in `spec/` if the change affects documented behavior.
-2. **Deploy to the test container on Cloud Run** (see [`ARCHITECTURE.md`](./ARCHITECTURE.md) for service names).
-   - Build the frontend, run any backend unit tests, and ship to the **test** Cloud Run service.
-   - Open the test URL and verify the change looks/behaves as expected.
-3. **Promote to prod** only after you've eyeballed the test deployment.
-   - Promotion is **manual** — re-tag or re-deploy the same artifact to the **prod** Cloud Run service.
+The rest of this document is the operating handbook. Humans can skim; agents must follow.
 
-Never push a change directly to prod. Always go via test → review → prod.
+### Core Rules
 
-See [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow) for the exact commands.
+1. **Read before writing.** Open the doc that matches the area you're touching. The `spec/` folder is the single source of truth.
+2. **Match existing conventions.** Follow [`CODING_STANDARDS.md`](./CODING_STANDARDS.md). When in doubt, mirror the surrounding code.
+3. **Don't change infrastructure contracts casually.** API endpoint URLs, request/response shapes, and the `leads` Firestore schema are referenced from the live site. Update [`README.md`](./README.md) (this file) and [`ARCHITECTURE.md`](./ARCHITECTURE.md) in the same change.
+4. **Secrets stay out of git.** Never commit `.env*` files. Document any new env vars in the relevant function's README or in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+5. **Prefer small, surgical changes.** This is a production marketing site with live forms. Avoid sweeping refactors unless asked.
+6. **No new dependencies without justification.** The stack is intentionally lean (React + Tailwind + Webpack on the frontend, bare Node 22 in the functions).
+7. **Commit + push to `main` after every change.** Don't batch unrelated edits into one mega-commit, and don't leave changes sitting in the working tree.
+8. **Always go via test → prod.** All code changes must first be deployed to the **test container on GCP Cloud Run**, eyeballed by the owner, and only then promoted to **prod**. Promotion to prod is **manual** and is performed by the owner, never automated by an agent.
+
+### Design Rules
+
+1. **Keep the design roughly the same.** Reuse the existing layout, sections, components, and overall visual structure. Color schemes and image styles should also be kept roughly the same.
+2. **Ask before making substantial design changes.** If a change is more than a copy tweak, color tweak, or minor styling fix, surface it and get explicit approval before implementing. Substantial changes include: new sections, new layouts, new component types, large visual overhauls, changes to the navigation structure, new iconography, or replacing existing imagery.
+
+### Common Tasks
+
+#### Add a new React component
+- Place under `frontend/src/components/`
+- Match the style of existing components (functional, default-export, Tailwind utility classes)
+- Don't introduce a new UI library
+
+#### Add a new Cloud Function
+- Create `gcp-functions/<name>-handler/` with `index.js` and `package.json`
+- Update [`ARCHITECTURE.md`](./ARCHITECTURE.md) and the API Endpoints table further down in this file
+- Add the deployment command to `deploy-gcp.sh` if it should ship with the standard deploy
+
+#### Change styling
+- Edit `frontend/src/tailwind.css` and/or component-level classes
+- Run `npm run build` in `frontend/` before declaring done
+- Keep color schemes and image styles roughly the same; ask first if the change is substantial
+
+#### Update copy / messaging
+- Reflect Migracle's current positioning (cloud cost savings / runway extension; outcome-based, AI-native service; milestone-based one-time payment; 5–10× ROI; 4–5 meetings; parity guarantee)
+- The canonical wording lives at the top of this file
+- Update both the visible copy (components / `index.html` meta tags) **and** the relevant spec doc in the same change
+
+#### Investigate a deploy issue
+- Check `deploy-gcp.sh` and the relevant doc in [`ARCHITECTURE.md`](./ARCHITECTURE.md)
+- For DNS issues, see [`DNS_SETUP.md`](./DNS_SETUP.md)
+
+### Deployment Workflow (mandatory)
+
+Every change goes through a **test → prod** flow on GCP Cloud Run. Agents never deploy directly to prod.
+
+#### Step 1 — Make the change
+Edit files. Run local checks (`npm run build` for the frontend, dry-runs where applicable) before committing.
+
+#### Step 2 — Commit
+```bash
+git add -A
+git commit -m "Imperative-mood summary of the change"
+```
+
+Keep commits small and focused. One logical change per commit.
+
+#### Step 3 — Push to `main`
+```bash
+git push origin main
+```
+
+#### Step 4 — Deploy to the test container on Cloud Run
+See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the exact service name and gcloud command. The convention:
+- Frontend → **test** Cloud Run service (or test Cloud Storage bucket fronted by the same setup)
+- Cloud Functions → **test**-prefixed function name
+
+Example (frontend test container):
+```bash
+gcloud run deploy migracle-site-test \
+  --source ./frontend \
+  --region us-central1 \
+  --allow-unauthenticated
+```
+
+#### Step 5 — Open the test URL and verify
+Visit the test URL the deploy script prints. Eyeball the change. If something's off, fix it locally and repeat steps 2–5.
+
+#### Step 6 — Stop. Ask the owner to promote to prod.
+Agents **must not** deploy to prod themselves. Tell the owner that the test deployment is ready and wait for them to promote. The owner may re-deploy the same image / re-tag the revision onto the **prod** Cloud Run service.
+
+> **Agents: if you're asked to "deploy", you deploy to test and hand off. Promotion to prod is always manual.**
+
+### Things to Avoid
+
+- Editing generated files (`frontend/dist/*`)
+- Adding new top-level config files unless absolutely necessary
+- Introducing TypeScript (this repo is JS-only by convention)
+- Hardcoding environment-specific values (regions, project IDs, domains) anywhere outside of `deploy-gcp.sh` and [`DNS_SETUP.md`](./DNS_SETUP.md)
+- Substantial design changes without explicit approval from the owner
+- Deploying directly to prod (test → owner review → prod is the only path)
+- Leaving uncommitted changes in the working tree at the end of a task
+- Splitting this doc — `README.md` is the single source for both humans and agents
+
+---
 
 ## Environment Variables
 

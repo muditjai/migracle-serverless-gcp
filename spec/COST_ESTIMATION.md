@@ -2,7 +2,7 @@
 
 This document provides an estimated cost breakdown for running the Migracle marketing site on Google Cloud Platform. These estimates are based on typical usage patterns and GCP pricing as of 2025.
 
-> **Note**: This doc covers the cost of **hosting the marketing site itself**. Migracle's product is an outcome-based cloud cost-saving service for customers — see [`README.md`](./README.md) and [`AGENTS.md`](./AGENTS.md) for the product description.
+> **Note**: This doc covers the cost of **hosting the marketing site itself**. Migracle's product is an outcome-based cloud cost-saving service for customers — see [`README.md`](./README.md) for the product description.
 
 ## Assumptions
 

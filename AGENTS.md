@@ -1,1 +1,1 @@
-spec/AGENTS.md
+spec/README.md
