@@ -37,12 +37,12 @@ const Hero = () => {
   return (
     <section className="hero font-['Inter']" aria-label="Introduction">
       <div className="container">
-        <h1>Reduce Your Cloud Bill. Extend Your Cloud Runway.</h1>
+        <h1>Cut your cloud bill. We ship the change.</h1>
         <p>
-          Migracle is an outcome-based, AI-native service that cuts cloud spend through
-          end-to-end optimization, migration to leverage startup credits ($100k&ndash;$350k),
-          or both. Milestone-based, one-time payment. 5&ndash;10&times; ROI in year 1.
-          4&ndash;5 meetings. Parity guaranteed at every layer of the stack.
+          Migracle is an AI-engineering team. We optimize your cloud stack or migrate
+          you to a cheaper provider&mdash;then we prove everything still passes at your
+          current SLA. Outcome-based pricing. 4&ndash;5 meetings across the engagement.
+          Typical 5&times; savings in year 1.
         </p>
 
         <div className="input-form-container">
@@ -64,7 +64,7 @@ const Hero = () => {
               className="subscribe-button"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Subscribing...' : 'Subscribe to Updates'}
+              {isSubmitting ? 'Subscribing...' : 'Get the cost-savings playbook'}
             </button>
           </form>
         </div>

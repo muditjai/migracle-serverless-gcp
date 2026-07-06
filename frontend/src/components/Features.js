@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { TrendingDown, ShieldCheck, Rocket } from 'lucide-react';
+import { Wrench, ShieldCheck, Rocket } from 'lucide-react';
 
 const useIntersectionObserver = (options = {}) => {
   const ref = useRef(null);
@@ -92,42 +92,42 @@ const Features = () => {
 
   const features = [
     {
-      icon: <TrendingDown className="w-6 h-6 text-white" />,
-      title: "End-to-End Stack Optimization",
-      description: "We cover containers, token spend, storage, data warehouses, application logic, architecture, and data pipelines — not a single slice, not a dashboard.",
+      icon: <Wrench className="w-6 h-6 text-white" />,
+      title: "We ship the change.",
+      description: "Other tools tell you what's wrong. We open the PRs, change the Terraform, rewrite the pipeline, and ship. Your team reviews. That's it.",
       metric1: {
-        value: "All 5",
-        label: "Layers"
+        value: "100%",
+        label: "Work Shipped"
       },
       metric2: {
-        value: "100%",
-        label: "Stack Coverage"
+        value: "Zero",
+        label: "Action Items for You"
       }
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-white" />,
-      title: "Functional & SLA Parity, Verified",
-      description: "Every change is validated against your pre-change state. You get a verified working system and a lower bill — not a list of action items.",
+      title: "Verified at your SLA.",
+      description: "Before we say done, we run your traffic against the new stack. Functional parity. Latency parity. Error-rate parity. Same service, lower bill — not a promise, a test result.",
       metric1: {
         value: "100%",
-        label: "Parity"
+        label: "Functional Parity"
       },
       metric2: {
-        value: "Verified",
-        label: "At Every Layer"
+        value: "Pre/Post",
+        label: "Verified, Not Assumed"
       }
     },
     {
       icon: <Rocket className="w-6 h-6 text-white" />,
-      title: "Outcome-Based, AI-Native",
-      description: "Milestone-based, one-time payment. 4–5 meetings with your team. 5–10× ROI in year 1. No long-term contract, no retainer.",
+      title: "Outcome-priced.",
+      description: "Milestone payments, not hourly. No retainer. 4&ndash;5 meetings across the engagement. Target 5&times; ROI in year 1; most customers see 60&ndash;80% lower spend.",
       metric1: {
-        value: "5–10×",
-        label: "Year-1 ROI"
+        value: "5×",
+        label: "Target ROI"
       },
       metric2: {
-        value: "4–5",
-        label: "Meetings"
+        value: "60–80%",
+        label: "Spend Cut"
       }
     }
   ];
@@ -135,9 +135,9 @@ const Features = () => {
   return (
     <section className="mission" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">Why Migracle</div>
+        <div className="mission-label mb-6">What makes us different</div>
         <h2 className="text-2xl text-white mb-12">
-          What Sets Us Apart
+          Built for teams who want it done, not diagnosed.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

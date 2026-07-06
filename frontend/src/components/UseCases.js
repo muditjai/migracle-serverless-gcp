@@ -7,20 +7,20 @@ const UseCases = () => {
   const useCases = [
     {
       icon: <TrendingDown className="w-6 h-6 text-white" />,
-      title: "Optimize Your Existing Stack",
-      description: "End-to-end optimization across containers, token spend, storage, data warehouses, application logic, architecture, and data pipelines. Functional and SLA parity verified. Lower total cost.",
+      title: "Cut spend on what you already have.",
+      description: "We find and ship the changes across containers, AI token spend, storage, and data warehouses. Same services, lower bill. No rewrite, no re-platform.",
       image: "./assets/images/region-expansion.jpg"
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
-      title: "Migrate to a New Cloud",
-      description: "Use your startup credits ($100k–$350k) on a fresh provider, or move to a better rate (e.g. AWS → GCP). Complete migration end-to-end with full functional and SLA parity.",
+      title: "Spend your startup credits. Migrate.",
+      description: "$100k&ndash;$350k in unused credits on a new provider? We migrate your stack end-to-end so you can spend them. Production-ready on day one, every SLA preserved.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
-      title: "Both — Compound the Savings",
-      description: "Optimize the current stack first, then move it to the cheaper provider to compound the savings. Parity guaranteed at every step. Outcome-based, one-time payment.",
+      title: "Both &mdash; compound the savings.",
+      description: "Optimize first, then migrate to a cheaper provider. Layered savings, same SLA guarantee at every step. Outcome-priced; we don't get paid if you don't save.",
       image: "./assets/images/multi-cloud.jpg"
     }
   ];
@@ -28,7 +28,7 @@ const UseCases = () => {
   return (
     <section className="mission">
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">How We Help</div>
+        <div className="mission-label mb-6">What we do</div>
 
         <div className="flex flex-col md:flex-row gap-12">
           {/* Left side - Image */}

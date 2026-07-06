@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, Rocket, Sparkles, TrendingDown, DollarSign, CheckCircle } from 'lucide-react';
+import { Building2, Rocket, Sparkles, TrendingDown, DollarSign, CheckCircle, Clock, Zap } from 'lucide-react';
 
 const CustomerPersonas = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -7,80 +7,80 @@ const CustomerPersonas = () => {
   const personas = [
     {
       id: 1,
-      title: 'Public Companies & Enterprise SaaS',
-      subtitle: 'Cutting Cloud Spend Without Risk',
-      description: 'Optimize the existing stack end-to-end across containers, token spend, AI usage, storage, data warehouses, application logic, and architecture — with full functional and SLA parity verified.',
+      title: 'Enterprise & Public Companies',
+      subtitle: 'Cut spend. Keep the SLA.',
+      description: 'Your cloud bill is up 40% YoY and the CFO wants it down. We cut it without breaking a single user-facing endpoint. Pre-change vs post-change, every service tested.',
       image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Token spend (LLMs, AI workloads) growing faster than revenue',
-        'SLA-sensitive workloads make big-bang rewrites risky',
-        'Multi-account / multi-region sprawl makes cost hard to manage'
+        'Cloud bill up 40% YoY, CFO is asking',
+        'SLA-sensitive workloads can\'t take big-bang risks',
+        'FinOps team is already drowning in dashboards'
       ],
       benefits: [
-        'End-to-end optimization that ships the changes',
-        'Functional + SLA parity verified at every layer',
-        'Outcome-based engagement — payment tied to results'
+        'End-to-end optimization with zero SLA risk',
+        'Typical 5× ROI in year 1',
+        'Functional, latency, and error-rate parity verified'
       ],
       metrics: [
         {
           icon: <TrendingDown className="w-5 h-5 text-white/70 mb-2" />,
-          value: '5–10×',
+          value: '5×',
           label: 'Year-1 ROI'
         },
         {
           icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
-          value: 'Verified',
-          label: 'SLA Parity'
+          value: 'Pre/Post',
+          label: 'Verified'
         }
       ]
     },
     {
       id: 2,
       title: 'Growth-Stage Companies',
-      subtitle: 'Reduce Spend. Keep Focus on the Product.',
-      description: 'We do the work so your team doesn\'t have to. 4–5 meetings end-to-end, milestone-based one-time payment, no long-term contract.',
+      subtitle: 'Lower the bill. Ship the product.',
+      description: 'Bill is up, runway is down, your infra team is already maxed. We do the work in 4–5 meetings. Your team keeps shipping the product.',
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Cloud bill growing faster than infra headcount',
-        'Limited eng bandwidth to run a migration',
-        'Burn runway extending, not the product'
+        'Bill up, runway down',
+        'Small infra team already maxed',
+        'No quarter to spend on a migration'
       ],
       benefits: [
-        'Done-for-you optimization and/or migration',
-        '4–5 meetings — your team stays focused on the product',
-        'Milestone-based, one-time payment'
+        'We do the work — your team keeps shipping',
+        '4–5 meetings total across the engagement',
+        'Outcome-based: payment tied to results, not hours'
       ],
       metrics: [
         {
           icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
-          value: '60%+',
-          label: 'Cost Reduction'
+          value: '60–80%',
+          label: 'Spend Cut'
         },
         {
-          icon: <Building2 className="w-5 h-5 text-white/70 mb-2" />,
+          icon: <Clock className="w-5 h-5 text-white/70 mb-2" />,
           value: '4–5',
-          label: 'Meetings Total'
+          label: 'Meetings'
         }
       ]
     },
     {
       id: 3,
       title: 'Startups with Cloud Credits',
-      subtitle: 'Use Your $100k–$350k Before It Expires',
-      description: 'Migrate to a new cloud provider end-to-end so you can deploy against your startup credits. Full functional and SLA parity, production-ready on day one.',
+      subtitle: 'Spend the credits. Land on the new cloud.',
+      description: 'You have $100k–$350k in unused credits on a new provider. We get you production-ready on that provider in weeks, with the same services and SLAs as today.',
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Credits expiring unused on the current platform',
-        'Team unfamiliar with the destination provider',
-        'Migration feels like a quarter-long distraction'
+        'Credits expiring unused',
+        'Don\'t know the destination provider well',
+        'Don\'t have eng bandwidth for a quarter-long migration'
       ],
       benefits: [
-        'End-to-end migration done for you',
-        'Use your credits before they expire',
-        'Production-ready on the target provider'
+        'Production-ready on the new provider in weeks',
+        'End-to-end migration, no internal hires needed',
+        'Same functionality and SLA, day one'
       ],
       metrics: [
         {
@@ -89,9 +89,9 @@ const CustomerPersonas = () => {
           label: 'Credits Used'
         },
         {
-          icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
-          value: 'Verified',
-          label: 'Functional Parity'
+          icon: <Zap className="w-5 h-5 text-white/70 mb-2" />,
+          value: 'Weeks',
+          label: 'To Production'
         }
       ]
     }
@@ -100,9 +100,9 @@ const CustomerPersonas = () => {
   return (
     <section className="mission">
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">Who We Help</div>
+        <div className="mission-label mb-6">Who we work with</div>
         <h2 className="text-2xl text-white mb-12">
-          Built for Teams That Want a Lower Cloud Bill
+          For teams that want a lower bill, fast.
         </h2>
 
         {/* Personas Grid */}
@@ -138,7 +138,7 @@ const CustomerPersonas = () => {
                 </p>
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="text-white/50 text-sm">
-                    Click to learn more
+                    Click to see how
                   </div>
                 </div>
               </div>
@@ -170,7 +170,21 @@ const CustomerPersonas = () => {
                   <div className="space-y-6 flex-grow">
                     <div>
                       <div className="text-white/70 text-lg mb-3">
-                        Key Benefits
+                        What you're up against
+                      </div>
+                      <ul className="space-y-2">
+                        {persona.challenges.map((challenge, index) => (
+                          <li key={index} className="text-white/90 flex items-start gap-2">
+                            <span className="text-white/30 mt-1">•</span>
+                            {challenge}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <div className="text-white/70 text-lg mb-3">
+                        What we deliver
                       </div>
                       <ul className="space-y-2">
                         {persona.benefits.map((benefit, index) => (
