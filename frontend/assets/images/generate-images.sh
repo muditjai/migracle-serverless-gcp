@@ -104,7 +104,7 @@ echo ""
 # Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "A realistic, professional photograph of a spacious, modern corporate office building. On a large, sleek desk, a massive, widescreen high-resolution monitor displays a detailed, clean AWS and GCP cloud billing and cost management dashboard, highlighting a significant cost reduction graph with a 'Cloud Bill Optimization: -45% Savings' annotation. In the blurred background, a sophisticated glass-walled office space with natural daylight, sharp focus, 16:9 aspect ratio." \
+        "An extreme close-up, high-contrast realistic photograph of a massive, ultra-widescreen high-resolution monitor. The screen dominates the entire frame, displaying a super-clear and bold cloud billing and cost optimization dashboard. The text 'Cloud Bill Optimization' and a massive, bold green percentage '-45% SAVINGS' are perfectly crisp, clean, and highly legible, alongside clear, sharp bar charts. The background shows a soft, dark out-of-focus corporate office wall. Professional, hyper-detailed, clean and highly convincing, 16:9 aspect ratio." \
         "region-expansion.jpg"
 fi
 
