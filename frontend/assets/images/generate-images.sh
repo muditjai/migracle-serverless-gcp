@@ -104,14 +104,14 @@ echo ""
 # Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "A realistic, professional photograph of a senior cloud architect analyzing a cloud resource optimization dashboard on a large, high-resolution monitor. The screen shows detailed, clean engineering schematics, database tiers, and a cost optimization chart showing a downward trend in cost and upward trend in performance. Grounded and authentic corporate setting, soft office background, natural lighting, sharp focus, 16:9 aspect ratio." \
+        "A realistic, professional photograph of a laptop on a clean dark desk. The laptop screen displays a detailed, clean AWS and GCP cloud billing and cost management dashboard, highlighting a significant cost reduction graph with a 'Cloud Bill Optimization: -45% Savings' annotation. Grounded and authentic setting, warm natural desk light, sharp focus, 16:9 aspect ratio." \
         "region-expansion.jpg"
 fi
 
 # Use Case 2: Credit-Driven Cloud Migration
 if should_generate "cloud-migration"; then
     generate_image \
-        "A crisp, realistic photograph of a modern enterprise conference room table. On the table, a premium business laptop shows a clean, professional command-line interface and progress bar indicating a successful cloud migration (e.g. 'AWS to GCP Migration: 100% Complete, Verifying Parity'). In the blurred background, a sleek corporate office environment with clean glass walls and cool blue ambient lighting. High-end, authentic, convincing corporate photography style, 16:9 aspect ratio." \
+        "A crisp, realistic photograph of a modern enterprise conference room table. On the table, a premium business laptop shows a clean, professional migration progress terminal. In the background on a clean glass wall, a sleek, minimalist illuminated diagram showing a transition from the 'AWS' cloud icon to the 'GCP' cloud icon with a clean flowing arrow. Grounded, authentic corporate setting with soft ambient lighting, 16:9 aspect ratio." \
         "cloud-migration.jpg"
 fi
 
@@ -136,7 +136,7 @@ fi
 # Persona 2: Growth-Stage ISVs
 if should_generate "growth-isv"; then
     generate_image \
-        "A bright, modern, and inspiring tech startup office with natural daylight streaming through large loft windows. In the foreground, a beautifully designed wooden desk features a high-end mechanical keyboard, a sleek smartphone, and a tablet displaying colorful growth analytics charts. In the soft-focus background, a creative lounge with whiteboard doodles and green indoor plants. Professional architectural photography style, optimistic and productive vibe, 4:3 aspect ratio." \
+        "A bright, modern, and inspiring tech startup office with natural daylight. In the foreground, a beautifully designed wooden desk features a high-end keyboard and tablet displaying growth charts. In the background, softly blurred professional team members are seen actively collaborating, discussing at a whiteboard, and working together. Professional architectural photography style, optimistic and productive vibe, 4:3 aspect ratio." \
         "growth-isv.jpg"
 fi
 
