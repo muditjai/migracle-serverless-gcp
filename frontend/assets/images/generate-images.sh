@@ -104,7 +104,7 @@ echo ""
 # Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "A realistic, professional photograph of a laptop on a clean dark desk. The laptop screen displays a detailed, clean AWS and GCP cloud billing and cost management dashboard, highlighting a significant cost reduction graph with a 'Cloud Bill Optimization: -45% Savings' annotation. Grounded and authentic setting, warm natural desk light, sharp focus, 16:9 aspect ratio." \
+        "A realistic, professional photograph of a spacious, modern corporate office building. On a large, sleek desk, a massive, widescreen high-resolution monitor displays a detailed, clean AWS and GCP cloud billing and cost management dashboard, highlighting a significant cost reduction graph with a 'Cloud Bill Optimization: -45% Savings' annotation. In the blurred background, a sophisticated glass-walled office space with natural daylight, sharp focus, 16:9 aspect ratio." \
         "region-expansion.jpg"
 fi
 
@@ -136,7 +136,7 @@ fi
 # Persona 2: Growth-Stage ISVs
 if should_generate "growth-isv"; then
     generate_image \
-        "A bright, modern, and inspiring tech startup office with natural daylight. In the foreground, a beautifully designed wooden desk features a high-end keyboard and tablet displaying growth charts. In the background, softly blurred professional team members are seen actively collaborating, discussing at a whiteboard, and working together. Professional architectural photography style, optimistic and productive vibe, 4:3 aspect ratio." \
+        "A bright, modern, and inspiring tech startup office with natural daylight. In the foreground, a beautifully designed, clean and empty wooden desk with soft shadows. In the background, softly blurred professional team members are seen actively collaborating, discussing at a whiteboard, and working together. Professional architectural photography style, optimistic and productive vibe, 4:3 aspect ratio." \
         "growth-isv.jpg"
 fi
 
