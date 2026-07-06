@@ -17,7 +17,7 @@ const CTA = () => {
             Ready to Extend Your Cloud Runway?
           </h2>
           <p className="text-xl text-white/70 mb-8">
-            Send us a high-level overview of your cloud stack and current monthly spend. We'll deliver a comprehensive, risk-free savings estimate and optimization blueprint in 5 business days—with zero commitment.
+            Contact us with your cloud bill and cloud stack details. We'll deliver a comprehensive, risk-free savings estimate and optimization blueprint in 5 business days—with zero commitment.
           </p>
 
           <button

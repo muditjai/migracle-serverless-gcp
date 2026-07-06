@@ -94,7 +94,7 @@ const Features = () => {
     {
       icon: <Wrench className="w-6 h-6 text-white" />,
       title: "Hands-On Code & Infra Delivery",
-      description: "Instead of dumping recommendations onto your backlog, we open the pull requests. We write the optimized code, update the Terraform/CloudFormation, rewrite data pipelines, and package the containers. Your engineering team only needs to review and merge.",
+      description: "We implement Terraform infra and architecture changes with detailed documentation, flag guards, and extensive test validation. Your engineering team's precious bandwidth remains focused on building your product.",
       metric1: {
         value: "100%",
         label: "Work Done by Us"
@@ -107,7 +107,7 @@ const Features = () => {
     {
       icon: <ShieldCheck className="w-6 h-6 text-white" />,
       title: "100% Guaranteed SLA Parity",
-      description: "We eliminate the risk of performance degradation. Every optimization is verified against pre-change baselines using automated load and regression tests. We guarantee identical functionality, latency, and error rates before any code is promoted to production.",
+      description: "We verify every change against pre-change baselines using automated load and regression tests. We guarantee identical functionality and SLA before anything is promoted to production.",
       metric1: {
         value: "100%",
         label: "Functional & SLA Parity"
@@ -120,10 +120,10 @@ const Features = () => {
     {
       icon: <Rocket className="w-6 h-6 text-white" />,
       title: "Outcome-Based Milestone Pricing",
-      description: "We align our incentives directly with your budget. You pay a one-time, milestone-based fee tied directly to verified savings. No monthly retainers, no open-ended hourly consulting bills, and a typical 5–10× ROI in the first year.",
+      description: "You pay a one-time, milestone-based fee tied directly to verified savings. No recurring subscription, no open-ended consulting bills, and a typical 5–10× ROI immediately.",
       metric1: {
         value: "5–10×",
-        label: "Average Year-1 ROI"
+        label: "Average ROI Immediately"
       },
       metric2: {
         value: "One-Time",

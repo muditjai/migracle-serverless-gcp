@@ -9,7 +9,7 @@ const CustomerPersonas = () => {
       id: 1,
       title: 'Enterprise & Public Companies',
       subtitle: 'De-Risk Cloud Cost Reduction at Scale',
-      description: 'Lower your infrastructure and SaaS bills without disrupting critical, high-traffic systems. Every code modification is covered by automated regression testing to guarantee complete performance and SLA parity.',
+      description: 'Lower your cloud bills without disrupting critical productions systems. Every change is covered by extensive validation to guarantee complete functional and SLA parity.',
       image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
       benefits: [

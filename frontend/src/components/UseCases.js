@@ -8,19 +8,19 @@ const UseCases = () => {
     {
       icon: <TrendingDown className="w-6 h-6 text-white" />,
       title: "In-Place Stack Optimization",
-      description: "We optimize your existing cloud footprint end-to-end. By refactoring application logic, tuning container resources, tiering database storage, and optimizing LLM prompt token spend, we slash your bill without changing cloud providers.",
+      description: "We optimize your existing cloud footprint end-to-end—re-engineering application architecture, tiering database storage, and tuning container resources to slash your bill without changing cloud providers.",
       image: "./assets/images/region-expansion.jpg"
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
       title: "Credit-Driven Cloud Migration",
-      description: "If you have access to $100k–$350k in unused startup cloud credits on a new provider (or a better negotiated enterprise contract), we migrate your entire stack end-to-end. We deploy a production-ready, equivalent architecture so you run completely on credits.",
+      description: "We migrate your entire stack end-to-end to utilize $100k–$350k in startup cloud credits, deploying a production-ready, equivalent architecture on the new provider on day one.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
       title: "The Compounded Runway Strategy",
-      description: "First, we optimize your current software and data architecture to reduce resource consumption. Then, we migrate the lean, optimized stack to the cheaper provider to capture credits. This dual approach compounds your cost savings.",
+      description: "Optimize your architecture, migrate to a cheaper provider, or choose to combine both strategies to compound your cost savings. We guarantee seamless performance whichever path you choose.",
       image: "./assets/images/multi-cloud.jpg"
     }
   ];
