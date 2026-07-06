@@ -104,21 +104,21 @@ echo ""
 # Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "A stunning, high-fidelity 3D CGI render representing an optimized cloud stack on a pure black background. Glowing translucent holographic layers, complex server racks with integrated cool-blue and cyan circuit boards, and intricate glass interfaces showing dynamic, optimized data flows. Cinematic, professional dark-room lighting, Unreal Engine style, sharp focus, 16:9 aspect ratio." \
+        "A realistic, professional photograph of a senior cloud architect analyzing a cloud resource optimization dashboard on a large, high-resolution monitor. The screen shows detailed, clean engineering schematics, database tiers, and a cost optimization chart showing a downward trend in cost and upward trend in performance. Grounded and authentic corporate setting, soft office background, natural lighting, sharp focus, 16:9 aspect ratio." \
         "region-expansion.jpg"
 fi
 
 # Use Case 2: Credit-Driven Cloud Migration
 if should_generate "cloud-migration"; then
     generate_image \
-        "A breathtaking 3D CGI render representing advanced cloud database migration. On the left, rusty copper network components dissolve into a stream of glowing, vibrant blue and teal data capsules. The stream flows gracefully through a sleek futuristic quantum portal, rebuilding into ultra-modern, polished silver servers on the right. Pure black background, dramatic cinematic lighting, photorealistic textures, 16:9 aspect ratio." \
+        "A crisp, realistic photograph of a modern enterprise conference room table. On the table, a premium business laptop shows a clean, professional command-line interface and progress bar indicating a successful cloud migration (e.g. 'AWS to GCP Migration: 100% Complete, Verifying Parity'). In the blurred background, a sleek corporate office environment with clean glass walls and cool blue ambient lighting. High-end, authentic, convincing corporate photography style, 16:9 aspect ratio." \
         "cloud-migration.jpg"
 fi
 
 # Use Case 3: The Compounded Runway Strategy
 if should_generate "multi-cloud"; then
     generate_image \
-        "A masterpiece 3D CGI render of three massive, interconnected floating quantum cloud nodes arranged in a clean triangular composition on a pure black background. Each node is a translucent glass sphere enclosing glowing, high-tech networks, golden server rings, and intricate holographic charts. Elegant beams of cool-cyan and magenta light weave them together. Octane Render, cinematic style, 16:9 aspect ratio." \
+        "A professional, realistic photograph of a modern glass-walled corporate meeting room. On a large, clean whiteboard, a beautifully hand-drawn, precise diagram of a 'Compounded Runway Strategy' is shown, detailing 'Step 1: Optimize Existing Stack' and 'Step 2: Migrate to Credit Provider' with flowcharts and server icons. Grounded, authentic business environment, crisp focus on the whiteboard, soft cinematic lighting, extremely professional and convincing, 16:9 aspect ratio." \
         "multi-cloud.jpg"
 fi
 
