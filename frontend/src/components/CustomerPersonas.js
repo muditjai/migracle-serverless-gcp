@@ -12,15 +12,10 @@ const CustomerPersonas = () => {
       description: 'Lower your infrastructure and SaaS bills without disrupting critical, high-traffic systems. Every code modification is covered by automated regression testing to guarantee complete performance and SLA parity.',
       image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
-      challenges: [
-        'CFO demands to cut soaring cloud spend.',
-        'High-traffic workloads cannot tolerate deployment risk.',
-        'FinOps team buried in dashboards, lacking dev bandwidth.'
-      ],
       benefits: [
-        'Hands-on compute, database, and warehouse refactoring.',
-        'SLA parity guarantee verified by load testing.',
-        'Auditable ledger of 5–10× first-year ROI.'
+        'Compute, database, and data warehouse optimization.',
+        'SLA and latency parity guaranteed by load testing.',
+        'Verified 5–10× first-year ROI with zero system risk.'
       ],
       metrics: [
         {
@@ -42,15 +37,10 @@ const CustomerPersonas = () => {
       description: 'Your team needs to focus on shipping revenue-generating features, not refactoring resources. We take the entire optimization workload off your plate—requiring just 4–5 alignment meetings in total.',
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
-      challenges: [
-        'Urgent need to lower burn and extend runway.',
-        'Maxed-out SRE team has no bandwidth for cost sprints.',
-        'Reluctance to stall feature roadmap for refactoring.'
-      ],
       benefits: [
-        'We write and ship the PRs—your team just reviews.',
-        'Minimal overhead: 4–5 alignment meetings total.',
-        'Milestone fees tied directly to verified savings.'
+        'We write and package the PRs—your team only reviews.',
+        'Minimal time required: 4–5 short touchpoints total.',
+        'Outcome-aligned milestone fees tied directly to actual savings.'
       ],
       metrics: [
         {
@@ -72,14 +62,9 @@ const CustomerPersonas = () => {
       description: 'Stop letting unused cloud credits expire on AWS, GCP, or Azure. We migrate your architecture end-to-end to the new provider within weeks, ensuring a seamless cutover and identical behavior.',
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
-      challenges: [
-        'Unused cloud credits expiring on another provider.',
-        'No internal SREs to spare for a migration.',
-        'Lacking deep expertise in the destination cloud.'
-      ],
       benefits: [
-        'End-to-end migration handled entirely by us.',
-        'Production-ready on the new cloud in weeks.',
+        'End-to-end cloud migration handled entirely by us.',
+        'Fast delivery: production-ready on the new cloud in weeks.',
         'Guaranteed performance and SLA parity on day one.'
       ],
       metrics: [
@@ -145,7 +130,7 @@ const CustomerPersonas = () => {
                 transition-all duration-500 backface-hidden rotate-y-180 ${
                 flippedCard === persona.id ? 'rotate-y-0' : ''
               }`}>
-                <div className="h-full flex flex-col">
+                <div className="h-full flex flex-col font-['Inter']">
                   <h3 className="text-xl font-semibold text-white mb-6">
                     {persona.title}
                   </h3>
@@ -164,28 +149,14 @@ const CustomerPersonas = () => {
                     ))}
                   </div>
 
-                  <div className="space-y-6 flex-grow">
+                  <div className="space-y-4 flex-grow">
                     <div>
-                      <div className="text-white/70 text-lg mb-3">
-                        What You're Up Against
-                      </div>
-                      <ul className="space-y-2">
-                        {persona.challenges.map((challenge, index) => (
-                          <li key={index} className="text-white/90 flex items-start gap-2">
-                            <span className="text-white/30 mt-1">•</span>
-                            {challenge}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <div className="text-white/70 text-lg mb-3">
+                      <div className="text-white/70 text-lg mb-3 font-semibold">
                         What We Deliver
                       </div>
-                      <ul className="space-y-2">
+                      <ul className="space-y-3">
                         {persona.benefits.map((benefit, index) => (
-                          <li key={index} className="text-white/90 flex items-start gap-2">
+                          <li key={index} className="text-white/90 flex items-start gap-2 text-sm leading-relaxed">
                             <span className="text-white/30 mt-1">•</span>
                             {benefit}
                           </li>
