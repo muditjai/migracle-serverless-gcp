@@ -13,14 +13,14 @@ const CustomerPersonas = () => {
       image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Cloud bills outpacing revenue, attracting CFO scrutiny',
-        'SLA-sensitive workloads cannot tolerate deployment risk',
-        'FinOps teams are buried under dashboards, lacking execution bandwidth'
+        'CFO demands to cut soaring cloud spend.',
+        'High-traffic workloads cannot tolerate deployment risk.',
+        'FinOps team buried in dashboards, lacking dev bandwidth.'
       ],
       benefits: [
-        'Hands-on refactoring of compute, database, and warehousing resources',
-        'Zero-regression guarantee backed by pre-and-post load testing',
-        'Typical 5–10× Year-1 ROI with auditable ledger of actual savings'
+        'Hands-on compute, database, and warehouse refactoring.',
+        'SLA parity guarantee verified by load testing.',
+        'Auditable ledger of 5–10× first-year ROI.'
       ],
       metrics: [
         {
@@ -43,14 +43,14 @@ const CustomerPersonas = () => {
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Urgent demand to extend cash runway and lower burn',
-        'Maxed-out platform/SRE teams with zero bandwidth for cost sprints',
-        'Reluctance to slow down the feature roadmap for refactoring'
+        'Urgent need to lower burn and extend runway.',
+        'Maxed-out SRE team has no bandwidth for cost sprints.',
+        'Reluctance to stall feature roadmap for refactoring.'
       ],
       benefits: [
-        'We write and bundle the PRs—your team only reviews and merges',
-        'Minimal time investment: just 4–5 synchronous touchpoints total',
-        'Milestone-based, outcome-aligned pricing tied directly to verified savings'
+        'We write and ship the PRs—your team just reviews.',
+        'Minimal overhead: 4–5 alignment meetings total.',
+        'Milestone fees tied directly to verified savings.'
       ],
       metrics: [
         {
@@ -73,14 +73,14 @@ const CustomerPersonas = () => {
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Significant cloud credits expiring unused on a different provider',
-        'Lacking deep expertise or experience in the destination cloud',
-        'No internal SRE resources to spare for a multi-week migration'
+        'Unused cloud credits expiring on another provider.',
+        'No internal SREs to spare for a migration.',
+        'Lacking deep expertise in the destination cloud.'
       ],
       benefits: [
-        'End-to-end migration handled entirely by our systems engineers',
-        'Production-ready on the new cloud in weeks, with minimal service downtime',
-        'Guaranteed operational, latency, and performance parity on day one'
+        'End-to-end migration handled entirely by us.',
+        'Production-ready on the new cloud in weeks.',
+        'Guaranteed performance and SLA parity on day one.'
       ],
       metrics: [
         {
