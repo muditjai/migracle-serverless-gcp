@@ -13,6 +13,7 @@ set -e
 PROJECT_ID="migracle-gcp-2"
 REGION="us-central1"
 BUCKET_NAME="${PROJECT_ID}-website"
+FRONTEND_UPLOAD_EXCLUDE='node_modules/.*|src/.*|\..*|package.*|webpack.*|tailwind.*|.*\.sh$'
 
 # Check command line arguments
 if [ "$1" = "frontend" ]; then
@@ -28,9 +29,9 @@ if [ "$1" = "frontend" ]; then
     npm install
     npm run build
     
-    # Upload frontend files (excluding node_modules and source files)
+    # Upload only deployable site assets; exclude local tooling and shell scripts.
     echo "📤 Uploading frontend files to GCP Storage..."
-    gsutil -m rsync -r -d -x 'node_modules/.*|src/.*|\..*|package.*|webpack.*|tailwind.*' . gs://$BUCKET_NAME/
+    gsutil -m rsync -r -d -x "$FRONTEND_UPLOAD_EXCLUDE" . gs://$BUCKET_NAME/
     
     # Get the website URL
     WEBSITE_URL="https://storage.googleapis.com/$BUCKET_NAME/index.html"
@@ -131,9 +132,9 @@ else
     sed "s|window\.API_ENDPOINT = '.*';|window.API_ENDPOINT = '$API_BASE_URL';|g" index.html > index_updated.html
     mv index_updated.html index.html
 
-    # Upload frontend files (excluding node_modules and source files)
+    # Upload only deployable site assets; exclude local tooling and shell scripts.
     echo "📤 Uploading frontend files..."
-    gsutil -m rsync -r -d -x 'node_modules/.*|src/.*|\..*|package.*|webpack.*|tailwind.*' . gs://$BUCKET_NAME/
+    gsutil -m rsync -r -d -x "$FRONTEND_UPLOAD_EXCLUDE" . gs://$BUCKET_NAME/
 
     # Step 7: Set up HTTPS redirect (optional)
     echo "🔒 Setting up HTTPS redirect..."

@@ -75,7 +75,7 @@ The frontend can also be served from a **Cloud Run** container in addition to (o
 
 ### 5. Email (Zoho SMTP via Nodemailer) - Configured with `EMAIL_USER` and `EMAIL_PASS` env vars on each function - Sends a notification to `mudit@migracle.com` on each successful lead capture - Subject line prefixes: `[Contact]` for contact form, `[Subscribe]` for subscription
 
-## Frontend Build - **Bundler**: Webpack 5 - **CSS**: Tailwind CSS 3 (PostCSS pipeline) - **Framework**: React 19 (no SSR; this is a static site) - **Entry**: `frontend/src/index.js` → renders `<App />` into `#root` - **Output**: `frontend/dist/` is uploaded to Cloud Storage (or built into the Cloud Run test container) by `deploy-gcp.sh`
+## Frontend Build - **Bundler**: Webpack 5 - **CSS**: Tailwind CSS 3 (PostCSS pipeline) - **Framework**: React 19 (no SSR; this is a static site) - **Entry**: `frontend/src/index.js` → renders `<App />` into `#root` - **Output**: `frontend/dist/` is uploaded to Cloud Storage (or built into the Cloud Run test container) by `deploy-gcp.sh` - **Website bucket contents**: only `assets/`, `dist/`, `index.html`, and `styles.css` are deployable; helper files such as `assets/**/*.sh` are excluded from upload
 
 The visual design is intentionally stable - color schemes, image styles, layouts, and component structure should be preserved when shipping copy/feature updates. Substantial design changes require explicit owner approval; see [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#design-preservation).
 

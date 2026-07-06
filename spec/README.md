@@ -149,6 +149,8 @@ git push origin main
 #### Step 4 - Deploy to the test container on Cloud Run
 See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the exact service name and gcloud command. The convention: - Frontend → **test** Cloud Run service (or test Cloud Storage bucket `gs://migracle-gcp-2-website-test/` fronted by the same setup) - Cloud Functions → **test**-prefixed function name
 
+When deploying the static frontend to a website bucket, the deployable site surface is limited to `assets/`, `dist/`, `index.html`, and `styles.css`. Helper files such as shell scripts under `assets/` are local tooling only and must never be uploaded.
+
 Example (frontend test container):
 ```bash
 gcloud run deploy migracle-site-test \
