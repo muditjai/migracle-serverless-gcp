@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Imagen 4 Image Generation Script for Migracle Website
-# Uses Google Cloud Vertex AI Imagen 4 Ultra model
+# Imagen 4 / Gemini 3.1 Image Generation Script for Migracle Website
+# Uses Google Cloud Vertex AI Gemini 3.1 Flash Image model
 #
 # Usage:
 #   ./generate-images.sh              # Generate all images
@@ -13,7 +13,7 @@ set -e
 # Configuration
 PROJECT_ID="${PROJECT_ID:-migracle-gcp-2}"
 LOCATION="us-central1"
-MODEL="imagen-3.0-generate-002"
+MODEL="gemini-3.1-flash-image"
 OUTPUT_DIR="$(dirname "$0")"
 
 # Colors for output
@@ -39,36 +39,31 @@ fi
 generate_image() {
     local prompt="$1"
     local output_file="$2"
-    local aspect_ratio="${3:-1:1}"
 
     echo -e "${BLUE}Generating:${NC} $output_file"
     echo "  Prompt: $prompt"
 
-    # Create request JSON
-    local request_json=$(cat <<EOF
-{
-  "instances": [
-    {
-      "prompt": "$prompt"
-    }
-  ],
-  "parameters": {
-    "sampleCount": 1,
-    "aspectRatio": "$aspect_ratio",
-    "outputOptions": {
-      "mimeType": "image/jpeg"
-    }
-  }
-}
-EOF
-)
+    # Create request JSON using jq for safety and robust escaping
+    local request_json=$(jq -n \
+        --arg prompt "$prompt" \
+        '{
+          "contents": {
+            "role": "user",
+            "parts": {
+              "text": $prompt
+            }
+          },
+          "generation_config": {
+            "response_modalities": ["IMAGE"]
+          }
+        }')
 
-    # Make API call
+    # Make API call using the global generateContent endpoint for Gemini 3.1
     local response=$(curl -s -X POST \
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d "$request_json" \
-        "https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/google/models/${MODEL}:predict")
+        "https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/publishers/google/models/${MODEL}:generateContent")
 
     # Check for errors
     if echo "$response" | grep -q '"error"'; then
@@ -77,7 +72,7 @@ EOF
     fi
 
     # Extract base64 image and save
-    echo "$response" | jq -r '.predictions[0].bytesBase64Encoded' | base64 -d > "$OUTPUT_DIR/$output_file"
+    echo "$response" | jq -r '.candidates[0].content.parts[0].inlineData.data' | base64 -d > "$OUTPUT_DIR/$output_file"
 
     if [ -f "$OUTPUT_DIR/$output_file" ]; then
         echo -e "  ${GREEN}Saved:${NC} $OUTPUT_DIR/$output_file ($(du -h "$OUTPUT_DIR/$output_file" | cut -f1))"
@@ -109,25 +104,22 @@ echo ""
 # Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "A sophisticated 3D isometric diagram of an optimized, high-performance cloud stack on a pure black background. Neatly layered database tiers with thin glowing cyan lines, nested blue-green server container modules, and optimized resource flow. High contrast, clean minimalist tech illustration, sharp focus, professional tech aesthetic." \
-        "region-expansion.jpg" \
-        "16:9"
+        "A stunning, high-fidelity 3D CGI render representing an optimized cloud stack on a pure black background. Glowing translucent holographic layers, complex server racks with integrated cool-blue and cyan circuit boards, and intricate glass interfaces showing dynamic, optimized data flows. Cinematic, professional dark-room lighting, Unreal Engine style, sharp focus, 16:9 aspect ratio." \
+        "region-expansion.jpg"
 fi
 
 # Use Case 2: Credit-Driven Cloud Migration
 if should_generate "cloud-migration"; then
     generate_image \
-        "A clean 3D isometric representation of cloud migration. On the left, orange infrastructure segments elegantly transform into vibrant blue-green containerized layers on the right. Glowing data packets and kubernetes pods flow gracefully between the environments. Pure black background, cyber-teal and orange neon accents, ultra-clean high-fidelity vector style." \
-        "cloud-migration.jpg" \
-        "16:9"
+        "A breathtaking 3D CGI render representing advanced cloud database migration. On the left, rusty copper network components dissolve into a stream of glowing, vibrant blue and teal data capsules. The stream flows gracefully through a sleek futuristic quantum portal, rebuilding into ultra-modern, polished silver servers on the right. Pure black background, dramatic cinematic lighting, photorealistic textures, 16:9 aspect ratio." \
+        "cloud-migration.jpg"
 fi
 
 # Use Case 3: The Compounded Runway Strategy
 if should_generate "multi-cloud"; then
     generate_image \
-        "Three interconnected glowing cloud nodes arranged in a clean triangular composition on a pure black background. Each cloud contains tiny, precise white wireframe icons of servers, storage disks, and databases. Glowing cyber-cyan and deep purple gradients, subtle light trails connecting the clusters to represent compounded, multi-layered optimization. Sleek minimalist tech aesthetic." \
-        "multi-cloud.jpg" \
-        "16:9"
+        "A masterpiece 3D CGI render of three massive, interconnected floating quantum cloud nodes arranged in a clean triangular composition on a pure black background. Each node is a translucent glass sphere enclosing glowing, high-tech networks, golden server rings, and intricate holographic charts. Elegant beams of cool-cyan and magenta light weave them together. Octane Render, cinematic style, 16:9 aspect ratio." \
+        "multi-cloud.jpg"
 fi
 
 echo ""
@@ -137,25 +129,22 @@ echo ""
 # Persona 1: Enterprise SaaS Vendors
 if should_generate "enterprise-saas"; then
     generate_image \
-        "A futuristic global network sphere centered on a pure black background. Transparent, glowing blue-green continents with precise data-center nodes emitting clean, bright neon-blue connection lines. Elegant high-contrast tech illustration, minimalist corporate cybersecurity aesthetic, sharp focus." \
-        "enterprise-saas.jpg" \
-        "4:3"
+        "A cinematic, highly detailed, realistic photograph of a majestic enterprise data center hall. Infinite rows of sleek, modern black server cabinets stretching into the distance with glowing deep-blue and white status indicators. A perfectly polished floor reflecting the lights, creating a sense of epic scale and premium security. Cool professional color grading, ultra-sharp focus, 4:3 aspect ratio." \
+        "enterprise-saas.jpg"
 fi
 
 # Persona 2: Growth-Stage ISVs
 if should_generate "growth-isv"; then
     generate_image \
-        "A highly professional dark office environment at night with a close-up focus on dual widescreen monitors. The screens display crisp, glowing analytics dashboards with upward-curving growth charts and financial ledgers. Out-of-focus background shows a sleek, modern tech workstation with cool cyan ambient lighting. Cinematic shallow depth of field, sharp focus on screen details." \
-        "growth-isv.jpg" \
-        "4:3"
+        "A bright, modern, and inspiring tech startup office with natural daylight streaming through large loft windows. In the foreground, a beautifully designed wooden desk features a high-end mechanical keyboard, a sleek smartphone, and a tablet displaying colorful growth analytics charts. In the soft-focus background, a creative lounge with whiteboard doodles and green indoor plants. Professional architectural photography style, optimistic and productive vibe, 4:3 aspect ratio." \
+        "growth-isv.jpg"
 fi
 
 # Persona 3: Startups with Cloud Credits
 if should_generate "startup-credits"; then
     generate_image \
-        "A modern laptop opened on a clean dark desk, with the screen displaying a glowing cloud platform billing dashboard. The dashboard prominently highlights a verified promotional credit balance of 250,000 USD in a clean, modern digital layout, alongside server resource meters. Ambient deep blue and violet backlighting, sleek professional product photography, high contrast." \
-        "startup-credits.jpg" \
-        "4:3"
+        "A close-up, premium lifestyle product photograph of a modern aluminum laptop open on a minimalist concrete desk. The laptop screen displays a pristine cloud platform console dashboard with a verified promotional credit balance of '$250,000' and a runway chart. Next to the laptop sits a high-end ceramic mug of hot coffee. Soft, crisp morning shadows, natural and clean aesthetic, 4:3 aspect ratio." \
+        "startup-credits.jpg"
 fi
 
 echo ""
