@@ -8,7 +8,7 @@ const UseCases = () => {
     {
       icon: <TrendingDown className="w-6 h-6 text-white" />,
       title: "Cloud Stack Optimization",
-      description: "We optimize your existing cloud footprint end-to-end - reengineering application architecture, tiering database storage, and tuning container resources to slash your bill without changing cloud providers.",
+      description: "We optimize your existing cloud footprint end-to-end reengineering application architecture, tiering database storage, and tuning container resources to slash your bill without changing cloud providers.",
       image: "./assets/images/region-expansion.jpg"
     },
     {
