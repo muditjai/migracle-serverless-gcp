@@ -14,7 +14,7 @@ const UseCases = () => {
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
       title: "Credit-Driven Cloud Migration",
-      description: "We migrate your entire stack end-to-end to utilize $100k–$350k in startup cloud credits, deploying a production-ready, equivalent architecture on the new provider.",
+      description: "We migrate your entire stack end-to-end to utilize $100k - $350k in startup cloud credits, deploying a production-ready, equivalent architecture on the new provider.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {

@@ -15,12 +15,12 @@ const CustomerPersonas = () => {
       benefits: [
         'Compute, database, and data warehouse optimization.',
         'SLA and latency parity guaranteed by load testing.',
-        'Verified 5–10× first-year ROI with zero system risk.'
+        'Verified 5 - 10× first-year ROI with zero system risk.'
       ],
       metrics: [
         {
           icon: <TrendingDown className="w-5 h-5 text-white/70 mb-2" />,
-          value: '5–10×',
+          value: '5 - 10×',
           label: 'Year-1 ROI'
         },
         {
@@ -34,23 +34,23 @@ const CustomerPersonas = () => {
       id: 2,
       title: 'Growth-Stage Companies',
       subtitle: 'Extend Runway Without Sacrificing Velocity',
-      description: 'Your team needs to focus on shipping revenue-generating features, not refactoring resources. We take the entire optimization workload off your plate—requiring just 4–5 alignment meetings in total.',
+      description: 'Your team needs to focus on shipping revenue-generating features, not refactoring resources. We take the entire optimization workload off your plate - requiring just 4 - 5 alignment meetings in total.',
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       benefits: [
         'We write and package the PRs - your team approves the overall plan.',
-        'Minimal time required: 4–5 short touchpoints total.',
+        'Minimal time required: 4 - 5 short touchpoints total.',
         'Outcome-aligned milestone fees tied directly to actual savings.'
       ],
       metrics: [
         {
           icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
-          value: '60–80%',
+          value: '30%+',
           label: 'Bill Reduction'
         },
         {
           icon: <Clock className="w-5 h-5 text-white/70 mb-2" />,
-          value: '4–5',
+          value: '4-5',
           label: 'Meetings Total'
         }
       ]
@@ -58,7 +58,7 @@ const CustomerPersonas = () => {
     {
       id: 3,
       title: 'Startups with Expiring Credits',
-      subtitle: 'Unlock $100k–$350k in Fresh Runway',
+      subtitle: 'Unlock $100k - $350k in Fresh Runway',
       description: 'Stop letting unused cloud credits expire on AWS, GCP, or Azure. We migrate your architecture end-to-end to the new provider within weeks, ensuring a seamless cutover and identical behavior.',
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
@@ -70,7 +70,7 @@ const CustomerPersonas = () => {
       metrics: [
         {
           icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
-          value: '$100–350k',
+          value: '$100 - 350k',
           label: 'Fresh Runway'
         },
         {

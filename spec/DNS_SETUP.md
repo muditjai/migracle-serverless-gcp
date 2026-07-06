@@ -1,16 +1,12 @@
 # Namecheap DNS Setup for migracle.com
 
-> **Scope**: This file describes the DNS records for the **prod** production site (`migracle.com` / `www.migracle.com`). The **test** Cloud Run service is reached via its auto-assigned URL (`https://<service>-<hash>-uc.a.run.app`) and does **not** need a DNS record — see [`ARCHITECTURE.md`](./ARCHITECTURE.md) and [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow-mandatory) for the test → prod flow.
+> **Scope**: This file describes the DNS records for the **prod** production site (`migracle.com` / `www.migracle.com`). The **test** Cloud Run service is reached via its auto-assigned URL (`https://<service>-<hash>-uc.a.run.app`) and does **not** need a DNS record - see [`ARCHITECTURE.md`](./ARCHITECTURE.md) and [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow-mandatory) for the test → prod flow.
 
 ## 🎯 Quick Setup Guide
 
 Your GCP infrastructure is ready! Now you need to update DNS records in Namecheap to point your domain to GCP.
 
-### ✅ GCP Infrastructure Ready:
-- **Static IP**: `34.8.48.9`
-- **Load Balancer**: Configured with SSL certificate
-- **CDN**: Enabled for fast global delivery
-- **SSL Certificate**: Google-managed SSL for HTTPS
+### ✅ GCP Infrastructure Ready: - **Static IP**: `34.8.48.9` - **Load Balancer**: Configured with SSL certificate - **CDN**: Enabled for fast global delivery - **SSL Certificate**: Google-managed SSL for HTTPS
 
 ## 📋 Namecheap DNS Configuration
 
@@ -39,10 +35,7 @@ Instead of the www A record above, you can use:
 1. Click **Save All Changes**
 2. Wait for DNS propagation (5-30 minutes)
 
-## ⏱️ Timeline
-- **DNS Propagation**: 5-30 minutes
-- **SSL Certificate Provisioning**: 15-60 minutes (happens automatically)
-- **Full Availability**: Within 1 hour
+## ⏱️ Timeline - **DNS Propagation**: 5-30 minutes - **SSL Certificate Provisioning**: 15-60 minutes (happens automatically) - **Full Availability**: Within 1 hour
 
 ## 🔍 Verification Steps
 
@@ -53,10 +46,7 @@ Instead of the www A record above, you can use:
    nslookup www.migracle.com
    ```
 
-2. **Test website access**:
-   - http://migracle.com (should work immediately)
-   - https://migracle.com (available after SSL provisioning)
-   - https://www.migracle.com (available after SSL provisioning)
+2. **Test website access**: - http://migracle.com (should work immediately) - https://migracle.com (available after SSL provisioning) - https://www.migracle.com (available after SSL provisioning)
 
 ### Test Environment Access:
 The test Cloud Run service does not use this domain. Get its URL from the deploy output, e.g.:
@@ -73,15 +63,9 @@ gcloud compute ssl-certificates describe migracle-ssl-cert-v2 --global
 
 ## 🔧 Troubleshooting
 
-### DNS Not Propagating?
-- Wait up to 48 hours for full global propagation
-- Use online DNS checkers: [whatsmydns.net](https://whatsmydns.net)
-- Clear browser cache and try incognito mode
+### DNS Not Propagating? - Wait up to 48 hours for full global propagation - Use online DNS checkers: [whatsmydns.net](https://whatsmydns.net) - Clear browser cache and try incognito mode
 
-### SSL Certificate Issues?
-- SSL certificates can take up to 60 minutes to provision
-- Ensure DNS is pointing to the correct IP before SSL provisioning completes
-- Check certificate status with the gcloud command above
+### SSL Certificate Issues? - SSL certificates can take up to 60 minutes to provision - Ensure DNS is pointing to the correct IP before SSL provisioning completes - Check certificate status with the gcloud command above
 
 ### Website Not Loading?
 1. Verify DNS records point to `34.8.48.9`
@@ -95,10 +79,6 @@ If you encounter issues:
 3. Contact Namecheap support for DNS-specific issues
 
 ## 🎉 Success!
-Once complete, your **prod** website will be available at:
-- **https://migracle.com** ✅
-- **https://www.migracle.com** ✅
-- **Fast global CDN delivery** ✅
-- **Automatic HTTPS/SSL** ✅
+Once complete, your **prod** website will be available at: - **https://migracle.com** ✅ - **https://www.migracle.com** ✅ - **Fast global CDN delivery** ✅ - **Automatic HTTPS/SSL** ✅
 
 Remember: changes always ship to the **test** Cloud Run service first (no DNS / no LB needed) and are manually promoted to prod by the owner. See [`CODING_STANDARDS.md`](./CODING_STANDARDS.md#git--deployment-workflow-mandatory).

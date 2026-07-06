@@ -120,9 +120,9 @@ const Features = () => {
     {
       icon: <Rocket className="w-6 h-6 text-white" />,
       title: "Outcome-Based Milestone Pricing",
-      description: "You pay a one-time, milestone-based fee tied directly to verified savings. No recurring subscription, no open-ended consulting bills, and a typical 5–10× ROI immediately.",
+      description: "You pay a one-time, milestone-based fee tied directly to verified savings. No recurring subscription, no open-ended consulting bills, and a typical 5 - 10× ROI immediately.",
       metric1: {
-        value: "5–10×",
+        value: "5 - 10×",
         label: "Average ROI Immediately"
       },
       metric2: {
