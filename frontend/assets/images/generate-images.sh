@@ -104,7 +104,7 @@ echo ""
 # Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "An extreme close-up, high-contrast realistic photograph of a massive, ultra-widescreen high-resolution monitor. The monitor dominates the entire frame, displaying a detailed, clean AWS and GCP cloud billing and cost management dashboard with clear line graphs, database tiers, and a cost optimization chart. Grounded and authentic setting with soft out-of-focus corporate background, natural lighting, sharp focus, 16:9 aspect ratio." \
+        "An extreme close-up, high-contrast realistic photograph of a massive, ultra-widescreen high-resolution monitor. The monitor dominates the entire frame, displaying a detailed, clean AWS and GCP cloud billing and cost management dashboard with clear line graphs, database tiers, and a cost optimization chart. The background is a dim, sleek corporate office building with a cool, modern blue-gray and cyan hue. Natural cool light, low brightness, sharp focus, 16:9 aspect ratio." \
         "region-expansion.jpg"
 fi
 
@@ -118,7 +118,7 @@ fi
 # Use Case 3: The Compounded Runway Strategy
 if should_generate "multi-cloud"; then
     generate_image \
-        "A professional, realistic photograph of a modern glass-walled corporate meeting room. On a large, clean whiteboard, a beautifully hand-drawn, precise diagram of a 'Compounded Runway Strategy' is shown, detailing 'Step 1: Optimize Existing Stack' and 'Step 2: Migrate to Credit Provider' with flowcharts and server icons. Grounded, authentic business environment, crisp focus on the whiteboard, soft cinematic lighting, extremely professional and convincing, 16:9 aspect ratio." \
+        "A professional, realistic photograph of a modern glass-walled corporate meeting room. On a large, clean whiteboard, a beautifully hand-drawn, precise diagram of a 'Compounded Runway Strategy' is shown, detailing 'Step 1: Optimize Existing Stack' and 'Step 2: Migrate to Credit Provider' with flowcharts and server icons. Grounded, authentic business environment, crisis focus on the whiteboard, soft cinematic lighting, extremely professional and convincing, 16:9 aspect ratio." \
         "multi-cloud.jpg"
 fi
 
