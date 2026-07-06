@@ -13,7 +13,7 @@ set -e
 # Configuration
 PROJECT_ID="${PROJECT_ID:-migracle-gcp-2}"
 LOCATION="us-central1"
-MODEL="imagen-4.0-ultra-generate-001"
+MODEL="imagen-3.0-generate-002"
 OUTPUT_DIR="$(dirname "$0")"
 
 # Colors for output
@@ -106,26 +106,26 @@ should_generate() {
 echo "=== Generating Use Case Images ==="
 echo ""
 
-# Use Case 1: AWS Region Expansion
+# Use Case 1: Cloud Stack Optimization
 if should_generate "region-expansion"; then
     generate_image \
-        "Modern digital illustration of a world map with crisp bright glowing data center nodes, prominent sharp nodes located in USA, Brazil, Europe, Middle East, South Africa, India, Australia, and Japan. Nodes are bright white-blue points connected by subtle thin light trails. Blue and cyan color scheme, pure black background, professional tech aesthetic, no text or logos, clean minimal design, high contrast" \
+        "A sophisticated 3D isometric diagram of an optimized, high-performance cloud stack on a pure black background. Neatly layered database tiers with thin glowing cyan lines, nested blue-green server container modules, and optimized resource flow. High contrast, clean minimalist tech illustration, sharp focus, professional tech aesthetic." \
         "region-expansion.jpg" \
         "16:9"
 fi
 
-# Use Case 2: AWS to GCP Migration
+# Use Case 2: Credit-Driven Cloud Migration
 if should_generate "cloud-migration"; then
     generate_image \
-        "Sophisticated 3D isometric visualization of cloud infrastructure migration, left side showing orange AWS-style server architecture transforming into right side blue-green GCP-style architecture, data packets and containers flowing between them, showing compute instances, databases, storage buckets being replicated, dark background with blue and teal accents, high fidelity tech illustration, no text" \
+        "A clean 3D isometric representation of cloud migration. On the left, orange infrastructure segments elegantly transform into vibrant blue-green containerized layers on the right. Glowing data packets and kubernetes pods flow gracefully between the environments. Pure black background, cyber-teal and orange neon accents, ultra-clean high-fidelity vector style." \
         "cloud-migration.jpg" \
         "16:9"
 fi
 
-# Use Case 3: Multi-Cloud Deployment
+# Use Case 3: The Compounded Runway Strategy
 if should_generate "multi-cloud"; then
     generate_image \
-        "Three large cloud platforms in triangle formation, each cloud filled with many small white line icons for servers, databases, storage disks, networking switches, security shields, keys, containers all mixed together inside each cloud. Clouds have rich blue to purple to cyan gradient fill with glow effect. Thin subtle connection lines between clouds. Pure black background, professional tech illustration style, no text" \
+        "Three interconnected glowing cloud nodes arranged in a clean triangular composition on a pure black background. Each cloud contains tiny, precise white wireframe icons of servers, storage disks, and databases. Glowing cyber-cyan and deep purple gradients, subtle light trails connecting the clusters to represent compounded, multi-layered optimization. Sleek minimalist tech aesthetic." \
         "multi-cloud.jpg" \
         "16:9"
 fi
@@ -137,7 +137,7 @@ echo ""
 # Persona 1: Enterprise SaaS Vendors
 if should_generate "enterprise-saas"; then
     generate_image \
-        "Clean modern illustration of a globe with multiple office buildings in different continents connected by glowing network lines, representing global enterprise expansion. Dark black background, blue and cyan color scheme, professional minimalist tech aesthetic, no text, no map overlay, clean separation of elements" \
+        "A futuristic global network sphere centered on a pure black background. Transparent, glowing blue-green continents with precise data-center nodes emitting clean, bright neon-blue connection lines. Elegant high-contrast tech illustration, minimalist corporate cybersecurity aesthetic, sharp focus." \
         "enterprise-saas.jpg" \
         "4:3"
 fi
@@ -145,7 +145,7 @@ fi
 # Persona 2: Growth-Stage ISVs
 if should_generate "growth-isv"; then
     generate_image \
-        "Photorealistic wide shot of modern tech office with multiple large monitors in foreground showing growth charts and analytics dashboards with upward trending graphs and percentage metrics, 2-3 diverse tech professionals visible but smaller in frame working at desks in background, cool blue lighting, dark office environment, monitors are the main focus taking up most of frame, cinematic photography, no warm tones" \
+        "A highly professional dark office environment at night with a close-up focus on dual widescreen monitors. The screens display crisp, glowing analytics dashboards with upward-curving growth charts and financial ledgers. Out-of-focus background shows a sleek, modern tech workstation with cool cyan ambient lighting. Cinematic shallow depth of field, sharp focus on screen details." \
         "growth-isv.jpg" \
         "4:3"
 fi
@@ -153,7 +153,7 @@ fi
 # Persona 3: Startups with Cloud Credits
 if should_generate "startup-credits"; then
     generate_image \
-        "Photorealistic image of a laptop screen showing a cloud provider dashboard with credit balance displaying 250000 dollars, cloud infrastructure icons, servers and databases visible, startup office desk environment, cool blue and purple ambient lighting, dark background, professional tech photography, clean modern composition" \
+        "A modern laptop opened on a clean dark desk, with the screen displaying a glowing cloud platform billing dashboard. The dashboard prominently highlights a verified promotional credit balance of 250,000 USD in a clean, modern digital layout, alongside server resource meters. Ambient deep blue and violet backlighting, sleek professional product photography, high contrast." \
         "startup-credits.jpg" \
         "4:3"
 fi
