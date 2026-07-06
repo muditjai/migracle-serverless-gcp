@@ -8,85 +8,85 @@ const CustomerPersonas = () => {
     {
       id: 1,
       title: 'Enterprise & Public Companies',
-      subtitle: 'Reduce Cloud Spend Without Risk.',
-      description: 'Cloud bill is up 40% YoY and the CFO wants it down. We cut the bill without breaking a single user-facing endpoint. Pre-change vs post-change, every service is tested for parity before we sign off.',
+      subtitle: 'De-Risk Cloud Cost Reduction at Scale',
+      description: 'Lower your infrastructure and SaaS bills without disrupting critical, high-traffic systems. Every code modification is covered by automated regression testing to guarantee complete performance and SLA parity.',
       image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Cloud bill up 40% YoY, the CFO is asking',
-        'SLA-sensitive workloads can\'t take big-bang risks',
-        'FinOps team is already drowning in dashboards'
+        'Cloud bills outpacing revenue, attracting CFO scrutiny',
+        'SLA-sensitive workloads cannot tolerate deployment risk',
+        'FinOps teams are buried under dashboards, lacking execution bandwidth'
       ],
       benefits: [
-        'End-to-end optimization with zero SLA risk',
-        'Average 5× ROI in year 1',
-        'Functional, latency, and error-rate parity verified'
+        'Hands-on refactoring of compute, database, and warehousing resources',
+        'Zero-regression guarantee backed by pre-and-post load testing',
+        'Typical 5–10× Year-1 ROI with auditable ledger of actual savings'
       ],
       metrics: [
         {
           icon: <TrendingDown className="w-5 h-5 text-white/70 mb-2" />,
-          value: '5×',
+          value: '5–10×',
           label: 'Year-1 ROI'
         },
         {
           icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
           value: 'Pre/Post',
-          label: 'Verified Parity'
+          label: 'Guaranteed Parity'
         }
       ]
     },
     {
       id: 2,
       title: 'Growth-Stage Companies',
-      subtitle: 'Lower the Cloud Bill. Ship the Product.',
-      description: 'Bill is up, runway is down, and your infra team is already maxed. We do the optimization work in 4–5 meetings. Your engineering team keeps shipping the product.',
+      subtitle: 'Extend Runway Without Sacrificing Velocity',
+      description: 'Your team needs to focus on shipping revenue-generating features, not refactoring resources. We take the entire optimization workload off your plate—requiring just 4–5 alignment meetings in total.',
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Bill up, runway down',
-        'Small infra team already maxed',
-        'No quarter to spend on a migration'
+        'Urgent demand to extend cash runway and lower burn',
+        'Maxed-out platform/SRE teams with zero bandwidth for cost sprints',
+        'Reluctance to slow down the feature roadmap for refactoring'
       ],
       benefits: [
-        'We do the work — your team keeps shipping the product',
-        '4–5 meetings total across the engagement',
-        'Outcome-based pricing tied to results, not hours'
+        'We write and bundle the PRs—your team only reviews and merges',
+        'Minimal time investment: just 4–5 synchronous touchpoints total',
+        'Milestone-based, outcome-aligned pricing tied directly to verified savings'
       ],
       metrics: [
         {
           icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
           value: '60–80%',
-          label: 'Spend Reduction'
+          label: 'Bill Reduction'
         },
         {
           icon: <Clock className="w-5 h-5 text-white/70 mb-2" />,
           value: '4–5',
-          label: 'Meetings'
+          label: 'Meetings Total'
         }
       ]
     },
     {
       id: 3,
-      title: 'Startups with Cloud Credits',
-      subtitle: 'Spend the Credits. Land on the New Cloud.',
-      description: '$100k–$350k in unused cloud credits on a new provider. We get you production-ready on that provider in weeks, with the same services and SLAs as today.',
+      title: 'Startups with Expiring Credits',
+      subtitle: 'Unlock $100k–$350k in Fresh Runway',
+      description: 'Stop letting unused cloud credits expire on AWS, GCP, or Azure. We migrate your architecture end-to-end to the new provider within weeks, ensuring a seamless cutover and identical behavior.',
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Cloud credits expiring unused',
-        'Don\'t know the destination cloud provider well',
-        'Don\'t have eng bandwidth for a quarter-long migration'
+        'Significant cloud credits expiring unused on a different provider',
+        'Lacking deep expertise or experience in the destination cloud',
+        'No internal SRE resources to spare for a multi-week migration'
       ],
       benefits: [
-        'Production-ready on the new provider in weeks',
-        'End-to-end migration, no internal hires needed',
-        'Same functionality and SLA, day one'
+        'End-to-end migration handled entirely by our systems engineers',
+        'Production-ready on the new cloud in weeks, with minimal service downtime',
+        'Guaranteed operational, latency, and performance parity on day one'
       ],
       metrics: [
         {
           icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
-          value: '$100–350K',
-          label: 'Credits Used'
+          value: '$100–350k',
+          label: 'Fresh Runway'
         },
         {
           icon: <Zap className="w-5 h-5 text-white/70 mb-2" />,
@@ -100,9 +100,9 @@ const CustomerPersonas = () => {
   return (
     <section className="mission">
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">Who We Work With</div>
+        <div className="mission-label mb-6">Target Audiences</div>
         <h2 className="text-2xl text-white mb-12">
-          For teams who want a lower cloud bill, fast.
+          Tailored cloud cost engineering, no matter your scale.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

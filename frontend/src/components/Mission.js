@@ -4,14 +4,10 @@ const Mission = () => {
   return (
     <section className="mission font-['Inter']" aria-label="Our Mission">
       <div className="container">
-        <div className="mission-label">Our mission</div>
-        <h2 className="text-2xl text-white mb-12">Cut Your Cloud Bill Across the Infra and Application Layers</h2>
+        <div className="mission-label">The Migracle Difference</div>
+        <h2 className="text-2xl text-white mb-12">Engineering the Cost Out of Your Cloud Stack</h2>
         <p>
-          We implement optimization across application architecture, data pipelines,
-          AI usage, and cloud infrastructure &mdash; not just a finops dashboard with
-          recommendations. Every change is extensively tested and validated for 100%
-          functional and SLA parity against your pre-change state. You get a lower
-          cloud bill with no overhead for your engineering team.
+          Most FinOps platforms stop at recommendations, leaving your engineering team to find, test, and ship the fixes. We do the actual work. Migracle optimizes your entire stack—re-engineering application code, refactoring data pipelines, optimizing LLM token spend, and tuning infrastructure. We validate every single pull request with rigorous pre-and-post automated testing to guarantee complete functional and SLA parity.
         </p>
       </div>
     </section>

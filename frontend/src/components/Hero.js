@@ -37,11 +37,9 @@ const Hero = () => {
   return (
     <section className="hero font-['Inter']" aria-label="Introduction">
       <div className="container">
-        <h1>Reduce your cloud bill with AI Native Service</h1>
+        <h1>Extend Your Cloud Runway. Guaranteed SLA Parity, Outcome-Based.</h1>
         <p>
-          We provide professional services for cloud cost reduction. We optimize your
-          cloud stack or execute migration to a lower cost cloud providers - giving an
-          immediate ROI of 5x with outcome based pricing and no long term contract.
+          We are an AI-native professional services firm that reduces your actual cloud spend. We optimize your entire stack or migrate workloads to fresh cloud credits—delivering an average 5–10× first-year ROI. No retainers, no hourly billing, and zero engineering overhead for your team.
         </p>
 
         <div className="input-form-container">

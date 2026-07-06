@@ -93,41 +93,41 @@ const Features = () => {
   const features = [
     {
       icon: <Wrench className="w-6 h-6 text-white" />,
-      title: "We Ship the Optimization.",
-      description: "Other tools give you a finops dashboard with recommendations. We open the PRs, change the Terraform, rewrite data pipelines, and ship the optimization code. Your engineering team reviews. That's it.",
+      title: "Hands-On Code & Infra Delivery",
+      description: "Instead of dumping recommendations onto your backlog, we open the pull requests. We write the optimized code, update the Terraform/CloudFormation, rewrite data pipelines, and package the containers. Your engineering team only needs to review and merge.",
       metric1: {
         value: "100%",
-        label: "Work Shipped"
+        label: "Work Done by Us"
       },
       metric2: {
-        value: "Zero",
-        label: "Recommendations for You"
+        value: "0",
+        label: "New Backlog Items for You"
       }
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-white" />,
-      title: "Verified Functional & SLA Parity.",
-      description: "Before optimization is signed off, every change is tested against your pre-change state. Same functionality. Same latency. Same error rate. You get a verified working system with a lower cloud bill — not a promise, a test result.",
+      title: "100% Guaranteed SLA Parity",
+      description: "We eliminate the risk of performance degradation. Every optimization is verified against pre-change baselines using automated load and regression tests. We guarantee identical functionality, latency, and error rates before any code is promoted to production.",
       metric1: {
         value: "100%",
-        label: "Functional Parity"
+        label: "Functional & SLA Parity"
       },
       metric2: {
         value: "Pre/Post",
-        label: "Verified, Not Assumed"
+        label: "Automated Parity Verification"
       }
     },
     {
       icon: <Rocket className="w-6 h-6 text-white" />,
-      title: "Outcome-Based Pricing.",
-      description: "Milestone based pricing tied to outcomes. No hourly billing. No long-term contracts. 4–5 meetings across the engagement. Average 5× ROI in year 1; most customers achieve 60–80% lower cloud spend.",
+      title: "Outcome-Based Milestone Pricing",
+      description: "We align our incentives directly with your budget. You pay a one-time, milestone-based fee tied directly to verified savings. No monthly retainers, no open-ended hourly consulting bills, and a typical 5–10× ROI in the first year.",
       metric1: {
-        value: "5×",
+        value: "5–10×",
         label: "Average Year-1 ROI"
       },
       metric2: {
-        value: "60–80%",
-        label: "Lower Cloud Spend"
+        value: "One-Time",
+        label: "Milestones, No Retainers"
       }
     }
   ];
@@ -135,7 +135,7 @@ const Features = () => {
   return (
     <section className="mission" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">Built for teams that want it done</div>
+        <div className="mission-label mb-6">Engineered for Outcomes</div>
         <h2 className="text-2xl text-white mb-12">
           Built for teams who want outcomes, not recommendations.
         </h2>

@@ -14,12 +14,10 @@ const CTA = () => {
 
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
-            Want a Free Estimate of What Your Cloud Bill Could Be?
+            Ready to Extend Your Cloud Runway?
           </h2>
           <p className="text-xl text-white/70 mb-8">
-            Send us your current cloud stack and spend. We provide a free estimate
-            of what optimization or migration could save &mdash; delivered in 5
-            business days, with no commitment.
+            Send us a high-level overview of your cloud stack and current monthly spend. We'll deliver a comprehensive, risk-free savings estimate and optimization blueprint in 5 business days—with zero commitment.
           </p>
 
           <button

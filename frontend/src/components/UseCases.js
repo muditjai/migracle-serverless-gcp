@@ -7,20 +7,20 @@ const UseCases = () => {
   const useCases = [
     {
       icon: <TrendingDown className="w-6 h-6 text-white" />,
-      title: "Cut Spend on What You Already Have.",
-      description: "We provide professional services to optimize your existing cloud stack end-to-end — across containers, AI token spend, storage, and data warehouses. Same services, lower bill. No rewrite, no re-platform.",
+      title: "In-Place Stack Optimization",
+      description: "We optimize your existing cloud footprint end-to-end. By refactoring application logic, tuning container resources, tiering database storage, and optimizing LLM prompt token spend, we slash your bill without changing cloud providers.",
       image: "./assets/images/region-expansion.jpg"
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
-      title: "Spend Your Startup Credits. Migrate.",
-      description: "$100k–$350k in unused startup credits on a new cloud provider? We execute the migration end-to-end so you can deploy against fresh credits. Production-ready on day one, every SLA preserved.",
+      title: "Credit-Driven Cloud Migration",
+      description: "If you have access to $100k–$350k in unused startup cloud credits on a new provider (or a better negotiated enterprise contract), we migrate your entire stack end-to-end. We deploy a production-ready, equivalent architecture so you run completely on credits.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
-      title: "Both — Compound the Savings.",
-      description: "Optimize your existing cloud stack first, then migrate to a lower-cost cloud provider to compound the savings. Same SLA guarantee at every layer. Outcome-based pricing — we don't get paid if you don't save.",
+      title: "The Compounded Runway Strategy",
+      description: "First, we optimize your current software and data architecture to reduce resource consumption. Then, we migrate the lean, optimized stack to the cheaper provider to capture credits. This dual approach compounds your cost savings.",
       image: "./assets/images/multi-cloud.jpg"
     }
   ];
@@ -28,7 +28,7 @@ const UseCases = () => {
   return (
     <section className="mission">
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">How We Reduce Your Cloud Spend</div>
+        <div className="mission-label mb-6">Our Playbooks</div>
 
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2">
