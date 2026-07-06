@@ -173,7 +173,7 @@ git push origin main
 
 #### Step 4 — Deploy to the test container on Cloud Run
 See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the exact service name and gcloud command. The convention:
-- Frontend → **test** Cloud Run service (or test Cloud Storage bucket fronted by the same setup)
+- Frontend → **test** Cloud Run service (or test Cloud Storage bucket `gs://migracle-gcp-2-website-test/` fronted by the same setup)
 - Cloud Functions → **test**-prefixed function name
 
 Example (frontend test container):
@@ -182,6 +182,11 @@ gcloud run deploy migracle-site-test \
   --source ./frontend \
   --region us-central1 \
   --allow-unauthenticated
+```
+
+*Note on static assets deployment*: When uploading static assets/images to the GCS website buckets (test or prod), always set the Cache-Control header to `no-cache, max-age=0` to ensure that browsers do not serve cached, stale versions of newly generated images:
+```bash
+gsutil setmeta -h "Cache-Control:no-cache, max-age=0" gs://migracle-gcp-2-website-test/assets/images/*.jpg
 ```
 
 #### Step 5 — Open the test URL and verify
