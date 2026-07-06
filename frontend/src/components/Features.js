@@ -93,21 +93,21 @@ const Features = () => {
   const features = [
     {
       icon: <Wrench className="w-6 h-6 text-white" />,
-      title: "We ship the change.",
-      description: "Other tools tell you what's wrong. We open the PRs, change the Terraform, rewrite the pipeline, and ship. Your team reviews. That's it.",
+      title: "We Ship the Optimization.",
+      description: "Other tools give you a finops dashboard with recommendations. We open the PRs, change the Terraform, rewrite data pipelines, and ship the optimization code. Your engineering team reviews. That's it.",
       metric1: {
         value: "100%",
         label: "Work Shipped"
       },
       metric2: {
         value: "Zero",
-        label: "Action Items for You"
+        label: "Recommendations for You"
       }
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-white" />,
-      title: "Verified at your SLA.",
-      description: "Before we say done, we run your traffic against the new stack. Functional parity. Latency parity. Error-rate parity. Same service, lower bill — not a promise, a test result.",
+      title: "Verified Functional & SLA Parity.",
+      description: "Before optimization is signed off, every change is tested against your pre-change state. Same functionality. Same latency. Same error rate. You get a verified working system with a lower cloud bill — not a promise, a test result.",
       metric1: {
         value: "100%",
         label: "Functional Parity"
@@ -119,15 +119,15 @@ const Features = () => {
     },
     {
       icon: <Rocket className="w-6 h-6 text-white" />,
-      title: "Outcome-priced.",
-      description: "Milestone payments, not hourly. No retainer. 4&ndash;5 meetings across the engagement. Target 5&times; ROI in year 1; most customers see 60&ndash;80% lower spend.",
+      title: "Outcome-Based Pricing.",
+      description: "Milestone based pricing tied to outcomes. No hourly billing. No long-term contracts. 4–5 meetings across the engagement. Average 5× ROI in year 1; most customers achieve 60–80% lower cloud spend.",
       metric1: {
         value: "5×",
-        label: "Target ROI"
+        label: "Average Year-1 ROI"
       },
       metric2: {
         value: "60–80%",
-        label: "Spend Cut"
+        label: "Lower Cloud Spend"
       }
     }
   ];
@@ -135,9 +135,9 @@ const Features = () => {
   return (
     <section className="mission" ref={ref}>
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">What makes us different</div>
+        <div className="mission-label mb-6">Built for teams that want it done</div>
         <h2 className="text-2xl text-white mb-12">
-          Built for teams who want it done, not diagnosed.
+          Built for teams who want outcomes, not recommendations.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

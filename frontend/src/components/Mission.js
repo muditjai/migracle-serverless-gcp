@@ -5,12 +5,13 @@ const Mission = () => {
     <section className="mission font-['Inter']" aria-label="Our Mission">
       <div className="container">
         <div className="mission-label">Our mission</div>
-        <h2 className="text-2xl text-white mb-12">Lower bill. Same services. SLA-verified.</h2>
+        <h2 className="text-2xl text-white mb-12">Cut Your Cloud Bill Across the Infra and Application Layers</h2>
         <p>
-          We change your code, your infrastructure, and your data pipelines&mdash;not just
-          your dashboard. Every change is tested against your pre-change behavior: same
-          functionality, same latency, same error rate. You get a working system with a
-          lower bill. Not a list of action items for your team to action.
+          We implement optimization across application architecture, data pipelines,
+          AI usage, and cloud infrastructure &mdash; not just a finops dashboard with
+          recommendations. Every change is extensively tested and validated for 100%
+          functional and SLA parity against your pre-change state. You get a lower
+          cloud bill with no overhead for your engineering team.
         </p>
       </div>
     </section>

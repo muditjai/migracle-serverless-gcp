@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import { TrendingDown, ArrowRightLeft, Layers } from 'lucide-react';
 
 const UseCases = () => {
-  const [selectedCase, setSelectedCase] = useState(0); // Start with first use case selected
+  const [selectedCase, setSelectedCase] = useState(0);
 
   const useCases = [
     {
       icon: <TrendingDown className="w-6 h-6 text-white" />,
-      title: "Cut spend on what you already have.",
-      description: "We find and ship the changes across containers, AI token spend, storage, and data warehouses. Same services, lower bill. No rewrite, no re-platform.",
+      title: "Cut Spend on What You Already Have.",
+      description: "We provide professional services to optimize your existing cloud stack end-to-end — across containers, AI token spend, storage, and data warehouses. Same services, lower bill. No rewrite, no re-platform.",
       image: "./assets/images/region-expansion.jpg"
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
-      title: "Spend your startup credits. Migrate.",
-      description: "$100k&ndash;$350k in unused credits on a new provider? We migrate your stack end-to-end so you can spend them. Production-ready on day one, every SLA preserved.",
+      title: "Spend Your Startup Credits. Migrate.",
+      description: "$100k–$350k in unused startup credits on a new cloud provider? We execute the migration end-to-end so you can deploy against fresh credits. Production-ready on day one, every SLA preserved.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
-      title: "Both &mdash; compound the savings.",
-      description: "Optimize first, then migrate to a cheaper provider. Layered savings, same SLA guarantee at every step. Outcome-priced; we don't get paid if you don't save.",
+      title: "Both — Compound the Savings.",
+      description: "Optimize your existing cloud stack first, then migrate to a lower-cost cloud provider to compound the savings. Same SLA guarantee at every layer. Outcome-based pricing — we don't get paid if you don't save.",
       image: "./assets/images/multi-cloud.jpg"
     }
   ];
@@ -28,10 +28,9 @@ const UseCases = () => {
   return (
     <section className="mission">
       <div className="container mx-auto px-4">
-        <div className="mission-label mb-6">What we do</div>
+        <div className="mission-label mb-6">How We Reduce Your Cloud Spend</div>
 
         <div className="flex flex-col md:flex-row gap-12">
-          {/* Left side - Image */}
           <div className="md:w-1/2">
             <div className="relative h-96 bg-[#181818] rounded-xl overflow-hidden border border-white/10">
               <img
@@ -43,7 +42,6 @@ const UseCases = () => {
             </div>
           </div>
 
-          {/* Right side - Use Cases */}
           <div className="md:w-1/2 space-y-6">
             {useCases.map((useCase, index) => (
               <div
@@ -55,7 +53,6 @@ const UseCases = () => {
                   }`}
                 onClick={() => setSelectedCase(index)}
               >
-                {/* Glowing border effect for selected case */}
                 {selectedCase === index && (
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 to-white/10 blur-xl -z-10" />
                 )}
