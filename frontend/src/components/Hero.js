@@ -12,7 +12,7 @@ const Hero = () => {
     try {
       // Use the API endpoint from window configuration
       const apiUrl = `${window.API_ENDPOINT}/subscribeHandler`;
-      
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -37,8 +37,13 @@ const Hero = () => {
   return (
     <section className="hero font-['Inter']" aria-label="Introduction">
       <div className="container">
-        <h1>Expand to New Cloud Regions and Providers in Weeks, Not Quarters</h1>
-        <p>We provide professional services for cloud infrastructure expansion. We replicate your infra across regions and providers - cutting expansion timelines from 2-3 quarters to 4-6 weeks.</p>
+        <h1>Reduce Your Cloud Bill. Extend Your Cloud Runway.</h1>
+        <p>
+          Migracle is an outcome-based, AI-native service that cuts cloud spend through
+          end-to-end optimization, migration to leverage startup credits ($100k&ndash;$350k),
+          or both. Milestone-based, one-time payment. 5&ndash;10&times; ROI in year 1.
+          4&ndash;5 meetings. Parity guaranteed at every layer of the stack.
+        </p>
 
         <div className="input-form-container">
           <form id="subscriptionForm" className="input-form" onSubmit={handleSubscribe}>
@@ -54,8 +59,8 @@ const Hero = () => {
                 disabled={isSubmitting}
               />
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="subscribe-button"
               disabled={isSubmitting}
             >

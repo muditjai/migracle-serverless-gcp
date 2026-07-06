@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, Rocket, Sparkles, Globe, TrendingUp, Zap, CheckCircle, Clock, DollarSign } from 'lucide-react';
+import { Building2, Rocket, Sparkles, TrendingDown, DollarSign, CheckCircle } from 'lucide-react';
 
 const CustomerPersonas = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -7,91 +7,91 @@ const CustomerPersonas = () => {
   const personas = [
     {
       id: 1,
-      title: 'Enterprise SaaS Vendors',
-      subtitle: 'Global Expansion & Data Sovereignty',
-      description: 'Expand globally while meeting data residency requirements. Automated Terraform modules for compliance-ready deployments.',
+      title: 'Public Companies & Enterprise SaaS',
+      subtitle: 'Cutting Cloud Spend Without Risk',
+      description: 'Optimize the existing stack end-to-end across containers, token spend, AI usage, storage, data warehouses, application logic, and architecture — with full functional and SLA parity verified.',
       image: './assets/images/enterprise-saas.jpg',
       icon: <Building2 className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Manual infrastructure recreation for each region',
-        'Region-specific hardcodings in Terraform',
-        'Compliance delays blocking market entry'
+        'Token spend (LLMs, AI workloads) growing faster than revenue',
+        'SLA-sensitive workloads make big-bang rewrites risky',
+        'Multi-account / multi-region sprawl makes cost hard to manage'
       ],
       benefits: [
-        'Automated Terraform modules for any region',
-        'Compliance-ready deployments out of the box',
-        'Faster go-to-market in new geographies'
+        'End-to-end optimization that ships the changes',
+        'Functional + SLA parity verified at every layer',
+        'Outcome-based engagement — payment tied to results'
       ],
       metrics: [
         {
-          icon: <Globe className="w-5 h-5 text-white/70 mb-2" />,
-          value: '75%',
-          label: 'Faster Expansion'
+          icon: <TrendingDown className="w-5 h-5 text-white/70 mb-2" />,
+          value: '5–10×',
+          label: 'Year-1 ROI'
         },
         {
-          icon: <TrendingUp className="w-5 h-5 text-white/70 mb-2" />,
-          value: '5X',
-          label: 'More Regions/Year'
+          icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
+          value: 'Verified',
+          label: 'SLA Parity'
         }
       ]
     },
     {
       id: 2,
-      title: 'Growth-Stage ISVs',
-      subtitle: 'Scale Without Growing the Team',
-      description: 'Meet enterprise customer requirements for specific regions and clouds without hiring more infrastructure engineers.',
+      title: 'Growth-Stage Companies',
+      subtitle: 'Reduce Spend. Keep Focus on the Product.',
+      description: 'We do the work so your team doesn\'t have to. 4–5 meetings end-to-end, milestone-based one-time payment, no long-term contract.',
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Small infrastructure team stretched thin',
-        'Customer demands for specific regions/clouds',
-        'Manual process blocking sales deals'
+        'Cloud bill growing faster than infra headcount',
+        'Limited eng bandwidth to run a migration',
+        'Burn runway extending, not the product'
       ],
       benefits: [
-        'Expand to new regions without hiring',
-        'Meet customer requirements in weeks',
-        'Fully tested deployments every time'
+        'Done-for-you optimization and/or migration',
+        '4–5 meetings — your team stays focused on the product',
+        'Milestone-based, one-time payment'
       ],
       metrics: [
         {
           icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
-          value: '60%',
-          label: 'Cost Savings'
+          value: '60%+',
+          label: 'Cost Reduction'
         },
         {
-          icon: <Zap className="w-5 h-5 text-white/70 mb-2" />,
-          value: '90%',
-          label: 'Less Manual Work'
+          icon: <Building2 className="w-5 h-5 text-white/70 mb-2" />,
+          value: '4–5',
+          label: 'Meetings Total'
         }
       ]
     },
     {
       id: 3,
       title: 'Startups with Cloud Credits',
-      subtitle: 'Use Your Startup Credits',
-      description: 'Replicate your existing infrastructure to a new cloud provider fast. Go production-ready and use your cloud credits effectively.',
+      subtitle: 'Use Your $100k–$350k Before It Expires',
+      description: 'Migrate to a new cloud provider end-to-end so you can deploy against your startup credits. Full functional and SLA parity, production-ready on day one.',
       image: './assets/images/startup-credits.jpg',
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       challenges: [
-        'Credits expiring unused on new platform',
-        'Unfamiliar cloud provider and services',
-        'Rebuilding infrastructure from scratch'
+        'Credits expiring unused on the current platform',
+        'Team unfamiliar with the destination provider',
+        'Migration feels like a quarter-long distraction'
       ],
       benefits: [
-        'Replicate existing infra to new provider',
-        'Use credits before expiry',
-        'Production-ready on day one'
+        'End-to-end migration done for you',
+        'Use your credits before they expire',
+        'Production-ready on the target provider'
       ],
       metrics: [
         {
-          icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
-          value: 'Extend',
-          label: 'Your Runway'
+          icon: <DollarSign className="w-5 h-5 text-white/70 mb-2" />,
+          value: '$100–350K',
+          label: 'Credits Used'
         },
         {
-          icon: <Clock className="w-5 h-5 text-white/70 mb-2" />,
-          value: '10X',
-          label: 'Faster Go-Live'
+          icon: <CheckCircle className="w-5 h-5 text-white/70 mb-2" />,
+          value: 'Verified',
+          label: 'Functional Parity'
         }
       ]
     }
@@ -102,7 +102,7 @@ const CustomerPersonas = () => {
       <div className="container mx-auto px-4">
         <div className="mission-label mb-6">Who We Help</div>
         <h2 className="text-2xl text-white mb-12">
-          Built for Software Vendors Ready to Expand
+          Built for Teams That Want a Lower Cloud Bill
         </h2>
 
         {/* Personas Grid */}
@@ -114,14 +114,14 @@ const CustomerPersonas = () => {
               onClick={() => setFlippedCard(flippedCard === persona.id ? null : persona.id)}
             >
               {/* Front of Card */}
-              <div className={`absolute inset-0 rounded-xl p-6 bg-[#181818] border border-white/10 
+              <div className={`absolute inset-0 rounded-xl p-6 bg-[#181818] border border-white/10
                 transition-all duration-500 backface-hidden ${
                 flippedCard === persona.id ? 'rotate-y-180' : ''
               }`}>
                 <div className="h-48 mb-4 rounded-lg overflow-hidden bg-white/5">
-                  <img 
-                    src={persona.image} 
-                    alt={persona.title} 
+                  <img
+                    src={persona.image}
+                    alt={persona.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -144,7 +144,7 @@ const CustomerPersonas = () => {
               </div>
 
               {/* Back of Card */}
-              <div className={`absolute inset-0 rounded-xl p-6 bg-[#181818] border border-white/10 
+              <div className={`absolute inset-0 rounded-xl p-6 bg-[#181818] border border-white/10
                 transition-all duration-500 backface-hidden rotate-y-180 ${
                 flippedCard === persona.id ? 'rotate-y-0' : ''
               }`}>
@@ -152,7 +152,7 @@ const CustomerPersonas = () => {
                   <h3 className="text-xl font-semibold text-white mb-6">
                     {persona.title}
                   </h3>
-                  
+
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {persona.metrics.map((metric, index) => (
                       <div key={index} className="bg-white/5 p-4 rounded-lg">
