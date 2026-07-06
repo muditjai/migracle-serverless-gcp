@@ -38,7 +38,7 @@ const CustomerPersonas = () => {
       image: './assets/images/growth-isv.jpg',
       icon: <Rocket className="w-5 h-5 text-white/70" />,
       benefits: [
-        'We write and package the PRs—your team only reviews.',
+        'We write and package the PRs - your team approves the overall plan.',
         'Minimal time required: 4–5 short touchpoints total.',
         'Outcome-aligned milestone fees tied directly to actual savings.'
       ],

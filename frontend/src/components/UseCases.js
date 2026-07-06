@@ -7,20 +7,20 @@ const UseCases = () => {
   const useCases = [
     {
       icon: <TrendingDown className="w-6 h-6 text-white" />,
-      title: "In-Place Stack Optimization",
-      description: "We optimize your existing cloud footprint end-to-end—re-engineering application architecture, tiering database storage, and tuning container resources to slash your bill without changing cloud providers.",
+      title: "Cloud Stack Optimization",
+      description: "We optimize your existing cloud footprint end-to-end - re-engineering application architecture, tiering database storage, and tuning container resources to slash your bill without changing cloud providers.",
       image: "./assets/images/region-expansion.jpg"
     },
     {
       icon: <ArrowRightLeft className="w-6 h-6 text-white" />,
       title: "Credit-Driven Cloud Migration",
-      description: "We migrate your entire stack end-to-end to utilize $100k–$350k in startup cloud credits, deploying a production-ready, equivalent architecture on the new provider on day one.",
+      description: "We migrate your entire stack end-to-end to utilize $100k–$350k in startup cloud credits, deploying a production-ready, equivalent architecture on the new provider.",
       image: "./assets/images/cloud-migration.jpg"
     },
     {
       icon: <Layers className="w-6 h-6 text-white" />,
       title: "The Compounded Runway Strategy",
-      description: "Optimize your architecture, migrate to a cheaper provider, or choose to combine both strategies to compound your cost savings. We guarantee seamless performance whichever path you choose.",
+      description: "Optimize your architecture, migrate to a cheaper provider, or choose to combine both strategies to compound your cost savings. We guarantee seamless 1:1 parity whichever path you choose.",
       image: "./assets/images/multi-cloud.jpg"
     }
   ];
