@@ -501,3 +501,243 @@ header {
     font-size: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.blog-nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.blog-nav-link:hover {
+    color: #fff;
+}
+
+.blog-page {
+    padding: 36px 0 72px;
+}
+
+.blog-hero {
+    max-width: 880px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.blog-hero h1 {
+    margin-bottom: 20px;
+}
+
+.blog-hero p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
+
+.blog-list {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.blog-card {
+    display: grid;
+    grid-template-columns: minmax(240px, 34%) 1fr;
+    align-items: stretch;
+    gap: 0;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.blog-card-image-wrap {
+    min-height: 220px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-card-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px 12px 12px 32px;
+}
+
+.blog-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.blog-card h2,
+.blog-section h2 {
+    margin: 8px 0 14px;
+}
+
+.blog-card h2 {
+    font-size: 34px;
+}
+
+.blog-card p,
+.blog-section p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 19px;
+    margin-bottom: 18px;
+}
+
+.blog-card p {
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.blog-section h2 {
+    font-size: 32px;
+}
+
+.blog-section p {
+    font-size: 20px;
+    line-height: 1.75;
+}
+
+.blog-eyebrow {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.blog-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.blog-meta-row span,
+.blog-card li,
+.blog-section li,
+.blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.blog-card ul,
+.blog-section ul {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+}
+
+.blog-card li,
+.blog-section li {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.blog-link {
+    color: #fff;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.blog-back {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 28px;
+    font-weight: 600;
+}
+
+.blog-back:hover {
+    color: #fff;
+}
+
+.blog-article-hero {
+    text-align: left;
+    margin-left: 0;
+}
+
+.blog-article-meta {
+    margin-top: 20px;
+}
+
+.blog-content {
+    max-width: 900px;
+}
+
+.blog-section {
+    padding: 34px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blog-section a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.blog-references li {
+    display: list-item;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        gap: 10px;
+    }
+
+    .blog-nav-link {
+        font-size: 15px;
+    }
+
+    .blog-page {
+        padding-top: 24px;
+    }
+
+    .blog-card {
+        grid-template-columns: 1fr;
+        padding: 14px;
+    }
+
+    .blog-card-image-wrap,
+    .blog-card-image {
+        min-height: 180px;
+    }
+
+    .blog-card-copy {
+        padding: 20px 10px 10px;
+    }
+
+    .blog-card h2,
+    .blog-section h2 {
+        font-size: 28px;
+    }
+
+    .blog-section p {
+        font-size: 18px;
+    }
+
+    .blog-hero {
+        text-align: left;
+    }
+}
