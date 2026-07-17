@@ -8,18 +8,14 @@ export const blogPosts = [
     eyebrow: 'Company thesis',
     date: 'July 2026',
     readTime: '9 min read',
-    summary: 'Migracle reduces enterprise cloud cost by optimizing the full stack end-to-end and migrating workloads when another provider offers better economics.',
-    highlights: [
-      '$30B 2025 TAM, growing to $36B by 2028',
-      'Outcome-based service: 30-40% of delivered savings',
-      'Full-stack optimization plus cloud migration'
-    ]
+    image: '/assets/images/cloud-migration.jpg',
+    imageAlt: 'Cloud migration planning session with AWS and GCP workflow',
+    summary: 'Migracle reduces enterprise cloud cost by optimizing the full stack end-to-end and migrating workloads when another provider offers better economics.'
   }
 ];
 
 const sections = [
   {
-    kicker: 'A1',
     title: 'What problem are you solving?',
     body: [
       'Migracle reduces cloud cost for enterprises in a comprehensive way by providing an AI-native service.',
@@ -28,7 +24,6 @@ const sections = [
     ]
   },
   {
-    kicker: 'A2',
     title: 'How big is the problem?',
     body: [
       'The estimated TAM is $30B in 2025 and is expected to grow to $36B by 2028.',
@@ -39,7 +34,6 @@ const sections = [
     ]
   },
   {
-    kicker: 'A3',
     title: 'Who has this problem, and what is their biggest pain point?',
     body: [
       'Cloud spend is a top-ranked cloud concern for decision makers such as VPs of engineering, CFOs, CTOs, CIOs, and CEOs. In multiple surveys, teams self-report that 29-35% of cloud spend is wasted. Reducing that spend also unlocks budget for strategic initiatives and AI without requiring new budget.',
@@ -48,7 +42,6 @@ const sections = [
     ]
   },
   {
-    kicker: 'A4',
     title: 'What is the solution?',
     body: [
       'Migracle is an AI-native service backed by frontier and fine-tuned agents. We solve the problem through cloud cost optimization and cloud migration.',
@@ -59,7 +52,6 @@ const sections = [
     ]
   },
   {
-    kicker: 'A5',
     title: 'Why will you be the best service?',
     body: [
       'Migracle has three intended moats: business model, technology, and go-to-market.',
@@ -69,7 +61,6 @@ const sections = [
     ]
   },
   {
-    kicker: 'A6',
     title: 'What alternatives do customers have today?',
     body: [
       'Enterprises traditionally rely on internal engineering projects supported by FinOps visibility tools such as Flexera, Vantage, CloudZero, and Apptio. But engineering teams are usually accountable for product roadmap delivery and tagging resources, not for driving cost savings. P&L responsibility often starts at the VP engineering level, and teams below that frequently lack full cloud cost visibility.',
@@ -78,28 +69,24 @@ const sections = [
     ]
   },
   {
-    kicker: 'A7',
     title: 'Why will customers love Migracle?',
     body: [
       'Customers will love Migracle because we unlock cost optimization that was not possible before and deliver it as an outcome-based service with immediate 2.5-3× ROI and recurring savings after that.'
     ]
   },
   {
-    kicker: 'A8',
     title: 'Traction and early wins',
     body: [
       'Migracle is currently working with two customers with approximately $70k and $180k in cloud spend, helping them reduce cloud cost by optimizing their cloud stack. After those projects complete, we may migrate those same customers to another cloud to unlock $200k-$350k in cloud credits.'
     ]
   },
   {
-    kicker: 'A9',
     title: 'Why this team can win',
     body: [
       'Migracle is a team of four AI experts and cloud DevOps domain experts who love operations. That combination is well-suited for cloud cost optimization and migration through AI agents, fine-tuned model architectures, and human-in-the-loop workflows.'
     ]
   },
   {
-    kicker: 'A10',
     title: 'What else is worth asking?',
     body: [
       'A deeper analysis of the FinOps industry — including company histories, focus areas, funding, revenue, and acquisitions — is useful because Migracle is broadly in FinOps while remaining adjacent to existing players. If we execute well, that positioning can also make Migracle a potential acquisition target.'
@@ -129,21 +116,17 @@ const BlogList = () => {
         <div className="blog-list">
           {blogPosts.map((post) => (
             <a className="blog-card" href={`/blog/${post.slug}/`} key={post.slug}>
-              <div>
+              <img className="blog-card-image" src={post.image} alt={post.imageAlt} />
+              <div className="blog-card-copy">
                 <span className="blog-eyebrow">{post.eyebrow}</span>
                 <h2>{post.title}</h2>
+                <div className="blog-meta-row">
+                  <span><Calendar className="w-4 h-4" /> {post.date}</span>
+                  <span>{post.readTime}</span>
+                </div>
                 <p>{post.summary}</p>
+                <span className="blog-link">Read article <ArrowRight className="w-4 h-4" /></span>
               </div>
-              <div className="blog-meta-row">
-                <span><Calendar className="w-4 h-4" /> {post.date}</span>
-                <span>{post.readTime}</span>
-              </div>
-              <ul>
-                {post.highlights.map((highlight) => (
-                  <li key={highlight}><CheckCircle2 className="w-4 h-4" /> {highlight}</li>
-                ))}
-              </ul>
-              <span className="blog-link">Read article <ArrowRight className="w-4 h-4" /></span>
             </a>
           ))}
         </div>
@@ -168,11 +151,11 @@ const BlogPost = () => {
             <span>{post.readTime}</span>
           </div>
         </div>
+        <img className="blog-cover-image" src={post.image} alt={post.imageAlt} />
 
         <div className="blog-content">
           {sections.map((section) => (
-            <section className="blog-section" key={section.kicker}>
-              <span className="blog-eyebrow">{section.kicker}</span>
+            <section className="blog-section" key={section.title}>
               <h2>{section.title}</h2>
               {section.body.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
