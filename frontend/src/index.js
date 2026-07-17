@@ -9,18 +9,27 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Mission from './components/Mission';
+import Blog from './components/Blog';
 
 document.addEventListener('DOMContentLoaded', () => {
+    const isBlogPage = window.location.pathname.startsWith('/blog');
+
     // React component initialization
     
+    const blogContainer = document.getElementById('blogRoot');
+    if (blogContainer && isBlogPage) {
+        const root = createRoot(blogContainer);
+        root.render(<Blog />);
+    }
+
     const heroContainer = document.getElementById('heroRoot');
-    if (heroContainer) {
+    if (heroContainer && !isBlogPage) {
         const root = createRoot(heroContainer);
         root.render(<Hero />);
     }
     
     const missionContainer = document.getElementById('missionRoot');
-    if (missionContainer) {
+    if (missionContainer && !isBlogPage) {
         const root = createRoot(missionContainer);
         root.render(<Mission />);
     }    
@@ -32,25 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     const useCasesContainer = document.getElementById('useCasesRoot');
-    if (useCasesContainer) {
+    if (useCasesContainer && !isBlogPage) {
         const root = createRoot(useCasesContainer);
         root.render(<UseCases />);
     }
 
     const personasContainer = document.getElementById('customerPersonasRoot');
-    if (personasContainer) {
+    if (personasContainer && !isBlogPage) {
         const root = createRoot(personasContainer);
         root.render(<CustomerPersonas />);
     }
 
     const featuresContainer = document.getElementById('featuresRoot');
-    if (featuresContainer) {
+    if (featuresContainer && !isBlogPage) {
         const root = createRoot(featuresContainer);
         root.render(<Features />);
     }
     
     const ctaContainer = document.getElementById('ctaRoot');
-    if (ctaContainer) {
+    if (ctaContainer && !isBlogPage) {
         const root = createRoot(ctaContainer);
         root.render(<CTA />);
     }
