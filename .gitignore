@@ -46,6 +46,7 @@ packaged.yaml
 # Local development
 local-dev.js
 simple-local-dev.js
+worktree/
 
 # Backup files
 *.bak
