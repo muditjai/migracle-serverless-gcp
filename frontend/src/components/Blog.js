@@ -8,8 +8,8 @@ export const blogPosts = [
     eyebrow: 'Company thesis',
     date: 'July 2026',
     readTime: '9 min read',
-    image: '/assets/images/cloud-migration.jpg',
-    imageAlt: 'Cloud migration planning session with AWS and GCP workflow',
+    image: '/assets/images/region-expansion.jpg',
+    imageAlt: 'Cloud stack optimization planning session',
     summary: 'Migracle reduces enterprise cloud cost by optimizing the full stack end-to-end and migrating workloads when another provider offers better economics.'
   }
 ];
@@ -116,7 +116,9 @@ const BlogList = () => {
         <div className="blog-list">
           {blogPosts.map((post) => (
             <a className="blog-card" href={`/blog/${post.slug}/`} key={post.slug}>
-              <img className="blog-card-image" src={post.image} alt={post.imageAlt} />
+              <div className="blog-card-image-wrap">
+                <img className="blog-card-image" src={post.image} alt={post.imageAlt} />
+              </div>
               <div className="blog-card-copy">
                 <span className="blog-eyebrow">{post.eyebrow}</span>
                 <h2>{post.title}</h2>
@@ -151,7 +153,6 @@ const BlogPost = () => {
             <span>{post.readTime}</span>
           </div>
         </div>
-        <img className="blog-cover-image" src={post.image} alt={post.imageAlt} />
 
         <div className="blog-content">
           {sections.map((section) => (
