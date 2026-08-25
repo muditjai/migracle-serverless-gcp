@@ -696,6 +696,15 @@ header {
     text-underline-offset: 4px;
 }
 
+.blog-reference-list {
+    margin-top: 18px;
+}
+
+.blog-reference-list li {
+    display: list-item;
+    margin-left: 20px;
+}
+
 .blog-references li {
     display: list-item;
     margin-left: 20px;

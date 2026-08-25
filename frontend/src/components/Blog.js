@@ -1,20 +1,20 @@
 import React from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 
-export const blogPosts = [
-  {
-    slug: 'ai-native-cloud-cost-optimization',
-    title: 'Why cloud cost optimization needs an AI-native service',
-    eyebrow: 'Company thesis',
-    date: 'July 2026',
-    readTime: '9 min read',
-    image: '/assets/images/region-expansion.jpg',
-    imageAlt: 'Cloud stack optimization planning session',
-    summary: 'Migracle reduces enterprise cloud cost by optimizing the full stack end-to-end and migrating workloads when another provider offers better economics.'
-  }
-];
+const blogThesisPost = {
+  slug: 'ai-native-cloud-cost-optimization',
+  title: 'Why cloud cost optimization needs an AI-native service',
+  eyebrow: 'Company thesis',
+  date: 'July 2026',
+  readTime: '9 min read',
+  image: '/assets/images/region-expansion.jpg',
+  imageAlt: 'Cloud stack optimization planning session',
+  summary: 'Migracle reduces enterprise cloud cost by optimizing the full stack end-to-end and migrating workloads when another provider offers better economics.'
+};
 
-const sections = [
+export const blogPosts = [blogThesisPost];
+
+const blogThesisSections = [
   {
     title: 'What problem are you solving?',
     body: [
@@ -57,10 +57,10 @@ const sections = [
     title: 'Why will you be the best product or service? Not just newer with AI, faster, cheaper.',
     body: [
       'We will be best in the domain and distinct due to 3 moats',
-      '1. Business model moat - We are building this business as an AI native service and not a product narrowly focussed on a particular part of infra eg k8s or object/block storage or database optimization. While services model introduces lower margin concerns (gross margin dropping from 95% for saas to 30-40% for services), our thesis is that we are unlocking a much higher TAM. This thesis is being pursued by top VC firms eg Sequoia and YC - https://sequoiacap.com/article/services-the-new-software/',
+      '1. Business model moat - We are building this business as an AI native service and not a product narrowly focussed on a particular part of infra eg k8s or object/block storage or database optimization. While services model introduces lower margin concerns (gross margin dropping from 95% for saas to 30-40% for services), our thesis is that we are unlocking a much higher TAM. This thesis is being pursued by top VC firms eg Sequoia and YC.',
       'In addition we are providing this as an outcome based service where we charge 30-40% of savings we deliver, so customers get an immediate 2.5-3x ROI immediately and recurring savings forever. In short we deliver recurrings savings, not recurring invoices.',
       '2. Tech moat - To make optimizations and migration proposals, we are building a new model architecture which is encoder only and trained on very long context of code + config + documentation + production logs + metrics + request/responses replays + traces. This new encoder only model has bidirectional attention and transforms long context input to a long context output in 1 single forward pass. I call it "Editformer".',
-      'As a reality check, existing frontier models eg Fable 5 with max thinking are still at just 29% pass rate for senior swe tasks on limited domain github repos - https://snorkel.ai/leaderboard/senior-swe-bench/, so to make this problem feasible we need to invest in our model with long context, bidrectional attention and full sequence to sequence output instead of generative decoding.',
+      'As a reality check, existing frontier models eg Fable 5 with max thinking are still at just 29% pass rate for senior swe tasks on limited domain github repos, so to make this problem feasible we need to invest in our model with long context, bidrectional attention and full sequence to sequence output instead of generative decoding.',
       '3. GTM moat - We will find our customers through cloud (GCP/AWS/Azure) partner networks marketplaces and Anthropic/OpenAI partner networks in addition to direct B2B sales. We are already signed up as GCP and Azure partners. Since we are solving cloud migration in addition to cloud optimization, these partner networks are a low CAC way to acquire customers.'
     ]
   },
@@ -97,12 +97,6 @@ const sections = [
     ]
   },
   {
-    title: 'Anything you wish we asked about your idea?',
-    body: [
-      'You could ask for deeper analysis for existing players in finops industry ie their history, focus, funding, revenue, acquisitions etc. We are broadly in finops but adjacent to all existing players, so also a potential acquisition target if we execute well on above vision.'
-    ]
-  },
-  {
     title: 'About finops industry',
     body: [
       'Based on multiple market research reports, finops is a ~$16B market cap industry and growing at 17% CAGR. North America accounts for 40% of global revenue.',
@@ -114,12 +108,6 @@ const sections = [
     ]
   },
   {
-    title: 'How will you use GCP?',
-    body: [
-      'At Migracle AI, we are build AI RL agents for cloud cost optimization and cloud migration. We plan to finetune Gemini (gemma 4) and other models using TPUs and GPUs. For enterprise customers, sending their production logs and observability data to 3p LLM providers is a security blocker and frontier models don\'t work well on this data for complex scenarios with long context, and so fine tuning Gemma models on long context data and hosting them within customer\'s VPC is the feasible path.'
-    ]
-  },
-  {
     title: 'what are your achievements',
     body: [
       'I have worked in AI/ML for 16 years now. Received ACM SIGAI industry award. Was head of engineering at a medical AI startup acquired by Nvidia. My research paper from Microsoft Research has been part of courses at MIT and Columbia. Have done 17 angel investments with 4 exits.',
@@ -128,10 +116,27 @@ const sections = [
   },
   {
     title: 'References',
-    body: [
-      'Public cloud research - https://gemini.google.com/app/42de5961b775da89',
-      'Cost saving priorirty - https://share.gemini.google/jxxzwfZunUll',
-      'Finops market size and autonomous cost optimization market size - https://gemini.google.com/share/4da8ac0fa060?skid=5229b1e7-5d86-43f4-b40e-2727f4b88c49'
+    references: [
+      {
+        label: 'Public cloud research',
+        href: 'https://gemini.google.com/app/42de5961b775da89'
+      },
+      {
+        label: 'Cost saving priorirty',
+        href: 'https://share.gemini.google/jxxzwfZunUll'
+      },
+      {
+        label: 'Finops market size and autonomous cost optimization market size',
+        href: 'https://gemini.google.com/share/4da8ac0fa060?skid=5229b1e7-5d86-43f4-b40e-2727f4b88c49'
+      },
+      {
+        label: 'Services as the new software',
+        href: 'https://sequoiacap.com/article/services-the-new-software/'
+      },
+      {
+        label: 'Senior SWE benchmark leaderboard',
+        href: 'https://snorkel.ai/leaderboard/senior-swe-bench/'
+      }
     ]
   }
 ];
@@ -173,7 +178,7 @@ const BlogList = () => {
 };
 
 const BlogPost = () => {
-  const post = blogPosts[0];
+  const post = blogThesisPost;
 
   return (
     <article className="blog-page blog-article font-['Inter']" aria-label={post.title}>
@@ -190,12 +195,23 @@ const BlogPost = () => {
         </div>
 
         <div className="blog-content">
-          {sections.map((section) => (
+          {blogThesisSections.map((section) => (
             <section className="blog-section" key={section.title}>
               <h2>{section.title}</h2>
-              {section.body.map((paragraph) => (
+              {section.body?.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
+              {section.references && (
+                <ul className="blog-reference-list">
+                  {section.references.map((reference) => (
+                    <li key={reference.href}>
+                      <a href={reference.href} target="_blank" rel="noopener noreferrer">
+                        {reference.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
           ))}
         </div>
