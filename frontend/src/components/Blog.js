@@ -147,7 +147,7 @@ const BlogList = () => {
       <div className="container">
         <div className="blog-hero">
           <span className="mission-label">Blog</span>
-          <h1>Ideas on cloud cost, AI-native services, and migration economics</h1>
+          <h1>Ideas on cloud cost reduction techniques and AI-native service economics</h1>
           <p>
             Practical notes from Migracle on reducing cloud bills, extending cloud runway, and delivering parity-guaranteed infrastructure change.
           </p>

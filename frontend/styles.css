@@ -512,6 +512,7 @@ header {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     font-weight: 600;
+    font-size: 18px;
     transition: color 0.2s;
 }
 
@@ -531,11 +532,13 @@ header {
 
 .blog-hero h1 {
     margin-bottom: 20px;
+    font-size: 58px;
 }
 
 .blog-hero p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 18px;
+    font-size: 23px;
+    line-height: 1.7;
 }
 
 .blog-list {
@@ -716,7 +719,7 @@ header {
     }
 
     .blog-nav-link {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .blog-page {
@@ -748,5 +751,13 @@ header {
 
     .blog-hero {
         text-align: left;
+    }
+
+    .blog-hero h1 {
+        font-size: 40px;
+    }
+
+    .blog-hero p {
+        font-size: 19px;
     }
 }
