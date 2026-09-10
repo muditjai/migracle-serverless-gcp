@@ -1,0 +1,14 @@
+{
+  "name": "discover-pareto-sept-2026",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=@discover-pareto/backend",
+    "dev:frontend": "npm run dev --workspace=@discover-pareto/frontend",
+    "build": "npm run build --workspace=@discover-pareto/backend && npm run build --workspace=@discover-pareto/frontend",
+    "typecheck": "npm run typecheck --workspace=@discover-pareto/backend && npm run typecheck --workspace=@discover-pareto/frontend"
+  }
+}
